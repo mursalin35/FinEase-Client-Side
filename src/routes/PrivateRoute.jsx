@@ -1,7 +1,7 @@
 import React, { use } from "react";
-import { AuthContext } from "./AuthProvider";
 import { Navigate, useLocation } from "react-router";
 import LoadingSpinner from "../components/LoadingSpinner";
+import { AuthContext } from "../context/AuthContext";
 
 const PrivetRoute = ({ children }) => {
   const { user, loading } = use(AuthContext);

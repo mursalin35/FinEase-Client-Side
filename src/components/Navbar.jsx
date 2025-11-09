@@ -10,6 +10,41 @@ import { AuthContext } from "../context/AuthContext";
 
 const NavBar = () => {
   const { user, logOut } = use(AuthContext);
+  // Nav link
+  const navLinks = (
+    <>
+      <li>
+        <NavLink to="/">
+          <GoHomeFill /> Home
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/add-transaction">add-transaction</NavLink>
+      </li>
+      <li>
+        <NavLink to="/my-transactions">my-transactions</NavLink>
+      </li>
+      <li>
+        <NavLink to="/reports">reports</NavLink>
+      </li>
+    </>
+  );
+  // Nav link
+  const profileLinks = (
+    <>
+      <li>
+        <NavLink to="/myProfile">
+          <GoHomeFill /> My Profile
+        </NavLink>
+      </li>
+      <li>
+        <a>
+          <FaGear /> Settings
+        </a>
+      </li>
+    </>
+  );
+
   return (
     <div className="navbar py-0 min-h-0 z-1 shadow-sm rounded-full glass-card max-w-7xl">
       <div className="navbar-start">
@@ -35,48 +70,15 @@ const NavBar = () => {
             tabIndex="-1"
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
-            <li>
-              <NavLink to={"/"}>
-                <GoHomeFill />
-                Home
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to={"/all-models"}>
-                <IoLogoModelS /> All Models
-              </NavLink>
-            </li>
+            {navLinks}
           </ul>
         </div>
         <Link to={"/"} className="flex items-center gap-1 text-xl font-bold">
-          <LuRotate3D /> 3D Models Hub
+          <LuRotate3D /> FinEase
         </Link>
       </div>
       <div className="navbar-center hidden md:flex">
-        <ul className="menu menu-horizontal px-1 gap-10">
-          <li>
-            <NavLink to={"/"}>
-              <GoHomeFill />
-              Home
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to={"/all-models"}>
-              <IoLogoModelS /> All Models
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to={"/add-model"}>
-             <ImBoxAdd /> Add model
-            </NavLink>
-          </li>
-{/* 
-          <li>
-            <NavLink to={"/profile"}>
-              <FaUser /> Profile
-            </NavLink>
-          </li> */}
-        </ul>
+        <ul className="menu menu-horizontal px-1 gap-10">{navLinks}</ul>
       </div>
       <div className="navbar-end gap-3">
         {user ? (
@@ -90,7 +92,10 @@ const NavBar = () => {
                 <img
                   alt="Tailwind CSS Navbar component"
                   referrerPolicy="no-referrer"
-                  src={user.photoURL || "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"}
+                  src={
+                    user.photoURL ||
+                    "https://img.icons8.com/?size=100&id=7819&format=png&color=000000"
+                  }
                 />
               </div>
             </div>
@@ -102,27 +107,7 @@ const NavBar = () => {
                 <li className="text-sm font-bold">{user.displayName}</li>
                 <li className="text-xs">{user.email}</li>
               </div>
-              <li className="mt-3">
-                <Link to={"/profile"}>
-                  <FaUser /> Profile
-                </Link>
-              </li>
-              <li className="">
-                <Link to={"/my-models"}>
-                  <FaUser /> My Models
-                </Link>
-              </li>
-              <li className="">
-                <Link to={"/my-downloads"}>
-                  <FaUser /> My Downloads
-                </Link>
-              </li>
-              <li>
-                <a>
-                  {" "}
-                  <FaGear /> Settings
-                </a>
-              </li>
+              {profileLinks}
               <li>
                 <button
                   onClick={logOut}

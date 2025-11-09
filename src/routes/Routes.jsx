@@ -10,6 +10,7 @@ import TransactionDetails from "../pages/Transactions/TransactionDetails";
 import UpdateTransaction from "../pages/Transactions/UpdateTransaction";
 import Reports from "../pages/Reports/Reports";
 import NotFound from "../pages/NotFound/NotFound";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -20,34 +21,58 @@ export const router = createBrowserRouter([
         index: true,
         element: <Home />,
       },
-      
+
       {
         path: "/myProfile",
-        element: <MyProfile />,
+        element: (
+          <PrivateRoute>
+            <MyProfile />
+          </PrivateRoute>
+        ),
       },
       // Private pages
       {
         path: "/add-transaction",
-        element: <AddTransaction />,
+        element: (
+          <PrivateRoute>
+            <AddTransaction />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/my-transactions",
-        element: <MyTransactions />,
+        element: (
+          <PrivateRoute>
+            <MyTransactions />
+          </PrivateRoute>
+        ),
       },
+
       {
         path: "/transaction/:id",
-        element: <TransactionDetails />,
+        element: (
+          <PrivateRoute>
+            <TransactionDetails />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/update/:id",
-        element: <UpdateTransaction />,
+        element: (
+          <PrivateRoute>
+            <UpdateTransaction />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/reports",
-        element: <Reports />,
+        element: (
+          <PrivateRoute>
+            <Reports />
+          </PrivateRoute>
+        ),
       },
-      
-      
+
       // 404 Not Found
       {
         path: "*",
