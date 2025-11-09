@@ -1,30 +1,32 @@
 import React, { useEffect, useState } from "react";
 import Swal from "sweetalert2";
+
+import { useNavigate } from "react-router";
 import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
-import { useNavigate } from "react-router";
 
 const MyTransactions = () => {
   const { user } = useAuth();
-  const axiosSecure = useAxiosSecure();
+  const axios = useAxiosSecure();
+  const navigate = useNavigate();
 
   const [transactions, setTransactions] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const navigate = useNavigate();
-
+  // ✅ Load transactions
   useEffect(() => {
     if (!user?.email) return;
 
-    axiosSecure
+    axios
       .get(`/my-transactions?email=${user.email}`)
       .then((res) => {
         setTransactions(res.data);
         setLoading(false);
       })
       .catch(() => setLoading(false));
-  }, [user, axiosSecure]);
+  }, [user]);
 
+  // ✅ Delete transaction
   const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -37,11 +39,10 @@ const MyTransactions = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          // ✅ axiosSecure delete call (token included)
-          await axiosSecure.delete(`/transactions/${id}`);
+          await axios.delete(`/transactions/${id}`);
 
-          // remove from UI
-          setTransactions(transactions.filter((t) => t._id !== id));
+          // ✅ Remove from UI only after success
+          setTransactions((prev) => prev.filter((t) => t._id !== id));
 
           Swal.fire("Deleted!", "Transaction has been deleted.", "success");
         } catch (error) {
@@ -52,7 +53,6 @@ const MyTransactions = () => {
   };
 
   const handleUpdate = (id) => navigate(`/transactions/update/${id}`);
-
   const handleViewDetails = (id) => navigate(`/transactions/details/${id}`);
 
   if (loading) return <p>Loading transactions...</p>;
@@ -93,6 +93,7 @@ const MyTransactions = () => {
                 {new Date(transaction.date).toLocaleDateString()}
               </p>
 
+              {/* Buttons */}
               <div className="flex justify-between mt-4">
                 <button
                   onClick={() => handleUpdate(transaction._id)}

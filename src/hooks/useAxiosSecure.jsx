@@ -12,35 +12,32 @@ const useAxiosSecure = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // request interceptor
-    const requestInterceptor = instance.interceptors.request.use((config) => {
-      const token = user.accessToken;
+    // ✅ Request Interceptor (Just add firebase accessToken)
+    const reqInterceptor = instance.interceptors.request.use((config) => {
+      const token = user?.accessToken;
       if (token) {
         config.headers.authorization = `Bearer ${token}`;
       }
       return config;
     });
 
-    // response interceptor
-    const responseInterceptor = instance.interceptors.response.use(
-      (res) => {
-        return res;
-      },
-      (err) => {
-        const status = err.status;
+    // ✅ Response Interceptor
+    const resInterceptor = instance.interceptors.response.use(
+      (res) => res,
+      (error) => {
+        const status = error.response?.status;
         if (status === 401 || status === 403) {
-          console.log("logOut bad user");
-          signOutUser().then(() => {
-            // navigate login page
-            navigate("/register");
-          });
+          console.log("Unauthorized user. Logging out...");
+          signOutUser();
+          navigate("/login");
         }
+        return Promise.reject(error);
       }
     );
 
     return () => {
-      instance.interceptors.request.eject(requestInterceptor);
-      instance.interceptors.response.eject(responseInterceptor);
+      instance.interceptors.request.eject(reqInterceptor);
+      instance.interceptors.response.eject(resInterceptor);
     };
   }, [user, signOutUser, navigate]);
 
