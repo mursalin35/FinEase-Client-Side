@@ -20,16 +20,7 @@ export const router = createBrowserRouter([
         index: true,
         element: <Home />,
       },
-      // Auth pages (public)
-      {
-        path: "/login",
-        element: <Login />,
-      },
-      {
-        path: "/register",
-        element: <Register />,
-      },
-
+      
       {
         path: "/myProfile",
         element: <MyProfile />,
@@ -55,12 +46,21 @@ export const router = createBrowserRouter([
         path: "/reports",
         element: <Reports />,
       },
-     
-
+      
+      
       // 404 Not Found
       {
         path: "*",
         element: <NotFound />,
+      },
+      // Auth pages (public)
+      {
+        path: "/auth/login",
+        element: <Login />,
+      },
+      {
+        path: "/auth/register",
+        element: <Register />,
       },
     ],
   },
