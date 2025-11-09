@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Swal from "sweetalert2";
-
 import { useNavigate } from "react-router";
 import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+
+// ✅ Import the modal
+import UpdateTransaction from "./UpdateTransaction";
 
 const MyTransactions = () => {
   const { user } = useAuth();
@@ -12,6 +14,9 @@ const MyTransactions = () => {
 
   const [transactions, setTransactions] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  // ✅ Modal state
+  const [selectedTransaction, setSelectedTransaction] = useState(null);
 
   // ✅ Load transactions
   useEffect(() => {
@@ -52,8 +57,23 @@ const MyTransactions = () => {
     });
   };
 
-  const handleUpdate = (id) => navigate(`/transactions/update/${id}`);
+  // ✅ Open modal instead of navigate
+  const handleUpdate = (transaction) => {
+    setSelectedTransaction(transaction);
+  };
+
   const handleViewDetails = (id) => navigate(`/transactions/details/${id}`);
+
+  // ✅ Modal callbacks
+  const handleCloseModal = () => setSelectedTransaction(null);
+
+  const handleUpdated = (updatedData) => {
+    setTransactions((prev) =>
+      prev.map((t) =>
+        t._id === selectedTransaction._id ? { ...t, ...updatedData } : t
+      )
+    );
+  };
 
   if (loading) return <p>Loading transactions...</p>;
 
@@ -96,7 +116,7 @@ const MyTransactions = () => {
               {/* Buttons */}
               <div className="flex justify-between mt-4">
                 <button
-                  onClick={() => handleUpdate(transaction._id)}
+                  onClick={() => handleUpdate(transaction)}
                   className="bg-blue-500 text-white px-2 py-1 rounded hover:bg-blue-600"
                 >
                   Update
@@ -119,6 +139,15 @@ const MyTransactions = () => {
             </div>
           ))}
         </div>
+      )}
+
+      {/* ✅ Render modal if a transaction is selected */}
+      {selectedTransaction && (
+        <UpdateTransaction
+          transaction={selectedTransaction}
+          onClose={handleCloseModal}
+          onUpdated={handleUpdated}
+        />
       )}
     </div>
   );
