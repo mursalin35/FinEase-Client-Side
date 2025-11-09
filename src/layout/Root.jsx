@@ -1,11 +1,22 @@
-import React from 'react';
+import React from "react";
+import Navbar from "../components/Navbar";
+import { Outlet } from "react-router";
+import Footer from "../components/Footer";
+import { Toaster } from "react-hot-toast";
 
 const Root = () => {
-    return (
+  return (
+    <div>
+      <div>
+        <Navbar />
         <div>
-            <h1>root layout</h1>
+          <Outlet />
         </div>
-    );
+        <Footer />
+      </div>
+      <Toaster />
+    </div>
+  );
 };
 
 export default Root;

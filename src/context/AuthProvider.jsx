@@ -1,10 +1,21 @@
-import React from 'react';
 
-const AuthProvider = () => {
+import { AuthContext } from './AuthContext';
+
+
+
+
+
+const AuthProvider = ({ children }) => {
+ 
+   
+
+    const authInfo = {
+      
+    }
     return (
-        <div>
-            
-        </div>
+        <AuthContext value={authInfo}>
+            {children}
+        </AuthContext>
     );
 };
 
