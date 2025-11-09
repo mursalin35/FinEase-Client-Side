@@ -19,13 +19,13 @@ const NavBar = () => {
         </NavLink>
       </li>
       <li>
-        <NavLink to="/add-transaction">add-transaction</NavLink>
+        <NavLink to="/add-transaction">Add Transaction</NavLink>
       </li>
       <li>
-        <NavLink to="/my-transactions">my-transactions</NavLink>
+        <NavLink to="/my-transactions">My Transactions</NavLink>
       </li>
       <li>
-        <NavLink to="/reports">reports</NavLink>
+        <NavLink to="/reports">Reports</NavLink>
       </li>
     </>
   );
@@ -46,7 +46,7 @@ const NavBar = () => {
   );
 
   return (
-    <div className="navbar py-0 min-h-0 z-1 shadow-sm rounded-full glass-card max-w-7xl">
+    <div className="navbar py-3 min-h-0 z-1 shadow-sm rounded-full glass-card max-w-7xl">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost md:hidden">
@@ -57,13 +57,12 @@ const NavBar = () => {
               viewBox="0 0 24 24"
               stroke="currentColor"
             >
-              {" "}
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="2"
                 d="M4 6h16M4 12h8m-8 6h16"
-              />{" "}
+              />
             </svg>
           </div>
           <ul
@@ -74,7 +73,13 @@ const NavBar = () => {
           </ul>
         </div>
         <Link to={"/"} className="flex items-center gap-1 text-xl font-bold">
-          <LuRotate3D /> FinEase
+          <div className="w-12 h-12 rounded">
+            <img
+              src="https://img.icons8.com/?size=100&id=mPGqFM7tLdfV&format=png&color=000000"
+              alt=""
+            />
+          </div>
+          FinEase
         </Link>
       </div>
       <div className="navbar-center hidden md:flex">
