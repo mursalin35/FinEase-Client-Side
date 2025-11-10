@@ -3,10 +3,11 @@ import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { useNavigate } from "react-router";
+import MyTransactionCard from "../../components/MyTransactionCard";
+import UpdateTransaction from "./UpdateTransaction";
 
 // ✅ Import modal and card component
-import UpdateTransaction from "./UpdateTransaction";
-import MyTransactionCard from "./MyTransactionCard";
+
 
 const MyTransactions = () => {
   const { user } = useAuth();
