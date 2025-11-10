@@ -9,22 +9,40 @@
 
 
 
-.glass-card {
+/* .glass-card {
   background: rgba(255, 255, 255, 0.14);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.3);
-  /* overflow: hidden; */
-}
+  overflow: hidden; 
+} */
 
-.navbar .active {
+/* .navbar .active {
   color: crimson;
   font-weight: bold;
   border: 1px solid #CAC8C8FF;
   border-radius: 20px;
   background: rgb(243, 226, 226);
+} */
+
+.navbar .active {
+  color: #632ee3; /* FinEase primary color */
+  font-weight: 600;
+  border: 1px solid rgba(99, 46, 227, 0.3);
+  border-radius: 9999px; /* full rounded */
+  background: rgba(99, 46, 227, 0.08); /* subtle background tint */
+  padding: 6px 12px;
+  transition: all 0.3s ease;
 }
+
+.navbar .active:hover {
+  background: linear-gradient(to right, #632ee3, #00b8b0);
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 0 10px rgba(99, 46, 227, 0.3);
+}
+
 
 /* ----------------------------------------------------------------- */
 @plugin "daisyui/theme" {
