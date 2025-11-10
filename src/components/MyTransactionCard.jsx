@@ -1,6 +1,7 @@
 import React from "react";
+import { Link } from "react-router";
 
-const MyTransactionCard = ({ transaction, onUpdate, onDelete, onView }) => {
+const MyTransactionCard = ({ transaction, onUpdate, onDelete }) => {
   return (
     <div className="border rounded p-4 shadow hover:shadow-lg transition">
       <p>
@@ -38,12 +39,12 @@ const MyTransactionCard = ({ transaction, onUpdate, onDelete, onView }) => {
           Delete
         </button>
 
-        <button
-          onClick={() => onView(transaction._id)}
+        <Link
+          to={`/transaction-details/${transaction._id}`}
           className="bg-gray-500 text-white px-2 py-1 rounded hover:bg-gray-600"
         >
           View
-        </button>
+        </Link>
       </div>
     </div>
   );

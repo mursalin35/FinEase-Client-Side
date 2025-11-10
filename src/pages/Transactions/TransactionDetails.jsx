@@ -4,7 +4,6 @@ import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 
-
 const TransactionDetails = () => {
   const { id } = useParams();
   const { user } = useAuth();
@@ -15,16 +14,17 @@ const TransactionDetails = () => {
   const [categoryTotal, setCategoryTotal] = useState(0);
   const [loading, setLoading] = useState(true);
 
-  // ✅ Load transaction details
+  // ✅ Load transaction by ID
   useEffect(() => {
-    if (!id) return;
+    if (!id || !user?.email) return;
 
     axios
       .get(`/transactions/${id}`)
       .then(async (res) => {
         const data = res.data;
 
-        if (data.userEmail !== user?.email) {
+        // Unauthorized transaction protect
+        if (data.userEmail !== user.email) {
           Swal.fire("Unauthorized!", "You cannot access this transaction.", "error");
           navigate("/my-transactions");
           return;
@@ -32,22 +32,22 @@ const TransactionDetails = () => {
 
         setTransaction(data);
 
-        // ✅ Fetch total amount for this category
+        // ✅ Load Total Amount for this Category (NO USER FILTER)
         const totalRes = await axios.get(
-          `/transactions/category-total?email=${user.email}&category=${data.category}`
+          `/transactions/category-total?category=${data.category}`
         );
 
         setCategoryTotal(totalRes.data.totalAmount || 0);
+
         setLoading(false);
       })
       .catch(() => {
-        Swal.fire("Error!", "Transaction not found.", "error");
+        Swal.fire("Error!", "Transaction not found!", "error");
         navigate("/my-transactions");
       });
   }, [id, user]);
 
-  if (loading) return <p className="text-center">Loading details...</p>;
-
+  if (loading) return <p className="text-center mt-10">Loading details...</p>;
   if (!transaction) return null;
 
   return (
@@ -58,28 +58,21 @@ const TransactionDetails = () => {
         <p>
           <strong>Type:</strong>{" "}
           <span
-            className={
-              transaction.type === "Income"
-                ? "text-green-600"
-                : "text-red-600"
-            }
+            className={transaction.type === "Income" ? "text-green-600" : "text-red-600"}
           >
             {transaction.type}
           </span>
         </p>
 
+        <p><strong>Category:</strong> {transaction.category}</p>
+
         <p>
-          <strong>Category:</strong> {transaction.category}
+          <strong>Amount:</strong>
+          <span className="font-semibold"> ${transaction.amount}</span>
         </p>
 
         <p>
-          <strong>Amount:</strong>{" "}
-          <span className="font-semibold">${transaction.amount}</span>
-        </p>
-
-        <p>
-          <strong>Description:</strong>{" "}
-          <span>{transaction.description || "No description"}</span>
+          <strong>Description:</strong> {transaction.description || "No description"}
         </p>
 
         <p>
@@ -91,12 +84,12 @@ const TransactionDetails = () => {
           <strong>User:</strong> {transaction.userName} ({transaction.userEmail})
         </p>
 
-        <p className="text-blue-700 font-semibold mt-4">
+        {/* ✅ Category total amount */}
+        <p className="text-blue-700 font-semibold text-xl mt-4">
           Total Amount in This Category: ${categoryTotal}
         </p>
       </div>
 
-      {/* Buttons */}
       <div className="flex gap-4 mt-8">
         <button
           onClick={() => navigate("/my-transactions")}
@@ -104,17 +97,9 @@ const TransactionDetails = () => {
         >
           Back
         </button>
-
-        <button
-          onClick={() => navigate(`/transactions/update/${transaction._id}`)}
-          className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
-        >
-          Update
-        </button>
       </div>
     </section>
   );
 };
 
 export default TransactionDetails;
-

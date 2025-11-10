@@ -1,35 +1,23 @@
 import React, { useEffect, useState } from "react";
-import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
-import { useNavigate } from "react-router";
 import MyTransactionCard from "../../components/MyTransactionCard";
+import Swal from "sweetalert2";
 import UpdateTransaction from "./UpdateTransaction";
-
-// ✅ Import modal and card component
-
 
 const MyTransactions = () => {
   const { user } = useAuth();
-  const axios = useAxiosSecure();
-  const navigate = useNavigate();
-
+  const axiosSecure = useAxiosSecure();
   const [transactions, setTransactions] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedTransaction, setSelectedTransaction] = useState(null);
 
-  // ✅ Load transactions
   useEffect(() => {
-    if (!user?.email) return;
-
-    axios
-      .get(`/my-transactions?email=${user.email}`)
-      .then((res) => {
-        setTransactions(res.data);
-        setLoading(false);
-      })
-      .catch(() => setLoading(false));
-  }, [user]);
+    axiosSecure.get(`/my-transactions/?email=${user.email}`).then((res) => {
+      setTransactions(res.data);
+      setLoading(false);
+    });
+  }, [user, axiosSecure]);
 
   // ✅ Delete transaction
   const handleDelete = (id) => {
@@ -44,7 +32,7 @@ const MyTransactions = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          await axios.delete(`/transactions/${id}`);
+          await axiosSecure.delete(`/transactions/${id}`);
           setTransactions((prev) => prev.filter((t) => t._id !== id));
           Swal.fire("Deleted!", "Transaction has been deleted.", "success");
         } catch {
@@ -56,8 +44,6 @@ const MyTransactions = () => {
 
   // ✅ Open modal
   const handleUpdate = (transaction) => setSelectedTransaction(transaction);
-
-  const handleViewDetails = (id) => navigate(`/transactions/details/${id}`);
 
   // ✅ Modal callbacks
   const handleCloseModal = () => setSelectedTransaction(null);
@@ -85,7 +71,6 @@ const MyTransactions = () => {
               transaction={transaction}
               onUpdate={handleUpdate}
               onDelete={handleDelete}
-              onView={handleViewDetails}
             />
           ))}
         </div>
