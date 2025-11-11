@@ -33,11 +33,11 @@ const UpdateTransaction = ({ transaction, onClose, onUpdated }) => {
   };
 
   return (
-    <div className="fixed inset-0 bg-base-200 bg-opacity-50 flex justify-center items-center z-50">
+    <div className="fixed inset-0 bg-black/30 backdrop-blur-sm bg-opacity-50 flex justify-center items-center z-50">
       <div className="bg-white p-6 rounded shadow-lg w-full max-w-md relative">
         <button
           onClick={onClose}
-          className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
+          className="absolute cursor-pointer hover:text-red-600 top-2 right-2 text-gray-500"
         >
           &times;
         </button>
