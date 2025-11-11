@@ -82,7 +82,7 @@ const MyProfile = () => {
           <button
             onClick={() => setShowModal(true)}
             className="w-full py-3 rounded-xl text-white font-medium shadow-sm 
-            bg-gradient-to-r from-[#632EE3] to-[#4CB5AE] hover:opacity-95 transition duration-200"
+            bg-gradient-to-r from-[#632EE3] to-[#4CB5AE] hover:opacity-95 transition duration-200 cursor-pointer"
           >
             ✏️ Update Profile
           </button>
@@ -98,8 +98,8 @@ const MyProfile = () => {
             transition={{ duration: 0.3 }}
             className="bg-white rounded-2xl p-6 w-96 shadow-xl border border-[#E2E0F5] relative"
           >
-            <h2 className="text-xl font-bold text-[#1F1F2E] mb-4 text-center">
-              Update Profile
+            <h2 className="text-xl font-bold  bg-gradient-to-r from-[#632ee3] to-[#00b8b0] bg-clip-text text-transparent mb-4 text-center">
+              <span className="text-[#1F1F2E]">Update</span> Profile
             </h2>
 
             <form onSubmit={handleProfileUpdate} className="space-y-4">
@@ -137,7 +137,7 @@ const MyProfile = () => {
               <button
                 type="submit"
                 className="w-full py-2.5 rounded-lg text-white font-medium bg-gradient-to-r 
-                from-[#632EE3] to-[#4CB5AE] hover:opacity-95 transition"
+                from-[#632EE3] to-[#4CB5AE] hover:opacity-95 transition cursor-pointer"
               >
               Save Changes
               </button>

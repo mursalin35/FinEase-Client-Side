@@ -69,7 +69,7 @@ export default function ReportsPage() {
       {/* -------- Filter Section -------- */}
       <div className="flex flex-col md:flex-row md:items-center gap-4 mb-10 bg-white/70 backdrop-blur-md border border-indigo-100 p-5 rounded-2xl shadow-sm">
         <h2 className="text-2xl font-bold bg-gradient-to-r from-[#632ee3] to-[#00b8b0] bg-clip-text text-transparent">
-          Financial Reports
+          <span className="text-[#1F1F2E]">Financial</span> Reports
         </h2>
 
         <div className="flex items-center gap-3 md:ml-auto">
@@ -88,7 +88,7 @@ export default function ReportsPage() {
         {/* Income vs Expense */}
         <div className="glass-card bg-white/70 border border-indigo-100 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
           <h2 className="text-lg font-semibold mb-4 text-[#632ee3]">
-            💰 Income vs Expense
+            💰 Income <span className="text-[#1F1F2E]">vs</span> Expense
           </h2>
           {typeLoading ? (
             <p className="text-gray-500 text-sm">Loading chart...</p>

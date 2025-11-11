@@ -5,7 +5,7 @@ const FinancialPlanning = () => {
     <section className="max-w-6xl mx-auto px-4 py-14">
       {/* Section Title */}
       <div className="mb-8">
-        <h2 className="text-3xl font-bold bg-gradient-to-r from-[#632EE3] to-[#4CB5AE] bg-clip-text text-transparent">
+        <h2 className="text-3xl font-bold  bg-gradient-to-r from-[#632ee3] to-[#00b8b0] bg-clip-text text-transparent">
           <span className="text-[#1F1F2E]">Why Financial</span> Planning Matters
         </h2>
         <div className="h-1 w-52 mt-2 rounded-full bg-gradient-to-r from-[#632EE3] to-[#4CB5AE]"></div>
