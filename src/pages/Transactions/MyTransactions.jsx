@@ -64,7 +64,7 @@ const MyTransactions = () => {
     <div className="min-h-screen bg-gradient-to-br from-[#F9FAFF] to-[#F4F6FB] px-6 py-10">
       <div className="max-w-6xl mx-auto">
         <h1 className="text-4xl font-bold text-center text-[#1F1F2E] mb-10">
-          My
+          My{" "}
           <span className="bg-gradient-to-r from-[#632EE3] to-[#4CB5AE] bg-clip-text text-transparent">
             Transactions
           </span>
