@@ -46,7 +46,7 @@ const NavBar = () => {
       </li>
     </>
   );
-
+ 
   return (
     <div
       className="navbar bg-base-100/70 backdrop-blur-lg border border-white/20  
