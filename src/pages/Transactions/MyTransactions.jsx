@@ -19,15 +19,14 @@ const MyTransactions = () => {
     });
   }, [user, axiosSecure]);
 
-  // ✅ Delete transaction
   const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
       text: "This transaction will be permanently deleted!",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
+      confirmButtonColor: "#4CB5AE",
+      cancelButtonColor: "#E14D2A",
       confirmButtonText: "Yes, delete it!",
     }).then(async (result) => {
       if (result.isConfirmed) {
@@ -42,10 +41,7 @@ const MyTransactions = () => {
     });
   };
 
-  // ✅ Open modal
   const handleUpdate = (transaction) => setSelectedTransaction(transaction);
-
-  // ✅ Modal callbacks
   const handleCloseModal = () => setSelectedTransaction(null);
   const handleUpdated = (updatedData) => {
     setTransactions((prev) =>
@@ -55,35 +51,60 @@ const MyTransactions = () => {
     );
   };
 
-  if (loading) return <p>Loading transactions...</p>;
+  if (loading)
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <p className="text-lg font-semibold text-[#4CB5AE] animate-pulse">
+          Loading transactions...
+        </p>
+      </div>
+    );
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">My Transactions</h1>
+    <div className="min-h-screen bg-gradient-to-br from-[#F9FAFF] to-[#F4F6FB] px-6 py-10">
+      <div className="max-w-6xl mx-auto">
+        <h1 className="text-4xl font-bold text-center text-[#1F1F2E] mb-10">
+          My{" "}
+          <span className="bg-gradient-to-r from-[#632EE3] to-[#4CB5AE] bg-clip-text text-transparent">
+            Transactions
+          </span>
+        </h1>
 
-      {transactions.length === 0 ? (
-        <p>You have no transactions yet.</p>
-      ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {transactions.map((transaction) => (
-            <MyTransactionCard
-              key={transaction._id}
-              transaction={transaction}
-              onUpdate={handleUpdate}
-              onDelete={handleDelete}
+        {transactions.length === 0 ? (
+          <div className="text-center mt-20">
+            <img
+              src="https://illustrations.popsy.co/gray/wallet.svg"
+              alt="No transactions"
+              className="w-48 mx-auto mb-6 opacity-80"
             />
-          ))}
-        </div>
-      )}
+            <p className="text-gray-600 mb-2 text-lg">
+              You have no transactions yet.
+            </p>
+            <button className="bg-gradient-to-r from-[#632EE3] to-[#4CB5AE] text-white px-6 py-3 rounded-lg hover:opacity-90 transition font-semibold">
+              ➕ Add Transaction
+            </button>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {transactions.map((transaction) => (
+              <MyTransactionCard
+                key={transaction._id}
+                transaction={transaction}
+                onUpdate={handleUpdate}
+                onDelete={handleDelete}
+              />
+            ))}
+          </div>
+        )}
 
-      {/* ✅ Render modal if a transaction is selected */}
-      {selectedTransaction && (
-        <UpdateTransaction
-          transaction={selectedTransaction}
-          onClose={handleCloseModal}
-          onUpdated={handleUpdated}
-        />
-      )}
+        {selectedTransaction && (
+          <UpdateTransaction
+            transaction={selectedTransaction}
+            onClose={handleCloseModal}
+            onUpdated={handleUpdated}
+          />
+        )}
+      </div>
     </div>
   );
 };
