@@ -10,7 +10,7 @@ const Banner = () => {
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7 }}
-          className="text-center md:text-left"
+          className="text-center md:text-left md:pl-6"
         >
           <h1 className="text-4xl md:text-5xl font-extrabold leading-tight text-[#1F1F2E] mb-5">
             Take Control of Your{" "}
