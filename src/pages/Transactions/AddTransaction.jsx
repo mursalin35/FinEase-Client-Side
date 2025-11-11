@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Swal from "sweetalert2";
-
 import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 
@@ -30,19 +29,15 @@ const AddTransaction = () => {
     };
 
     try {
-      // ✅ Send to backend via axiosSecure (token included)
       const res = await axiosSecure.post("/transactions", newTransaction);
-
-      // ✅ Check backend response
       if (res.data.insertedId) {
         Swal.fire({
           title: "Success!",
           text: "Transaction added successfully.",
           icon: "success",
-          confirmButtonColor: "#2563eb",
+          confirmButtonColor: "#632ee3",
         });
 
-        // Reset form after success
         setFormData({
           type: "Income",
           category: "",
@@ -67,18 +62,20 @@ const AddTransaction = () => {
   };
 
   return (
-    <section className="max-w-3xl mx-auto mt-14 p-8 bg-white shadow-lg rounded-xl border">
-      <h2 className="text-2xl font-bold mb-6">Add New Transaction</h2>
+    <section className="max-w-3xl mx-auto mt-16 mb-24 p-10 bg-gradient-to-br from-white to-indigo-50 border border-indigo-100 shadow-xl rounded-2xl">
+      <h2 className="text-3xl font-bold text-center text-primary mb-8">
+        💰 Add New Transaction
+      </h2>
 
-      <form onSubmit={handleSubmit} className="space-y-5">
+      <form onSubmit={handleSubmit} className="space-y-6">
         {/* Type */}
         <div>
-          <label className="font-semibold">Type</label>
+          <label className="font-semibold text-gray-700">Type</label>
           <select
             name="type"
             value={formData.type}
             onChange={handleChange}
-            className="w-full mt-2 border p-2 rounded"
+            className="w-full mt-2 border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/30 p-3 rounded-lg outline-none transition-all"
           >
             <option value="Income">Income</option>
             <option value="Expense">Expense</option>
@@ -87,13 +84,13 @@ const AddTransaction = () => {
 
         {/* Category */}
         <div>
-          <label className="font-semibold">Category</label>
+          <label className="font-semibold text-gray-700">Category</label>
           <select
             name="category"
             value={formData.category}
             onChange={handleChange}
             required
-            className="w-full mt-2 border p-2 rounded"
+            className="w-full mt-2 border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/30 p-3 rounded-lg outline-none transition-all"
           >
             <option value="">Select Category</option>
             <option value="Salary">Salary</option>
@@ -107,63 +104,63 @@ const AddTransaction = () => {
 
         {/* Amount */}
         <div>
-          <label className="font-semibold">Amount</label>
+          <label className="font-semibold text-gray-700">Amount</label>
           <input
             type="number"
             name="amount"
             value={formData.amount}
             onChange={handleChange}
             required
-            className="w-full mt-2 border p-2 rounded"
-            placeholder="Amount"
+            className="w-full mt-2 border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/30 p-3 rounded-lg outline-none transition-all"
+            placeholder="Enter amount"
           />
         </div>
 
         {/* Description */}
         <div>
-          <label className="font-semibold">Description</label>
+          <label className="font-semibold text-gray-700">Description</label>
           <textarea
             name="description"
             value={formData.description}
             onChange={handleChange}
-            className="w-full mt-2 border p-2 rounded"
+            className="w-full mt-2 border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/30 p-3 rounded-lg outline-none transition-all"
             rows="3"
-            placeholder="Write description..."
+            placeholder="Write a short note..."
           ></textarea>
         </div>
 
         {/* Date */}
         <div>
-          <label className="font-semibold">Date</label>
+          <label className="font-semibold text-gray-700">Date</label>
           <input
             type="date"
             name="date"
             value={formData.date}
             onChange={handleChange}
             required
-            className="w-full mt-2 border p-2 rounded"
+            className="w-full mt-2 border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/30 p-3 rounded-lg outline-none transition-all"
           />
         </div>
 
         {/* User Info */}
-        <div className="grid md:grid-cols-2 gap-4">
+        <div className="grid md:grid-cols-2 gap-6">
           <div>
-            <label className="font-semibold">User Email</label>
+            <label className="font-semibold text-gray-700">User Email</label>
             <input
               type="text"
               value={user?.email}
               disabled
-              className="w-full mt-2 border p-2 rounded bg-gray-100"
+              className="w-full mt-2 border border-gray-200 p-3 rounded-lg bg-gray-100 text-gray-500"
             />
           </div>
 
           <div>
-            <label className="font-semibold">User Name</label>
+            <label className="font-semibold text-gray-700">User Name</label>
             <input
               type="text"
               value={user?.displayName}
               disabled
-              className="w-full mt-2 border p-2 rounded bg-gray-100"
+              className="w-full mt-2 border border-gray-200 p-3 rounded-lg bg-gray-100 text-gray-500"
             />
           </div>
         </div>
@@ -171,7 +168,7 @@ const AddTransaction = () => {
         {/* Submit */}
         <button
           type="submit"
-          className="w-full cursor-pointer bg-blue-600 hover:bg-blue-700 text-white font-semibold p-3 rounded mt-4"
+          className="w-full mt-6 cursor-pointer bg-gradient-to-r from-[#632ee3] to-[#00b8b0] hover:opacity-90 text-white font-semibold p-3 rounded-lg transition-all duration-300 shadow-md"
         >
           Add Transaction
         </button>
