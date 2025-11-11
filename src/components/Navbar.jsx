@@ -6,6 +6,7 @@ import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { Link, NavLink } from "react-router";
 
+
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
 
@@ -26,6 +27,7 @@ const NavBar = () => {
       <li>
         <NavLink to="/reports">Reports</NavLink>
       </li>
+     
     </>
   );
 

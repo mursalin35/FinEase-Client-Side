@@ -1,9 +1,8 @@
-import { createBrowserRouter } from "react-router";
 import Root from "../layout/Root";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Auth/Login";
 import Register from "../pages/Auth/Register";
-import ForgetPassword from "../pages/Auth/ForgetPassword ";
+import ForgetPassword from "../pages/Auth/ForgetPassword";
 import MyProfile from "../pages/Profile/MyProfile";
 import AddTransaction from "../pages/Transactions/AddTransaction";
 import MyTransactions from "../pages/Transactions/MyTransactions";
@@ -13,12 +12,13 @@ import Reports from "../pages/Reports/Reports";
 import NotFound from "../pages/NotFound/NotFound";
 import PrivateRoute from "./PrivateRoute";
 import AuthLayout from "../layout/AuthLayout";
+import { createBrowserRouter } from "react-router";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
-    errorElement: <NotFound/>,
+    errorElement: <NotFound />,
     children: [
       {
         index: true,
@@ -42,6 +42,8 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+     
+
       {
         path: "/my-transactions",
         element: (
@@ -75,15 +77,13 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-
-    
     ],
   },
   {
     path: "/auth",
-    element: <AuthLayout/>,
+    element: <AuthLayout />,
     children: [
-        // Auth pages (public)
+      // Auth pages (public)
       {
         path: "/auth/login",
         element: <Login />,
@@ -97,7 +97,6 @@ export const router = createBrowserRouter([
         path: "/auth/forget-password",
         element: <ForgetPassword />,
       },
-     
-    ]
-  }
+    ],
+  },
 ]);
