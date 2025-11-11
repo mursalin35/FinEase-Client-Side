@@ -63,8 +63,8 @@ const AddTransaction = () => {
 
   return (
     <section className="max-w-3xl mx-auto mt-16 mb-24 p-10 bg-gradient-to-br from-white to-indigo-50 border border-indigo-100 shadow-xl rounded-2xl">
-      <h2 className="text-3xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-[#632EE3] to-[#4CB5AE] mb-8">
-        <span className="text-primary">💰</span> Add New Transaction
+      <h2 className="text-3xl font-bold text-center bg-gradient-to-r from-[#632EE3] to-[#4CB5AE] bg-clip-text text-transparent mb-8">
+        <span className="text-[#1F1F2E]">Add</span> Transaction
       </h2>
 
       <form onSubmit={handleSubmit} className="space-y-6">
