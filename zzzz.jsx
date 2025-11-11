@@ -17,3 +17,12 @@ Use the **FinEase UI Theme** for all designs.
 
 🧩 Whenever I ask for a new UI component, form, chart, or page — 
 make sure it perfectly matches this FinEase theme in **color palette, font, and tone**.
+
+
+
+ <h1 className="text-4xl font-bold text-center text-[#1F1F2E] mb-10">
+          My
+          <span className="bg-gradient-to-r from-[#632EE3] to-[#4CB5AE] bg-clip-text text-transparent">
+            Transactions
+          </span>
+        </h1>
