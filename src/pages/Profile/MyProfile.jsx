@@ -53,7 +53,7 @@ const MyProfile = () => {
             <img
               src={
                 currentUser?.photoURL ||
-                "https://img.icons8.com/?size=100&id=0prbldgxVuTl&format=png&color=000000"
+                "https://icons8.com/icon/7819/user-male-circle"
               }
               alt="Profile"
               className="relative w-36 h-36 rounded-full border-4 border-white shadow-lg object-cover"

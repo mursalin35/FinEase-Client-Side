@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer className="relative mt-16 text-base-content overflow-hidden rounded-t-3xl shadow-lg">
       {/* ===== Gradient Background ===== */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#432c78] via-[#4126ba] to-[#088781] opacity-90 blur-[1px]"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-[#4126ba]  to-[#088781] opacity-90 blur-[1px]"></div>
       <div className="absolute inset-0 bg-white/20 dark:bg-black/20 backdrop-blur-md"></div>
 
       {/* ===== Content ===== */}
@@ -16,13 +16,11 @@ const Footer = () => {
           <div>
             <div className="flex items-center justify-center md:justify-start gap-2 mb-3">
               <img
-                src="https://img.icons8.com/?size=100&id=mPGqFM7tLdfV&format=png&color=ffffff"
+                src="https://i.ibb.co.com/0yDRJgjJ/finans-logo.png"
                 alt="FinEase Logo"
-                className="w-10 h-10 drop-shadow-lg"
+                className="bg-white/90 rounded-xl h-10 "
               />
-              <h2 className="text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-white to-teal-200">
-                FinEase
-              </h2>
+              
             </div>
             <p className="text-sm text-gray-100/90 leading-relaxed">
               FinEase helps you manage your income, expenses, and savings goals — 
