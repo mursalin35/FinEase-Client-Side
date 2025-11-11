@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 const BudgetingTips = () => {
   return (
     <section className="max-w-6xl mx-auto px-4 py-14">
@@ -10,7 +12,13 @@ const BudgetingTips = () => {
 
       <div className="grid md:grid-cols-2 gap-6">
         {/* Card 1 */}
-        <div className="p-6 bg-white backdrop-blur border border-[#d2cef8] shadow-[0_4px_20px_rgba(99,46,227,0.1)] rounded-xl">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="p-6 bg-white backdrop-blur border border-[#d2cef8] shadow-[0_4px_20px_rgba(99,46,227,0.1)] rounded-xl"
+        >
           <h4 className="font-semibold text-lg mb-2 text-[#2E1F47]">
             Track Your Spending
           </h4>
@@ -18,10 +26,16 @@ const BudgetingTips = () => {
             Monitor daily expenses to identify unnecessary spending and improve
             budgeting discipline.
           </p>
-        </div>
+        </motion.div>
 
         {/* Card 2 */}
-        <div className="p-6 bg-white backdrop-blur border border-[#d2cef8] shadow-[0_4px_20px_rgba(99,46,227,0.1)] rounded-xl">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
+          className="p-6 bg-white backdrop-blur border border-[#d2cef8] shadow-[0_4px_20px_rgba(99,46,227,0.1)] rounded-xl"
+        >
           <h4 className="font-semibold text-lg mb-2 text-[#2E1F47]">
             Follow The 50/30/20 Rule
           </h4>
@@ -29,7 +43,7 @@ const BudgetingTips = () => {
             Allocate 50% to needs, 30% to wants, and save the remaining 20% for
             future goals.
           </p>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 const FinancialPlanning = () => {
   return (
     <section className="max-w-6xl mx-auto px-4 py-14">
@@ -10,13 +12,19 @@ const FinancialPlanning = () => {
       </div>
 
       {/* Card */}
-      <div className="p-6 bg-white backdrop-blur border border-[#d2cef8] shadow-[0_4px_20px_rgba(99,46,227,0.1)] rounded-xl">
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="p-6 bg-white backdrop-blur border border-[#d2cef8] shadow-[0_4px_20px_rgba(99,46,227,0.1)] rounded-xl"
+      >
         <p className="text-[#6B6B82] leading-relaxed text-lg">
           Financial planning helps you set clear goals, reduce financial stress, and build
           long-term stability. By understanding your spending habits and setting realistic
           savings targets, you can ensure a more secure and confident financial future.
         </p>
-      </div>
+      </motion.div>
     </section>
   );
 };
