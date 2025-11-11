@@ -1,11 +1,9 @@
-
 import { GoHomeFill } from "react-icons/go";
 import { IoLogIn, IoLogOut } from "react-icons/io5";
 import { FaGear } from "react-icons/fa6";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { Link, NavLink } from "react-router";
-
 
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -27,7 +25,6 @@ const NavBar = () => {
       <li>
         <NavLink to="/reports">Reports</NavLink>
       </li>
-     
     </>
   );
 
@@ -40,13 +37,13 @@ const NavBar = () => {
         </NavLink>
       </li>
       <li>
-        <NavLink to="/settings" className="flex items-center gap-1">
+        <NavLink to="" className="flex items-center gap-1">
           <FaGear /> Settings
         </NavLink>
       </li>
     </>
   );
- 
+
   return (
     <div
       className="navbar  backdrop-blur-lg border border-white/20  
@@ -87,7 +84,6 @@ const NavBar = () => {
             alt="FinEase Logo"
             className=" h-10 "
           />
-          
         </Link>
       </div>
 
@@ -109,7 +105,7 @@ const NavBar = () => {
                 <img
                   src={
                     user.photoURL ||
-                    "https://img.icons8.com/?size=100&id=7819&format=png&color=000000"
+                    "https://img.icons8.com/?size=100&id=undefined&format=png&color=000000"
                   }
                   alt="User"
                   referrerPolicy="no-referrer"
@@ -118,7 +114,7 @@ const NavBar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[9999] p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-sm dropdown-content mt-3 z-50 p-2 shadow bg-base-100 rounded-box"
             >
               <div className="pb-3 border-b border-b-gray-200">
                 <li className="text-sm font-bold">{user.displayName}</li>
@@ -128,7 +124,7 @@ const NavBar = () => {
               <li>
                 <button
                   onClick={logOut}
-                  className="btn btn-sm text-white border-none bg-gradient-to-r from-[#632ee3] to-[#00b8b0] hover:opacity-90"
+                  className="btn btn-sm mt-3 text-white border-none bg-gradient-to-r from-[#632ee3] to-[#00b8b0] hover:opacity-90"
                 >
                   <IoLogOut /> Logout
                 </button>
