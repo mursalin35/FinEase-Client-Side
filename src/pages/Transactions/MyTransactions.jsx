@@ -4,6 +4,7 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 import MyTransactionCard from "../../components/MyTransactionCard";
 import Swal from "sweetalert2";
 import UpdateTransaction from "./UpdateTransaction";
+import { Link } from "react-router";
 
 const MyTransactions = () => {
   const { user } = useAuth();
@@ -71,18 +72,18 @@ const MyTransactions = () => {
         </h1>
 
         {transactions.length === 0 ? (
-          <div className="text-center mt-20">
+          <div className="text-center mt-12">
             <img
-              src="https://illustrations.popsy.co/gray/wallet.svg"
+              src="https://i.ibb.co.com/Xk2tj6pr/finans-0.png"
               alt="No transactions"
-              className="w-48 mx-auto mb-6 opacity-80"
+              className="w-48 mx-auto opacity-80"
             />
-            <p className="text-gray-600 mb-2 text-lg">
+            <p className="text-gray-600 mb-12 text-lg">
               You have no transactions yet.
             </p>
-            <button className="bg-gradient-to-r from-[#632EE3] to-[#4CB5AE] text-white px-6 py-3 rounded-lg hover:opacity-90 transition font-semibold">
+            <Link to="/add-transaction" className="bg-gradient-to-r from-[#632EE3] to-[#4CB5AE] text-white px-6 py-3 rounded-lg hover:opacity-90 transition font-semibold">
               ➕ Add Transaction
-            </button>
+            </Link>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

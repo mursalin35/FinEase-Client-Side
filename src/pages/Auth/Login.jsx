@@ -49,11 +49,11 @@ const Login = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gradient-to-br from-[#F8F8FB] to-[#EDEBFF] px-4 py-8 sm:px-6">
+    <div className="flex justify-center items-center min-h-screen px-4 py-8 sm:px-6">
       <title>LogIn</title>
       <div className="bg-white/90 backdrop-blur-lg p-6 sm:p-8 rounded-2xl shadow-xl w-full sm:w-8/12 md:w-6/12 lg:w-4/12 border border-[#DAD7FF]/60">
         <h2 className="text-3xl font-bold bg-gradient-to-r from-[#632ee3] to-[#00b8b0] bg-clip-text text-transparent text-center mb-6">
-          Login Page
+          <span className="text-[#1F1F2E]">Login</span> Page
         </h2>
 
         <form onSubmit={handleLogin} className="space-y-5">
