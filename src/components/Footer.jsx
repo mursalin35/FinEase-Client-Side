@@ -1,58 +1,87 @@
+import { FaFacebookF, FaTwitter, FaLinkedinIn, FaGithub } from "react-icons/fa";
+import { Link } from "react-router";
+
 const Footer = () => {
+  // from-[#632ee3] via-[#7456f5] to-[#00b8b0]
   return (
-    <footer className="bg-gray-900 text-gray-300 py-10 mt-20">
-      <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-4 gap-10">
+    <footer className="relative mt-16 text-base-content overflow-hidden rounded-t-3xl shadow-lg">
+      {/* ===== Gradient Background ===== */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#432c78] via-[#4126ba] to-[#088781] opacity-90 blur-[1px]"></div>
+      <div className="absolute inset-0 bg-white/20 dark:bg-black/20 backdrop-blur-md"></div>
 
-        {/* Logo + Name */}
-        <div>
-          <div className="flex items-center gap-3 mb-3">
-            <img
-              src="https://img.icons8.com/?size=100&id=mPGqFM7tLdfV&format=png&color=000000"
-              alt="FinEase Logo"
-              className="w-10 h-10 rounded"
-            />
-            <h2 className="text-xl font-bold text-white">FinEase</h2>
+      {/* ===== Content ===== */}
+      <div className="relative glass-card py-10 px-6 md:px-12 text-center md:text-left text-white">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
+          {/* ===== Brand Section ===== */}
+          <div>
+            <div className="flex items-center justify-center md:justify-start gap-2 mb-3">
+              <img
+                src="https://img.icons8.com/?size=100&id=mPGqFM7tLdfV&format=png&color=ffffff"
+                alt="FinEase Logo"
+                className="w-10 h-10 drop-shadow-lg"
+              />
+              <h2 className="text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-white to-teal-200">
+                FinEase
+              </h2>
+            </div>
+            <p className="text-sm text-gray-100/90 leading-relaxed">
+              FinEase helps you manage your income, expenses, and savings goals — 
+              making personal finance simple, smart, and stress-free.
+            </p>
           </div>
-          <p className="text-gray-400 text-sm">
-            Personal Finance Management for smarter financial decisions.
-          </p>
-        </div>
 
-        {/* Contact */}
-        <div>
-          <h3 className="text-lg font-semibold text-white mb-3">Contact</h3>
-          <ul className="space-y-2 text-sm">
-            <li>Email: <span className="text-gray-400">support@finease.com</span></li>
-            <li>Phone: <span className="text-gray-400">+880 1234-567890</span></li>
-            <li>Address: <span className="text-gray-400">Dhaka, Bangladesh</span></li>
-          </ul>
-        </div>
+          {/* ===== Quick Links ===== */}
+          <div>
+            <h3 className="text-lg font-semibold mb-3 text-teal-100">Quick Links</h3>
+            <ul className="space-y-2 opacity-90">
+              <li><Link to="/" className="hover:underline">Home</Link></li>
+              <li><Link to="/add-transaction" className="hover:underline">Add Transaction</Link></li>
+              <li><Link to="/my-transactions" className="hover:underline">My Transactions</Link></li>
+              <li><Link to="/reports" className="hover:underline">Reports</Link></li>
+            </ul>
+          </div>
 
-        {/* Terms */}
-        <div>
-          <h3 className="text-lg font-semibold text-white mb-3">Legal</h3>
-          <ul className="space-y-2 text-sm">
-            <li className="hover:text-white cursor-pointer">Terms & Conditions</li>
-            <li className="hover:text-white cursor-pointer">Privacy Policy</li>
-          </ul>
-        </div>
+          {/* ===== Policies ===== */}
+          <div>
+            <h3 className="text-lg font-semibold mb-3 text-teal-100">Legal</h3>
+            <ul className="space-y-2 opacity-90">
+              <li><Link to="/terms" className="hover:underline">Terms & Conditions</Link></li>
+              <li><Link to="/privacy" className="hover:underline">Privacy Policy</Link></li>
+              <li><Link to="/support" className="hover:underline">Support</Link></li>
+            </ul>
+          </div>
 
-        {/* Social */}
-        <div>
-          <h3 className="text-lg font-semibold text-white mb-3">Follow Us</h3>
-          <div className="flex flex-col space-y-2 text-sm">
-            <a href="#" className="hover:text-white">Facebook</a>
-            <a href="#" className="hover:text-white">Instagram</a>
-            <a href="#" className="hover:text-white">Twitter</a>
-            <a href="#" className="hover:text-white">LinkedIn</a>
+          {/* ===== Contact & Social ===== */}
+          <div>
+            <h3 className="text-lg font-semibold mb-3 text-teal-100">Contact Us</h3>
+            <p className="text-sm text-gray-100 mb-3">
+              ✉️ support@finease.com  
+              <br /> 📞 +880 1234-567890
+            </p>
+
+            <div className="flex justify-center md:justify-start gap-3 mt-2">
+              {[
+                { icon: <FaFacebookF />, href: "#" },
+                { icon: <FaTwitter />, href: "#" },
+                { icon: <FaLinkedinIn />, href: "#" },
+                { icon: <FaGithub />, href: "#" },
+              ].map((item, i) => (
+                <a
+                  key={i}
+                  href={item.href}
+                  className="p-2 rounded-full bg-white/10 hover:bg-white/20 hover:scale-110 transition transform text-white"
+                >
+                  {item.icon}
+                </a>
+              ))}
+            </div>
           </div>
         </div>
 
-      </div>
-
-      {/* Bottom Part */}
-      <div className="text-center text-gray-500 text-sm mt-10 border-t border-gray-700 pt-5">
-        © {new Date().getFullYear()} FinEase — All Rights Reserved.
+        {/* ===== Bottom Line ===== */}
+        <div className="border-t border-white/30 mt-10 pt-5 text-sm text-gray-100/80 text-center">
+          © {new Date().getFullYear()} <span className="font-semibold">FinEase</span> — All rights reserved.
+        </div>
       </div>
     </footer>
   );
