@@ -90,7 +90,7 @@ const MyTransactions = () => {
               <MyTransactionCard
                 key={transaction._id}
                 transaction={transaction}
-                onUpdate={handleUpdate}
+                onUpdate={handleUpdate} 
                 onDelete={handleDelete}
               />
             ))}

@@ -61,11 +61,11 @@ const TransactionDetails = () => {
     >
       {/* ✅ Gradient Glow Background Halo */}
       <div className="absolute inset-0 pointer-events-none -z-10">
-        <div className="absolute -inset-1 bg-gradient-to-r from-[#2ee0da] to-[#b8dff6] opacity-20 blur-2xl rounded-3xl"></div>
+        <div className="absolute -inset-1 bg-gradient-to-r from-[#4fdfcc] to-[#6dc5bd] opacity-20 blur-2xl rounded-3xl"></div>
       </div>
 
       {/* ✅ Title */}
-      <h1 className="text-3xl font-bold text-[#1F1F2E]">Transaction Details</h1>
+      <h1 className="text-3xl font-bold bg-gradient-to-r from-[#632EE3] to-[#4CB5AE] bg-clip-text text-transparent"><span className="text-[#1F1F2E]">Transaction</span> Details</h1>
       <div className="h-1 w-44 mt-2 mb-6 rounded-full bg-gradient-to-r from-[#632EE3] to-[#4CB5AE]"></div>
 
       {/* ✅ Details */}
@@ -133,9 +133,9 @@ const TransactionDetails = () => {
           initial={{ opacity: 0, x: -15 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.65 }}
-          className="text-xl font-semibold text-[#4CB5AE] mt-4"
+          className="text-xl font-semibold text-[#177163] mt-4"
         >
-          Total Amount in This Category: ${categoryTotal}
+          Total Amount in This Category: <span className="text-[#632EE3]">${categoryTotal}</span>
         </motion.p>
       </div>
 
