@@ -93,14 +93,14 @@ export default function ReportsPage() {
           {typeLoading ? (
             <p className="text-gray-500 text-sm">Loading chart...</p>
           ) : (
-            <div className="flex justify-center">
+            <div className="flex justify-center ">
               <PieChart width={350} height={280}>
                 <Pie
                   data={typeReport}
                   dataKey="totalAmount"
                   nameKey="_id"
                   outerRadius={100}
-                  fill="#632ee3"
+                  fill="#4586d0"
                   label
                 />
                 <Tooltip />
@@ -148,7 +148,7 @@ export default function ReportsPage() {
               <XAxis dataKey="_id" />
               <YAxis />
               <Tooltip />
-              <Bar dataKey="totalAmount" fill="#632ee3" radius={[6, 6, 0, 0]} />
+              <Bar dataKey="totalAmount" fill="#1cdcee" radius={[6, 6, 0, 0]} />
             </BarChart>
           </div>
         )}

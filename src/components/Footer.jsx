@@ -1,5 +1,11 @@
-import { FaFacebookF, FaTwitter, FaLinkedinIn, FaGithub } from "react-icons/fa";
+import {
+  FaFacebookF,
+  FaLinkedinIn,
+  FaGithub,
+  FaInstagram,
+} from "react-icons/fa";
 import { Link } from "react-router";
+import { MdOutlineMailOutline, MdPhoneCallback } from "react-icons/md";
 
 const Footer = () => {
   // from-[#632ee3] via-[#7456f5] to-[#00b8b0]
@@ -20,22 +26,39 @@ const Footer = () => {
                 alt="FinEase Logo"
                 className="bg-white/90 rounded-xl h-10 "
               />
-              
             </div>
             <p className="text-sm text-gray-100/90 leading-relaxed">
-              FinEase helps you manage your income, expenses, and savings goals — 
-              making personal finance simple, smart, and stress-free.
+              FinEase helps you manage your income, expenses, and savings goals
+              — making personal finance simple, smart, and stress-free.
             </p>
           </div>
 
           {/* ===== Quick Links ===== */}
           <div>
-            <h3 className="text-lg font-semibold mb-3 text-teal-100">Quick Links</h3>
+            <h3 className="text-lg font-semibold mb-3 text-teal-100">
+              Quick Links
+            </h3>
             <ul className="space-y-2 opacity-90">
-              <li><Link to="/" className="hover:underline">Home</Link></li>
-              <li><Link to="/add-transaction" className="hover:underline">Add Transaction</Link></li>
-              <li><Link to="/my-transactions" className="hover:underline">My Transactions</Link></li>
-              <li><Link to="/reports" className="hover:underline">Reports</Link></li>
+              <li>
+                <Link to="/" className="hover:underline">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link to="/add-transaction" className="hover:underline">
+                  Add Transaction
+                </Link>
+              </li>
+              <li>
+                <Link to="/my-transactions" className="hover:underline">
+                  My Transactions
+                </Link>
+              </li>
+              <li>
+                <Link to="/reports" className="hover:underline">
+                  Reports
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -43,30 +66,47 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-3 text-teal-100">Legal</h3>
             <ul className="space-y-2 opacity-90">
-              <li><Link to="/terms" className="hover:underline">Terms & Conditions</Link></li>
-              <li><Link to="/privacy" className="hover:underline">Privacy Policy</Link></li>
-              <li><Link to="/support" className="hover:underline">Support</Link></li>
+              <li className="hover:underline cursor-pointer">
+                Terms & Conditions
+              </li>
+              <li className="hover:underline cursor-pointer">Privacy Policy</li>
+              <li className="hover:underline cursor-pointer">Support</li>
             </ul>
           </div>
+   
 
           {/* ===== Contact & Social ===== */}
           <div>
-            <h3 className="text-lg font-semibold mb-3 text-teal-100">Contact Us</h3>
-            <p className="text-sm text-gray-100 mb-3">
-              ✉️ support@finease.com  
-              <br /> 📞 +880 1234-567890
+            <h3 className="text-lg font-semibold mb-3 text-teal-100">
+              Contact Us
+            </h3>
+            <p className="text-sm text-gray-100 mb-2 flex items-center gap-2">
+              <MdOutlineMailOutline /> support@finease.com
+            </p>
+            <p className="text-sm text-gray-100 mb-3 flex items-center gap-2">
+              <MdPhoneCallback /> +880 1700-00000
             </p>
 
             <div className="flex justify-center md:justify-start gap-3 mt-2">
               {[
-                { icon: <FaFacebookF />, href: "#" },
-                { icon: <FaTwitter />, href: "#" },
-                { icon: <FaLinkedinIn />, href: "#" },
-                { icon: <FaGithub />, href: "#" },
+                {
+                  icon: <FaFacebookF />,
+                  href: "https://www.facebook.com/mursalin07",
+                },
+                {
+                  icon: <FaInstagram />,
+                  href: "https://www.instagram.com/msmursalin07/?hl=en",
+                },
+                {
+                  icon: <FaLinkedinIn />,
+                  href: "https://www.linkedin.com/in/mursalin07/",
+                },
+                { icon: <FaGithub />, href: "https://github.com/mursalin35" },
               ].map((item, i) => (
                 <a
                   key={i}
                   href={item.href}
+                  target="_blank"
                   className="p-2 rounded-full bg-white/10 hover:bg-white/20 hover:scale-110 transition transform text-white"
                 >
                   {item.icon}
@@ -78,7 +118,8 @@ const Footer = () => {
 
         {/* ===== Bottom Line ===== */}
         <div className="border-t border-white/30 mt-10 pt-5 text-sm text-gray-100/80 text-center">
-          © {new Date().getFullYear()} <span className="font-semibold">FinEase</span> — All rights reserved.
+          © {new Date().getFullYear()}{" "}
+          <span className="font-semibold">FinEase</span> — All rights reserved.
         </div>
       </div>
     </footer>
