@@ -50,7 +50,7 @@ const NavBar = () => {
   return (
     <div
       className="navbar bg-base-100/70 backdrop-blur-lg border border-white/20  
-                 shadow-md px-4 md:px-8 py-3  mx-auto my-3 glass-card"
+                 shadow-md px-4 md:px-8 py-3  mx-auto  glass-card"
     >
       {/* ---- Navbar Start ---- */}
       <div className="navbar-start">

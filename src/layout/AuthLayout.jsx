@@ -7,7 +7,8 @@ import Footer from "../components/Footer";
 
 const AuthLayout = () => {
   return (
-    <div className="bg-[#FFF8F1]">
+  
+    <div className="bg-gradient-to-br from-[#F9FAFF] to-[#F4F6FB]">
       <header>
       <NavBar></NavBar>
       </header>

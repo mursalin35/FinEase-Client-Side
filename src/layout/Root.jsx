@@ -6,7 +6,7 @@ import { Toaster } from "react-hot-toast";
 
 const Root = () => {
   return (
-    <div>
+    <div className="bg-gradient-to-br from-[#F9FAFF] to-[#F4F6FB]">
       <div>
         <Navbar />
         <div>
