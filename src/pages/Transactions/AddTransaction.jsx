@@ -63,8 +63,8 @@ const AddTransaction = () => {
 
   return (
     <section className="max-w-3xl mx-auto mt-16 mb-24 p-10 bg-gradient-to-br from-white to-indigo-50 border border-indigo-100 shadow-xl rounded-2xl">
-      <h2 className="text-3xl font-bold text-center text-primary mb-8">
-        💰 Add New Transaction
+      <h2 className="text-3xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-[#632EE3] to-[#4CB5AE] mb-8">
+        <span className="text-primary">💰</span> Add New Transaction
       </h2>
 
       <form onSubmit={handleSubmit} className="space-y-6">
@@ -72,7 +72,7 @@ const AddTransaction = () => {
         <div>
           <label className="font-semibold text-gray-700">Type</label>
           <select
-            name="type"
+            name="type" 
             value={formData.type}
             onChange={handleChange}
             className="w-full mt-2 border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/30 p-3 rounded-lg outline-none transition-all"

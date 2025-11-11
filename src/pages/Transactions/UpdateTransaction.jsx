@@ -33,7 +33,7 @@ const UpdateTransaction = ({ transaction, onClose, onUpdated }) => {
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+    <div className="fixed inset-0 bg-base-200 bg-opacity-50 flex justify-center items-center z-50">
       <div className="bg-white p-6 rounded shadow-lg w-full max-w-md relative">
         <button
           onClick={onClose}
@@ -41,72 +41,79 @@ const UpdateTransaction = ({ transaction, onClose, onUpdated }) => {
         >
           &times;
         </button>
-        <h2 className="text-xl font-bold mb-4">Update Transaction</h2>
+        <h2 className="text-xl bg-clip-text text-transparent bg-gradient-to-r from-[#632EE3] to-[#4CB5AE] font-bold mb-4">Update Transaction</h2>
         <form onSubmit={handleUpdate} className="space-y-3">
           <div>
-            <label className="block font-semibold">Type</label>
+            <label className="block font-semibold text-gray-700">Type</label>
             <select
               name="type"
               value={formData.type}
               onChange={handleChange}
-              className="w-full border px-2 py-1 rounded"
+              className="w-full border px-2 py-1 rounded  mt-2  border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/30 outline-none transition-all"
               required
             >
-              <option value="">Select Type</option>
+             
               <option value="Income">Income</option>
               <option value="Expense">Expense</option>
             </select>
           </div>
 
           <div>
-            <label className="block font-semibold">Category</label>
-            <input
-              type="text"
-              name="category"
-              value={formData.category}
-              onChange={handleChange}
-              className="w-full border px-2 py-1 rounded"
-              required
-            />
+            <label className="block font-semibold text-gray-700">Category</label>
+              <select
+            name="category"
+            value={formData.category}
+            onChange={handleChange}
+            required
+            className="w-full border px-2 py-1 rounded  mt-2  border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/30 outline-none transition-all"
+          >
+            <option value="">Select Category</option>
+            <option value="Salary">Salary</option>
+            <option value="Business">Business</option>
+            <option value="Food">Food</option>
+            <option value="Shopping">Shopping</option>
+            <option value="Transport">Transport</option>
+            <option value="Saving">Saving</option>
+          </select>
           </div>
 
           <div>
-            <label className="block font-semibold">Amount</label>
+            <label className="block font-semibold text-gray-700">Amount</label>
             <input
               type="number"
               name="amount"
               value={formData.amount}
               onChange={handleChange}
-              className="w-full border px-2 py-1 rounded"
+              className="w-full border px-2 py-1 rounded  mt-2  border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/30 outline-none transition-all"
               required
             />
           </div>
 
           <div>
-            <label className="block font-semibold">Description</label>
+            <label className="block font-semibold text-gray-700">Description</label>
             <textarea
               name="description"
               value={formData.description}
               onChange={handleChange}
-              className="w-full border px-2 py-1 rounded"
+              className="w-full border px-2 py-1 rounded  mt-2  border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/30 outline-none transition-all"
             />
           </div>
 
           <div>
-            <label className="block font-semibold">Date</label>
+            <label className="block font-semibold text-gray-700">Date</label>
             <input
               type="date"
               name="date"
               value={formData.date}
               onChange={handleChange}
-              className="w-full border px-2 py-1 rounded"
+              className="w-full border px-2 py-1 rounded  mt-2  border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/30 outline-none transition-all"
               required
             />
           </div>
 
           <button
             type="submit"
-            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+            className="bg-gradient-to-r from-[#632ee3] to-[#07cbc1] cursor-pointer opacity-85 hover:opacity-100  text-white text-sm font-medium px-6 py-2 rounded-lg transition-all duration-200 shadow-sm"
           >
             Update
           </button>
