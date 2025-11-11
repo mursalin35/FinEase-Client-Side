@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useLocation, useNavigate } from "react-router";
-import { AuthContext } from "../../context/AuthContext"
+import { AuthContext } from "../../context/AuthContext";
 import { toast, Toaster } from "react-hot-toast";
 
 const Login = () => {
@@ -47,43 +47,44 @@ const Login = () => {
       })
       .catch((error) => toast.error(error.message));
   };
-  // bg-[#FFF8F1]
+
   return (
-    <div className="flex justify-center items-center min-h-screen px-4 py-8 sm:px-6 md:px-0 ">
+    <div className="flex justify-center items-center min-h-screen bg-gradient-to-br from-[#F8F8FB] to-[#EDEBFF] px-4 py-8 sm:px-6">
       <title>LogIn</title>
-      <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-lg w-full sm:w-8/12 md:w-6/12 lg:w-4/12 border border-[#EAD9C9]">
-        <h2 className="text-2xl sm:text-3xl font-bold text-center text-[#603601] mb-6">
+      <div className="bg-white/90 backdrop-blur-lg p-6 sm:p-8 rounded-2xl shadow-xl w-full sm:w-8/12 md:w-6/12 lg:w-4/12 border border-[#DAD7FF]/60">
+        <h2 className="text-3xl font-bold bg-gradient-to-r from-[#632ee3] to-[#00b8b0] bg-clip-text text-transparent text-center mb-6">
           Login Page
         </h2>
 
-        <form onSubmit={handleLogin} className="space-y-4">
-          <label className="block text-[#5B3A1A] mb-1 font-medium text-sm sm:text-base">
-            Email
-          </label>
-          <input
-            type="email"
-            name="email"
-            placeholder="enter email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="w-full p-3 border border-[#EAD9C9] rounded-md focus:outline-none focus:ring-2 text-black placeholder-gray-600 focus:ring-[#C17A4E] text-sm sm:text-base"
-            // className="w-full p-3 border border-[#EAD9C9] rounded-md focus:outline-none focus:ring-2 text-black placeholder-gray-600 focus:ring-[#C17A4E] text-sm sm:text-base"
-            required
-          />
+        <form onSubmit={handleLogin} className="space-y-5">
+          <div>
+            <label className="block text-[#2E1F47] mb-1 font-semibold text-sm sm:text-base">
+              Email
+            </label>
+            <input
+              type="email"
+              name="email"
+              placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="w-full p-3 border border-[#D3D0FA] rounded-md focus:outline-none focus:ring-2 focus:ring-[#632EE3] text-[#1F1F2E] placeholder-gray-500 text-sm sm:text-base transition"
+              required
+            />
+          </div>
 
           <div className="relative">
-            <label className="block text-[#5B3A1A] mb-1 font-medium text-sm sm:text-base">
+            <label className="block text-[#2E1F47] mb-1 font-semibold text-sm sm:text-base">
               Password
             </label>
             <input
               type={showPassword ? "text" : "password"}
               name="password"
-              placeholder="enter password"
-              className="w-full p-3 border border-[#EAD9C9] rounded-md focus:outline-none focus:ring-2 text-black placeholder-gray-600 focus:ring-[#C17A4E] text-sm sm:text-base"
+              placeholder="Enter password"
+              className="w-full p-3 border border-[#D3D0FA] rounded-md focus:outline-none focus:ring-2 focus:ring-[#632EE3] text-[#1F1F2E] placeholder-gray-500 text-sm sm:text-base transition"
               required
             />
             <span
-              className="absolute right-3 top-9.5 sm:top-11 cursor-pointer text-gray-500 text-lg"
+              className="absolute right-3 top-[42px] cursor-pointer text-gray-500 text-lg hover:text-[#632EE3] transition"
               onClick={() => setShowPassword(!showPassword)}
             >
               {showPassword ? <FaEyeSlash /> : <FaEye />}
@@ -96,9 +97,9 @@ const Login = () => {
 
           <button
             type="submit"
-            className="cursor-pointer w-full bg-[#A0522D] text-white py-2 sm:py-3 rounded-md hover:bg-[#8B4513] transition duration-300 text-sm sm:text-base"
+            className="cursor-pointer w-full bg-gradient-to-r from-[#632EE3] to-[#4CB5AE] text-white py-3 rounded-md hover:opacity-90 shadow-lg transition duration-300 text-sm sm:text-base font-semibold tracking-wide"
           >
-            Login
+           Login
           </button>
         </form>
 
@@ -112,7 +113,7 @@ const Login = () => {
           </Link>
         </p>
 
-        <div className="flex items-center my-4">
+        <div className="flex items-center my-5">
           <div className="flex-grow h-px bg-gray-300"></div>
           <span className="mx-2 text-gray-500 text-sm">or</span>
           <div className="flex-grow h-px bg-gray-300"></div>
@@ -121,15 +122,15 @@ const Login = () => {
         <button
           type="button"
           onClick={handleGoogleSignIn}
-          className="w-full flex items-center justify-center gap-2 border border-gray-300 py-2 sm:py-3 rounded-md text-black hover:bg-gray-100 transition cursor-pointer text-sm sm:text-base"
+          className="w-full flex items-center justify-center gap-2 border border-[#D3D0FA] py-3 rounded-md text-[#2E1F47] hover:bg-[#F5F3FF] transition cursor-pointer text-sm sm:text-base font-medium"
         >
-          <FcGoogle className="text-xl sm:text-2xl " /> Sign in with Google
+          <FcGoogle className="text-xl sm:text-2xl" /> Sign in with Google
         </button>
 
-        <p className="text-center text-sm sm:text-base text-gray-600 mt-4">
-          Don't have an account?
+        <p className="text-center text-sm sm:text-base text-gray-600 mt-5">
+          Don’t have an account?
           <Link to="/auth/register">
-            <span className="text-[#A0522D] font-semibold cursor-pointer hover:underline ml-1">
+            <span className="text-[#632EE3] font-semibold cursor-pointer hover:underline ml-1">
               Register
             </span>
           </Link>

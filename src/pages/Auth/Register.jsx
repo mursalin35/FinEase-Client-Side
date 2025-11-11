@@ -1,10 +1,9 @@
-
 import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../../context/AuthContext";
-import { toast, Toaster } from "react-hot-toast"; 
+import { toast, Toaster } from "react-hot-toast";
 
 const Register = () => {
   const { createUser, setUser, updateUser, signInWithGoogle } =
@@ -46,20 +45,20 @@ const Register = () => {
     createUser(email, password)
       .then((result) => {
         const user = result.user;
-        toast.success("Account created successfully! 🎉"); 
+        toast.success("Account created successfully! 🎉");
         updateUser({ displayName: name, photoURL: photo })
           .then(() => {
             setUser({ ...user, displayName: name, photoURL: photo });
-            toast.success("Profile updated successfully!"); 
+            toast.success("Profile updated successfully!");
             navigate("/");
           })
           .catch(() => {
             setUser(user);
-            toast("Signed up, but profile not updated 🟡"); 
+            toast("Signed up, but profile not updated 🟡");
           });
       })
       .catch((error) => {
-        toast.error(error.message); 
+        toast.error(error.message);
       });
   };
 
@@ -67,19 +66,19 @@ const Register = () => {
     signInWithGoogle()
       .then((result) => {
         setUser(result.user);
-        toast.success("Signed in with Google!"); 
+        toast.success("Signed in with Google!");
         navigate("/");
       })
       .catch((error) => {
-        toast.error(error.message); 
+        toast.error(error.message);
       });
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-[#FFF8F1] px-4 sm:px-6 md:px-0">
+    <div className="flex justify-center items-center min-h-screen bg-gradient-to-br from-[#F8F8FB] to-[#EDEBFF] px-4 sm:px-6 md:px-0">
       <title>SignUp</title>
-      <div className="bg-white p-6 sm:p-8 md:p-10 rounded-2xl shadow-lg w-full sm:w-8/12 md:w-6/12 lg:w-4/12 border border-[#EAD9C9]">
-        <h2 className="text-2xl sm:text-3xl font-bold text-center text-[#603601] mb-6">
+      <div className="bg-white/90 backdrop-blur-lg p-6 sm:p-8 md:p-10 rounded-2xl shadow-lg w-full sm:w-8/12 md:w-6/12 lg:w-4/12 border border-[#DAD7FF]/60">
+        <h2 className="text-3xl font-bold bg-gradient-to-r from-[#632ee3] to-[#00b8b0] bg-clip-text text-transparent text-center mb-6">
           Create an Account
         </h2>
 
@@ -88,20 +87,20 @@ const Register = () => {
             type="text"
             name="name"
             placeholder="Full Name"
-            className="w-full p-2 border text-black placeholder-gray-600 border-[#EAD9C9] rounded-md focus:outline-none focus:ring-2 focus:ring-[#C17A4E]"
+            className="w-full p-2 border text-black placeholder-gray-600 border-[#D3D0FA] rounded-md focus:outline-none focus:ring-2 focus:ring-[#632EE3] "
             required
           />
           <input
             type="text"
             name="photo"
             placeholder="Photo URL"
-            className="w-full p-2 border text-black placeholder-gray-600 border-[#EAD9C9] rounded-md focus:outline-none focus:ring-2 focus:ring-[#C17A4E]"
+            className="w-full p-2 border text-black placeholder-gray-600 border-[#D3D0FA] rounded-md focus:outline-none focus:ring-2 focus:ring-[#632EE3] "
           />
           <input
             type="email"
             name="email"
             placeholder="Email"
-            className="w-full p-2 border text-black placeholder-gray-600 border-[#EAD9C9] rounded-md focus:outline-none focus:ring-2 focus:ring-[#C17A4E]"
+            className="w-full p-2 border text-black placeholder-gray-600 border-[#D3D0FA] rounded-md focus:outline-none focus:ring-2 focus:ring-[#632EE3] "
             required
           />
           <div className="relative">
@@ -109,7 +108,7 @@ const Register = () => {
               type={showPassword ? "text" : "password"}
               name="password"
               placeholder="Password"
-              className="w-full p-2 border text-black placeholder-gray-600 border-[#EAD9C9] rounded-md focus:outline-none focus:ring-2 focus:ring-[#C17A4E]"
+              className="w-full p-2 border text-black placeholder-gray-600 border-[#D3D0FA] rounded-md focus:outline-none focus:ring-2 focus:ring-[#632EE3] "
               required
             />
             <span
@@ -125,7 +124,7 @@ const Register = () => {
 
           <button
             type="submit"
-            className="w-full bg-[#A0522D] text-white py-2 rounded-md hover:bg-[#8B4513] transition duration-300 cursor-pointer font-medium"
+            className="w-full bg-gradient-to-r from-[#632EE3] to-[#4CB5AE] text-white py-2 rounded-md hover:bg-[#8B4513] transition duration-300 cursor-pointer font-medium"
           >
             Signup
           </button>
@@ -140,7 +139,7 @@ const Register = () => {
         <button
           type="button"
           onClick={handleGoogleSignIn}
-          className="w-full flex text-black items-center justify-center gap-2 border border-gray-300 py-2 rounded-md hover:bg-gray-100 transition cursor-pointer"
+          className="w-full flex  items-center justify-center gap-2 border border-gray-300 py-2 rounded-md text-[#2E1F47] hover:bg-[#F5F3FF] transition cursor-pointer"
         >
           <FcGoogle className="text-xl" /> Sign in with Google
         </button>
@@ -148,14 +147,13 @@ const Register = () => {
         <p className="text-center text-sm text-gray-600 mt-4">
           Already have an account?
           <Link to="/auth/login">
-            <span className="text-[#A0522D] font-semibold cursor-pointer hover:underline ml-1">
+            <span className="text-[#632EE3] font-semibold cursor-pointer hover:underline ml-1">
               Login
             </span>
           </Link>
         </p>
-      </div>
+      </div>  
       <Toaster position="top-center" reverseOrder={false} />{" "}
-    
     </div>
   );
 };
