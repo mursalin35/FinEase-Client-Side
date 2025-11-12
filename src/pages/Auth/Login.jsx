@@ -43,7 +43,8 @@ const Login = () => {
       .then((result) => {
         setUser(result.user);
         toast.success("Signed in with Google!");
-        navigate(location.state?.from || "/");
+        navigate(location.state ? location.state : "/");
+        // navigate(location.state?.from || "/");
       })
       .catch((error) => toast.error(error.message));
   };
@@ -99,7 +100,7 @@ const Login = () => {
             type="submit"
             className="cursor-pointer w-full bg-gradient-to-r from-[#632EE3] to-[#4CB5AE] text-white py-3 rounded-md hover:opacity-90 shadow-lg transition duration-300 text-sm sm:text-base font-semibold tracking-wide"
           >
-           Login
+            Login
           </button>
         </form>
 

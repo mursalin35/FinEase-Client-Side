@@ -3,10 +3,12 @@ import Navbar from "../components/Navbar";
 import { Outlet } from "react-router";
 import Footer from "../components/Footer";
 import { Toaster } from "react-hot-toast";
+import ScrollToTop from "../components/ScrollToTop";
 
 const Root = () => {
   return (
     <div className="bg-gradient-to-br from-[#F9FAFF] to-[#F4F6FB]">
+      <ScrollToTop/>
       <div>
         <Navbar />
         <div>

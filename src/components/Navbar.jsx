@@ -105,7 +105,7 @@ const NavBar = () => {
                 <img
                   src={
                     user.photoURL ||
-                    "https://img.icons8.com/?size=100&id=undefined&format=png&color=000000"
+                    "https://img.icons8.com/?size=100&id=0prbldgxVuTl&format=png&color=000000"
                   }
                   alt="User"
                   referrerPolicy="no-referrer"
@@ -114,7 +114,7 @@ const NavBar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-50 p-2 shadow bg-base-100 rounded-box"
+              className="menu menu-sm dropdown-content min-w-48 w-auto mt-3 z-50 p-2 shadow bg-base-100 rounded-box"
             >
               <div className="pb-3 border-b border-b-gray-200">
                 <li className="text-sm font-bold">{user.displayName}</li>
