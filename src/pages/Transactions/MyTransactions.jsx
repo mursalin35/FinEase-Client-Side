@@ -5,6 +5,7 @@ import MyTransactionCard from "../../components/MyTransactionCard";
 import Swal from "sweetalert2";
 import UpdateTransaction from "./UpdateTransaction";
 import { Link } from "react-router";
+import LoadingSpinner from "../../components/LoadingSpinner";
 
 const MyTransactions = () => {
   const { user } = useAuth();
@@ -54,11 +55,9 @@ const MyTransactions = () => {
 
   if (loading)
     return (
-      <div className="flex justify-center items-center h-screen">
-        <p className="text-lg font-semibold text-[#4CB5AE] animate-pulse">
-          Loading transactions...
-        </p>
-      </div>
+      <div className="min-h-screen flex items-center justify-center">
+      <LoadingSpinner size={96} message="Page Loading..." />
+     </div>
     );
 
   return (
