@@ -4,6 +4,7 @@ import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const AddTransaction = () => {
+  document.title = "Add Transaction";
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
 
@@ -72,7 +73,7 @@ const AddTransaction = () => {
         <div>
           <label className="font-semibold text-gray-700">Type</label>
           <select
-            name="type" 
+            name="type"
             value={formData.type}
             onChange={handleChange}
             className="w-full mt-2 border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/30 p-3 rounded-lg outline-none transition-all"

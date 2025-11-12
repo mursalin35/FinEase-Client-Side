@@ -5,6 +5,7 @@ import Overview from "../../components/Home/Overview";
 
 
 const Home = () => {
+  document.title="FinEase"
   return (
     <div className="space-y-16">
       <Banner />

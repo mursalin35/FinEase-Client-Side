@@ -6,6 +6,7 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { motion } from "framer-motion";
 
 const TransactionDetails = () => {
+  document.title="Transaction Details"
   const { id } = useParams();
   const { user } = useAuth();
   const axios = useAxiosSecure();

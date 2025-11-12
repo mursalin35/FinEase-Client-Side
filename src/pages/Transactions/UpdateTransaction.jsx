@@ -4,6 +4,7 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { useNavigate } from "react-router";
 
 const UpdateTransaction = ({ transaction, onClose, onUpdated }) => {
+  document.title="Update Transaction"
   const axios = useAxiosSecure();
   const navigate = useNavigate();
 

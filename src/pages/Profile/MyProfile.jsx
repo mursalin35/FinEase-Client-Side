@@ -4,6 +4,7 @@ import { AuthContext } from "../../context/AuthContext";
 import { motion } from "framer-motion";
 
 const MyProfile = () => {
+  document.title="My Profile"
   const { user, updateUser } = useContext(AuthContext);
   const [currentUser, setCurrentUser] = useState(user);
 

@@ -80,10 +80,10 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-3 text-teal-100">
               Contact Us
             </h3>
-            <p className="text-sm text-gray-100 mb-2 flex items-center gap-2">
+            <p className="text-sm text-gray-100 mb-2 flex justify-center md:justify-start items-center gap-2">
               <MdOutlineMailOutline /> support@finease.com
             </p>
-            <p className="text-sm text-gray-100 mb-3 flex items-center gap-2">
+            <p className="text-sm text-gray-100 mb-3 flex justify-center md:justify-start items-center gap-2">
               <MdPhoneCallback /> +880 1700-00000
             </p>
 

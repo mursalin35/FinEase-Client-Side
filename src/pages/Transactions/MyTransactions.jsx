@@ -8,6 +8,7 @@ import { Link } from "react-router";
 import LoadingSpinner from "../../components/LoadingSpinner";
 
 const MyTransactions = () => {
+  document.title="My Transaction"
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
   const [transactions, setTransactions] = useState([]);

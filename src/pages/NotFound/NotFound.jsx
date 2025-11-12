@@ -3,6 +3,7 @@ import React from "react";
 import { Link, useNavigate } from "react-router";
 
 export default function NotFound() {
+  document.title="NotFound"
   const navigate = useNavigate();
 
   // fallback gradient in case CSS variable is missing

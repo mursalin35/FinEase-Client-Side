@@ -6,6 +6,7 @@ import { AuthContext } from "../../context/AuthContext";
 import { toast, Toaster } from "react-hot-toast";
 
 const Register = () => {
+  document.title="Signup"
   const { createUser, setUser, updateUser, signInWithGoogle } =
     useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);

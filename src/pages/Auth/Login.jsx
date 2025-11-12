@@ -6,6 +6,7 @@ import { AuthContext } from "../../context/AuthContext";
 import { toast, Toaster } from "react-hot-toast";
 
 const Login = () => {
+  document.title="Login"
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [passwordError, setPasswordError] = useState("");
