@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import app from "../firebase/firebase.config";
 import {
@@ -13,8 +12,6 @@ import {
   sendPasswordResetEmail,
 } from "firebase/auth";
 import { AuthContext } from "./AuthContext";
-
-
 
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
@@ -78,7 +75,9 @@ const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={authData}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={authData}>
+      {!loading && children}
+    </AuthContext.Provider>
   );
 };
 

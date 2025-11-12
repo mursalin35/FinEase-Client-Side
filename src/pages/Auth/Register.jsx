@@ -45,12 +45,11 @@ const Register = () => {
     createUser(email, password)
       .then((result) => {
         const user = result.user;
-        toast.success("Account created successfully! 🎉");
+
         updateUser({ displayName: name, photoURL: photo })
           .then(() => {
             setUser({ ...user, displayName: name, photoURL: photo });
-            // toast.success("Profile updated successfully!");
-          
+            toast.success("Account created successfully! 🎉");
             navigate("/");
           })
           .catch(() => {
@@ -153,7 +152,7 @@ const Register = () => {
             </span>
           </Link>
         </p>
-      </div>  
+      </div>
       <Toaster position="top-center" reverseOrder={false} />{" "}
     </div>
   );
