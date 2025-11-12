@@ -34,9 +34,8 @@ const ForgetPassword = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#F8F8FB] px-4 py-6">
+    <div className="min-h-screen flex items-center justify-center  px-4 py-6">
       <title>Reset Password</title>
-
       <Toaster position="top-center" />
 
       {/* FORM CARD */}
@@ -44,8 +43,7 @@ const ForgetPassword = () => {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.45 }}
-        className="relative bg-white/90 backdrop-blur-xl w-full max-w-md p-8 rounded-2xl shadow-[0_8px_30px_rgba(99,46,227,0.15)] 
-        border border-[#E2E0F5] overflow-hidden"
+        className="relative bg-white/90 dark:bg-[#2C2C3A]/80 backdrop-blur-xl w-full max-w-md p-8 rounded-2xl shadow-[0_8px_30px_rgba(99,46,227,0.15)] border border-[#E2E0F5] dark:border-[#3D3A64] overflow-hidden"
       >
         {/* Glow Border */}
         <div className="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-r from-[#632EE3] to-[#4CB5AE] opacity-20 blur-xl"></div>
@@ -54,10 +52,10 @@ const ForgetPassword = () => {
         <FaLockOpen className="text-4xl text-[#632EE3] mx-auto mb-3" />
 
         {/* Title */}
-        <h2 className="text-2xl font-bold text-center text-[#1F1F2E]">
+        <h2 className="text-2xl font-bold text-center text-[#1F1F2E] dark:text-[#EDEBFF]">
           Forgot Password?
         </h2>
-        <p className="text-sm text-center text-[#6B6B82] mt-1 mb-6">
+        <p className="text-sm text-center text-[#6B6B82] dark:text-[#B0B3C6] mt-1 mb-6">
           Enter your email to reset your password.
         </p>
 
@@ -70,19 +68,19 @@ const ForgetPassword = () => {
         >
           {/* Email Field */}
           <div className="mb-5">
-            <label className="block text-sm font-semibold text-[#2E1F47] mb-2">
+            <label className="block text-sm font-semibold text-[#2E1F47] dark:text-[#EDEBFF] mb-2">
               Email Address
             </label>
 
-            <div className="flex items-center border border-[#E2E0F5] rounded-lg overflow-hidden 
-            bg-white/70 backdrop-blur focus-within:ring-2 focus-within:ring-[#632EE3]">
+            <div className="flex items-center border border-[#E2E0F5] dark:border-[#3D3A64] rounded-lg overflow-hidden 
+            bg-white/70 dark:bg-[#1F1F2E] backdrop-blur focus-within:ring-2 focus-within:ring-[#632EE3]">
               <FaEnvelope className="ml-3 text-[#632EE3]" />
               <input
                 id="email"
                 type="email"
                 value={email}
                 readOnly
-                className="w-full p-2.5 pl-3 bg-transparent outline-none text-[#1F1F2E]"
+                className="w-full p-2.5 pl-3 bg-transparent outline-none text-[#1F1F2E] dark:text-[#EDEBFF]"
               />
             </div>
           </div>
@@ -102,7 +100,7 @@ const ForgetPassword = () => {
             <button
               type="button"
               onClick={() => navigate(-1)}
-              className="text-sm font-medium text-[#6B6B82] hover:text-[#632EE3] transition cursor-pointer"
+              className="text-sm font-medium text-[#6B6B82] dark:text-[#B0B3C6] hover:text-[#632EE3] transition cursor-pointer"
             >
               ← Back to Login
             </button>

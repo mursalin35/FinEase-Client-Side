@@ -45,22 +45,21 @@ const Login = () => {
         setUser(result.user);
         toast.success("Signed in with Google!");
         navigate(location.state ? location.state : "/");
-        // navigate(location.state?.from || "/");
       })
       .catch((error) => toast.error(error.message));
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen px-4 py-8 sm:px-6">
+    <div className="flex justify-center items-center min-h-screen px-4 py-8 sm:px-6 ">
       <title>LogIn</title>
-      <div className="bg-white/90 backdrop-blur-lg p-6 sm:p-8 rounded-2xl shadow-xl w-full sm:w-8/12 md:w-6/12 lg:w-4/12 border border-[#DAD7FF]/60">
+      <div className="bg-white/90 dark:bg-[#2C2C3A]/80 backdrop-blur-lg p-6 sm:p-8 rounded-2xl shadow-xl w-full sm:w-8/12 md:w-6/12 lg:w-4/12 border border-[#DAD7FF]/60 dark:border-[#3D3A64]">
         <h2 className="text-3xl font-bold bg-gradient-to-r from-[#632ee3] to-[#00b8b0] bg-clip-text text-transparent text-center mb-6">
-          <span className="text-[#1F1F2E]">Login</span> Page
+          <span className="text-[#1F1F2E] dark:text-[#EDEBFF]">Login</span> Page
         </h2>
 
         <form onSubmit={handleLogin} className="space-y-5">
           <div>
-            <label className="block text-[#2E1F47] mb-1 font-semibold text-sm sm:text-base">
+            <label className="block text-[#2E1F47] dark:text-[#EDEBFF] mb-1 font-semibold text-sm sm:text-base">
               Email
             </label>
             <input
@@ -69,24 +68,24 @@ const Login = () => {
               placeholder="Enter your email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full p-3 border border-[#D3D0FA] rounded-md focus:outline-none focus:ring-2 focus:ring-[#632EE3] text-[#1F1F2E] placeholder-gray-500 text-sm sm:text-base transition"
+              className="w-full p-3 border border-[#D3D0FA] dark:border-[#3D3A64] rounded-md focus:outline-none focus:ring-2 focus:ring-[#632EE3] text-[#1F1F2E] dark:text-[#EDEBFF] dark:bg-[#1F1F2E] placeholder-gray-500 text-sm sm:text-base transition"
               required
             />
           </div>
 
           <div className="relative">
-            <label className="block text-[#2E1F47] mb-1 font-semibold text-sm sm:text-base">
+            <label className="block text-[#2E1F47] dark:text-[#EDEBFF] mb-1 font-semibold text-sm sm:text-base">
               Password
             </label>
             <input
               type={showPassword ? "text" : "password"}
               name="password"
               placeholder="Enter password"
-              className="w-full p-3 border border-[#D3D0FA] rounded-md focus:outline-none focus:ring-2 focus:ring-[#632EE3] text-[#1F1F2E] placeholder-gray-500 text-sm sm:text-base transition"
+              className="w-full p-3 border border-[#D3D0FA] dark:border-[#3D3A64] rounded-md focus:outline-none focus:ring-2 focus:ring-[#632EE3] text-[#1F1F2E] dark:text-[#EDEBFF] dark:bg-[#1F1F2E] placeholder-gray-500 text-sm sm:text-base transition"
               required
             />
             <span
-              className="absolute right-3 top-[42px] cursor-pointer text-gray-500 text-lg hover:text-[#632EE3] transition"
+              className="absolute right-3 top-[42px] cursor-pointer text-gray-500 dark:text-[#B0B3C6] text-lg hover:text-[#632EE3] transition"
               onClick={() => setShowPassword(!showPassword)}
             >
               {showPassword ? <FaEyeSlash /> : <FaEye />}
@@ -105,7 +104,7 @@ const Login = () => {
           </button>
         </form>
 
-        <p className="text-center text-sm sm:text-base text-gray-600 mt-3 hover:underline">
+        <p className="text-center text-sm sm:text-base text-gray-600 dark:text-[#B0B3C6] mt-3 hover:underline">
           <Link
             className="cursor-pointer"
             to="/auth/forget-password"
@@ -116,23 +115,23 @@ const Login = () => {
         </p>
 
         <div className="flex items-center my-5">
-          <div className="flex-grow h-px bg-gray-300"></div>
-          <span className="mx-2 text-gray-500 text-sm">or</span>
-          <div className="flex-grow h-px bg-gray-300"></div>
+          <div className="flex-grow h-px bg-gray-300 dark:bg-[#4A4A5A]"></div>
+          <span className="mx-2 text-gray-500 dark:text-[#B0B3C6] text-sm">or</span>
+          <div className="flex-grow h-px bg-gray-300 dark:bg-[#4A4A5A]"></div>
         </div>
 
         <button
           type="button"
           onClick={handleGoogleSignIn}
-          className="w-full flex items-center justify-center gap-2 border border-[#D3D0FA] py-3 rounded-md text-[#2E1F47] hover:bg-[#F5F3FF] transition cursor-pointer text-sm sm:text-base font-medium"
+          className="w-full flex items-center justify-center gap-2 border border-[#D3D0FA] dark:border-[#3D3A64] py-3 rounded-md text-[#2E1F47] dark:text-[#EDEBFF] hover:bg-[#F5F3FF] dark:hover:bg-[#3A3A4A] transition cursor-pointer text-sm sm:text-base font-medium"
         >
           <FcGoogle className="text-xl sm:text-2xl" /> Sign in with Google
         </button>
 
-        <p className="text-center text-sm sm:text-base text-gray-600 mt-5">
+        <p className="text-center text-sm sm:text-base text-gray-600 dark:text-[#B0B3C6] mt-5">
           Don’t have an account?
           <Link to="/auth/register">
-            <span className="text-[#632EE3] font-semibold cursor-pointer hover:underline ml-1">
+            <span className="text-[#632EE3] dark:text-[#00E0C6] font-semibold cursor-pointer hover:underline ml-1">
               Register
             </span>
           </Link>

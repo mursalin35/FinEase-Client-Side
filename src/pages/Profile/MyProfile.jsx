@@ -4,7 +4,7 @@ import { AuthContext } from "../../context/AuthContext";
 import { motion } from "framer-motion";
 
 const MyProfile = () => {
-  document.title="My Profile"
+  document.title = "My Profile";
   const { user, updateUser } = useContext(AuthContext);
   const [currentUser, setCurrentUser] = useState(user);
 
@@ -34,7 +34,7 @@ const MyProfile = () => {
   };
 
   return (
-    <div className="min-h-screen flex justify-center items-center p-4 bg-[#F8F8FB]">
+    <div className="min-h-screen flex justify-center items-center p-4 bg-[#F8F8FB] dark:bg-[#1F1F2E]">
       <title>My Profile</title>
       <Toaster position="top-center" reverseOrder={false} />
 
@@ -43,11 +43,10 @@ const MyProfile = () => {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="w-full max-w-4xl bg-white/85 backdrop-blur-xl border border-[#E2E0F5] shadow-[0_8px_32px_rgba(99,46,227,0.15)] rounded-2xl overflow-hidden grid md:grid-cols-2"
+        className="w-full max-w-4xl bg-white/85 dark:bg-[#2C2C3A]/80 backdrop-blur-xl border border-[#E2E0F5] dark:border-[#3D3A64] shadow-[0_8px_32px_rgba(99,46,227,0.15)] rounded-2xl overflow-hidden grid md:grid-cols-2"
       >
         {/* LEFT — Profile Display */}
-        <div className="bg-gradient-to-br from-[#632EE3]/10 to-[#4CB5AE]/10 p-10 flex flex-col justify-center items-center border-r border-[#E2E0F5]">
-          
+        <div className="bg-gradient-to-br from-[#632EE3]/10 to-[#4CB5AE]/10 dark:from-[#632EE3]/20 dark:to-[#4CB5AE]/20 p-10 flex flex-col justify-center items-center border-r border-[#E2E0F5] dark:border-[#3D3A64]">
           {/* Profile Image */}
           <div className="relative">
             <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#632EE3] to-[#4CB5AE] blur-xl opacity-30"></div>
@@ -57,33 +56,35 @@ const MyProfile = () => {
                 "https://icons8.com/icon/7819/user-male-circle"
               }
               alt="Profile"
-              className="relative w-36 h-36 rounded-full border-4 border-white shadow-lg object-cover"
+              className="relative w-36 h-36 rounded-full border-4 border-white dark:border-[#3D3A64] shadow-lg object-cover"
             />
           </div>
 
           {/* User Info */}
-          <h2 className="text-2xl font-bold text-[#1F1F2E] mt-4">
+          <h2 className="text-2xl font-bold text-[#1F1F2E] dark:text-[#EDEBFF] mt-4">
             {currentUser?.displayName || "Unnamed User"}
           </h2>
 
-          <p className="text-[#6B6B82] text-sm mt-1">
+          <p className="text-[#6B6B82] dark:text-[#B0B3C6] text-sm mt-1">
             {currentUser?.email || "No email found"}
           </p>
         </div>
 
         {/* RIGHT — Info + Update */}
         <div className="p-10 flex flex-col justify-center">
-          <h2 className="text-3xl font-bold text-[#1F1F2E]">Profile</h2>
+          <h2 className="text-3xl font-bold text-[#1F1F2E] dark:text-[#EDEBFF]">
+            Profile
+          </h2>
           <div className="h-1 w-24 mt-1 mb-6 rounded-full bg-gradient-to-r from-[#632EE3] to-[#4CB5AE]"></div>
 
-          <p className="text-[#6B6B82] mb-8">
+          <p className="text-[#6B6B82] dark:text-[#B0B3C6] mb-8">
             Manage your account and personal information.
           </p>
 
           <button
             onClick={() => setShowModal(true)}
             className="w-full py-3 rounded-xl text-white font-medium shadow-sm 
-            bg-gradient-to-r from-[#632EE3] to-[#4CB5AE] hover:opacity-95 transition duration-200 cursor-pointer"
+            bg-gradient-to-r from-[#632EE3] to-[#4CB5AE] hover:opacity-95 transition cursor-pointer"
           >
             ✏️ Update Profile
           </button>
@@ -92,44 +93,45 @@ const MyProfile = () => {
 
       {/* ================== MODAL =================== */}
       {showModal && (
-        <div className="fixed inset-0 bg-black/30 backdrop-blur-sm flex justify-center items-center z-50">
+        <div className="fixed inset-0 bg-black/30 dark:bg-black/50 backdrop-blur-sm flex justify-center items-center z-50">
           <motion.div
             initial={{ scale: 0.85, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.3 }}
-            className="bg-white rounded-2xl p-6 w-96 shadow-xl border border-[#E2E0F5] relative"
+            className="bg-white dark:bg-[#2C2C3A] rounded-2xl p-6 w-96 shadow-xl border border-[#E2E0F5] dark:border-[#3D3A64] relative"
           >
-            <h2 className="text-xl font-bold  bg-gradient-to-r from-[#632ee3] to-[#00b8b0] bg-clip-text text-transparent mb-4 text-center">
-              <span className="text-[#1F1F2E]">Update</span> Profile
+            <h2 className="text-xl font-bold bg-gradient-to-r from-[#632ee3] to-[#00b8b0] bg-clip-text text-transparent mb-4 text-center">
+              <span className="text-[#1F1F2E] dark:text-[#EDEBFF]">Update</span>{" "}
+              Profile
             </h2>
 
             <form onSubmit={handleProfileUpdate} className="space-y-4">
               {/* Name */}
               <div>
-                <label className="block text-sm font-semibold text-[#2E1F47] mb-1">
+                <label className="block text-sm font-semibold text-[#2E1F47] dark:text-[#EDEBFF] mb-1">
                   Name
                 </label>
                 <input
                   type="text"
                   value={editName}
                   onChange={(e) => setEditName(e.target.value)}
-                  className="w-full p-2.5 rounded-lg border border-[#E2E0F5] text-black 
-                  focus:ring-2 focus:ring-[#632EE3] outline-none"
+                  className="w-full p-2.5 rounded-lg border border-[#E2E0F5] dark:border-[#3D3A64] text-black dark:text-[#EDEBFF]
+                  dark:bg-[#1F1F2E] focus:ring-2 focus:ring-[#632EE3] outline-none"
                   placeholder="Enter your name"
                 />
               </div>
 
               {/* Photo URL */}
               <div>
-                <label className="block text-sm font-semibold text-[#2E1F47] mb-1">
+                <label className="block text-sm font-semibold text-[#2E1F47] dark:text-[#EDEBFF] mb-1">
                   Photo URL
                 </label>
                 <input
                   type="text"
                   value={editPhoto}
                   onChange={(e) => setEditPhoto(e.target.value)}
-                  className="w-full p-2.5 rounded-lg border border-[#E2E0F5] text-black 
-                  focus:ring-2 focus:ring-[#4CB5AE] outline-none"
+                  className="w-full p-2.5 rounded-lg border border-[#E2E0F5] dark:border-[#3D3A64] text-black dark:text-[#EDEBFF]
+                  dark:bg-[#1F1F2E] focus:ring-2 focus:ring-[#4CB5AE] outline-none"
                   placeholder="Enter photo URL"
                 />
               </div>
@@ -140,14 +142,14 @@ const MyProfile = () => {
                 className="w-full py-2.5 rounded-lg text-white font-medium bg-gradient-to-r 
                 from-[#632EE3] to-[#4CB5AE] hover:opacity-95 transition cursor-pointer"
               >
-              Save Changes
+                Save Changes
               </button>
             </form>
 
             {/* Close */}
             <button
               onClick={() => setShowModal(false)}
-              className="absolute top-3 right-4 text-gray-600 hover:text-red-500 text-xl"
+              className="absolute top-3 cursor-pointer right-4 text-gray-600 dark:text-[#B0B3C6] hover:text-red-500 text-xl"
             >
               ✕
             </button>
