@@ -51,7 +51,7 @@ const MyTransactionCard = ({ transaction, onUpdate, onDelete }) => {
         </button>
 {/* bg-gray-500 hover:bg-gray-600 */}
         <Link
-          to={`/transaction-details/${transaction._id}`}
+          to={`/my-transactions/${transaction._id}`}
           className="bg-gradient-to-r from-[#6B7280] to-[#9196a0] opacity-85 hover:opacity-100 cursor-pointer text-white text-sm font-medium px-4 py-2 rounded-lg transition-all duration-200 shadow-sm"
         >
           👁️ View

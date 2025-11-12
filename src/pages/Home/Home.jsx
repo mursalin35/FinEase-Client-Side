@@ -6,6 +6,7 @@ import Overview from "../../components/Home/Overview";
 
 const Home = () => {
   document.title="FinEase"
+    // alternet title <title>{`Services | ${serviceId}`}</title>
   return (
     <div className="space-y-16">
       <Banner />

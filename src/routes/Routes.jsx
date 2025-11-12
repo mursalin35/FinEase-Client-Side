@@ -14,7 +14,7 @@ import PrivateRoute from "./PrivateRoute";
 import AuthLayout from "../layout/AuthLayout";
 import { createBrowserRouter } from "react-router";
 
-export const router = createBrowserRouter([
+export const router = createBrowserRouter([ 
   {
     path: "/",
     element: <Root />,
@@ -54,7 +54,7 @@ export const router = createBrowserRouter([
       },
 
       {
-        path: "/transaction-details/:id",
+        path: "/my-transactions/:id",
         element: (
           <PrivateRoute>
             <TransactionDetails />

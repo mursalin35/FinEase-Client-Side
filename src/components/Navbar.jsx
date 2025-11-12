@@ -1,12 +1,23 @@
 import { GoHomeFill } from "react-icons/go";
 import { IoLogIn, IoLogOut } from "react-icons/io5";
 import { FaGear } from "react-icons/fa6";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { Link, NavLink } from "react-router";
 
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
+
+  // handleTheme
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+  useEffect(() => {
+    const html = document.querySelector("html");
+    html.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+  const handleTheme = (checked) => {
+    setTheme(checked ? "dark" : "light");
+  };
 
   // ----- Nav Links -----
   const navLinks = (
@@ -37,10 +48,7 @@ const NavBar = () => {
         </NavLink>
       </li>
       <li>
-        <NavLink
-          to="/reports"
-          onClick={() => document.activeElement.blur()}
-        >
+        <NavLink to="/reports" onClick={() => document.activeElement.blur()}>
           Reports
         </NavLink>
       </li>
@@ -59,22 +67,20 @@ const NavBar = () => {
           <GoHomeFill /> My Profile
         </NavLink>
       </li>
-      <li>
-        <NavLink
-          to=""
-          className="flex items-center gap-1"
-          onClick={() => document.activeElement.blur()} // dropdown auto close
-        >
-          <FaGear /> Settings
-        </NavLink>
-      </li>
+
+      {/* dark toggle  */}
+      <input
+        onClick={() => document.activeElement.blur()} // dropdown auto close
+        onChange={(e) => handleTheme(e.target.checked)}
+        type="checkbox"
+        defaultChecked={localStorage.getItem("theme") === "dark"}
+        className="toggle mt-3"
+      />
     </>
   );
 
   return (
-    <div
-      className="navbar backdrop-blur-lg border border-white/20 shadow-md px-4 md:px-8 h-18 mx-auto glass-card bg-base-200 sticky top-0 z-10"
-    >
+    <div className="navbar backdrop-blur-lg border border-white/20 shadow-md px-4 md:px-8 h-18 mx-auto glass-card bg-base-200 sticky top-0 z-10">
       {/* ---- Navbar Start ---- */}
       <div className="navbar-start">
         {/* Mobile Dropdown */}
