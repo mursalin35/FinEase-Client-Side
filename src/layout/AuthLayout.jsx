@@ -9,7 +9,7 @@ import ScrollToTop from "../components/ScrollToTop";
 const AuthLayout = () => {
   return (
   
-    <div className="bg-gradient-to-br from-[#F9FAFF] to-[#F4F6FB] dark:from-[#0D0D16] dark:to-[#1A1A2E] min-h-screen transition-colors duration-300">
+    <div className="bg-gradient-to-br from-[#F9FAFF] to-[#F4F6FB] dark:from-[#0D0D16] dark:to-[#1A1A2E] min-h-screen transition-colors">
       <ScrollToTop/>
       <header>
       <NavBar></NavBar>

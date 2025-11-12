@@ -1,171 +1,179 @@
-import React from "react";
-import {
-  FaFacebookF,
-  FaInstagram,
-  FaTwitter,
-  FaLinkedinIn,
-  FaPaw,
-} from "react-icons/fa";
+import { GoHomeFill } from "react-icons/go";
+import { IoLogIn, IoLogOut } from "react-icons/io5";
+import { FaGear } from "react-icons/fa6";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../context/AuthContext";
+import { Link, NavLink } from "react-router";
 
-const Footer = () => {
+const NavBar = () => {
+  const { user, logOut } = useContext(AuthContext);
+
+  // handleTheme
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+  useEffect(() => {
+    const html = document.querySelector("html");
+    html.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+  const handleTheme = (checked) => {
+    setTheme(checked ? "dark" : "light");
+  };
+
+  // ----- Nav Links -----
+  const navLinks = (
+    <>
+      <li>
+        <NavLink
+          to="/"
+          className="flex items-center gap-1"
+          onClick={() => document.activeElement.blur()} // dropdown auto close
+        >
+          <GoHomeFill /> Home
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/add-transaction"
+          onClick={() => document.activeElement.blur()}
+        >
+          Add Transaction
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/my-transactions"
+          onClick={() => document.activeElement.blur()}
+        >
+          My Transactions
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/reports" onClick={() => document.activeElement.blur()}>
+          Reports
+        </NavLink>
+      </li>
+    </>
+  );
+
+  // ----- Profile Dropdown Links -----
+  const profileLinks = (
+    <>
+      <li>
+        <NavLink
+          to="/myProfile"
+          className="flex items-center gap-1"
+          onClick={() => document.activeElement.blur()} // dropdown auto close
+        >
+          <GoHomeFill /> My Profile
+        </NavLink>
+      </li>
+
+      {/* dark toggle  */}
+      <input
+        onClick={() => document.activeElement.blur()} // dropdown auto close
+        onChange={(e) => handleTheme(e.target.checked)}
+        type="checkbox"
+        defaultChecked={localStorage.getItem("theme") === "dark"}
+        className="toggle mt-3"
+      />
+    </>
+  );
+
   return (
-    <footer className="bg-[#FFF8F1] dark:bg-[#1E1E2F] text-[#5A3A2E] dark:text-[#EDEBFF] mt-20 border-t border-[#EAD9C9] dark:border-[#3D3A64] transition-colors duration-300">
-      <div className="w-11/12 mx-auto py-12 grid grid-cols-1 md:grid-cols-4 gap-10">
-        {/* Brand Info */}
-        <div>
-          <div className="flex items-center gap-2 mb-4">
-            <FaPaw className="text-[#B87333] dark:text-[#FFB86C] text-2xl" />
-            <h2 className="text-2xl font-bold">WarmPaws</h2>
+    <div className="navbar backdrop-blur-lg border border-white/20 shadow-md px-4 md:px-8 h-18 mx-auto glass-card bg-base-200 sticky top-0 z-10">
+      {/* ---- Navbar Start ---- */}
+      <div className="navbar-start">
+        {/* Mobile Dropdown */}
+        <div className="dropdown">
+          <div tabIndex={0} role="button" className="btn btn-ghost md:hidden">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h8m-8 6h16"
+              />
+            </svg>
           </div>
-          <p className="text-sm text-[#7A5D4A] dark:text-[#B0B3C6] leading-relaxed">
-            A cozy winter companion platform designed to keep your pets warm,
-            comfortable, and cared for during chilly days.
-          </p>
-          <div className="flex gap-3 mt-5">
-            <a
-              href="https://www.facebook.com/mursalin07"
-              target="_blank"
-              className="bg-[#B87333]/20 dark:bg-[#FFB86C]/20 p-2 rounded-full hover:bg-[#B87333] dark:hover:bg-[#FFB86C] hover:text-white transition"
-            >
-              <FaFacebookF />
-            </a>
-            <a
-              href="https://www.instagram.com/msmursalin07/?hl=en"
-              target="_blank"
-              className="bg-[#B87333]/20 dark:bg-[#FFB86C]/20 p-2 rounded-full hover:bg-[#B87333] dark:hover:bg-[#FFB86C] hover:text-white transition"
-            >
-              <FaInstagram />
-            </a>
-            <a
-              href="#"
-              className="bg-[#B87333]/20 dark:bg-[#FFB86C]/20 p-2 rounded-full hover:bg-[#B87333] dark:hover:bg-[#FFB86C] hover:text-white transition"
-            >
-              <FaTwitter />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/mursalin07/"
-              target="_blank"
-              className="bg-[#B87333]/20 dark:bg-[#FFB86C]/20 p-2 rounded-full hover:bg-[#B87333] dark:hover:bg-[#FFB86C] hover:text-white transition"
-            >
-              <FaLinkedinIn />
-            </a>
-          </div>
-        </div>
-
-        {/* Quick Links */}
-        <div>
-          <h3 className="text-lg font-semibold mb-4 text-[#5A3A2E] dark:text-[#EDEBFF]">
-            Quick Links
-          </h3>
-          <ul className="space-y-2 text-sm">
-            <li>
-              <a
-                href="#"
-                className="hover:text-[#B87333] dark:hover:text-[#FFB86C] transition hover:underline"
-              >
-                Home
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="hover:text-[#B87333] dark:hover:text-[#FFB86C] transition hover:underline"
-              >
-                Services
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="hover:text-[#B87333] dark:hover:text-[#FFB86C] transition hover:underline"
-              >
-                My Profile
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="hover:text-[#B87333] dark:hover:text-[#FFB86C] transition hover:underline"
-              >
-                Pet Care Tips
-              </a>
-            </li>
+          <ul
+            tabIndex={0}
+            className="menu menu-sm dropdown-content mt-3 z-[9999] p-2 shadow bg-base-100 rounded-box w-52"
+          >
+            {navLinks}
           </ul>
         </div>
 
-        {/* Help & Support */}
-        <div>
-          <h3 className="text-lg font-semibold mb-4 text-[#5A3A2E] dark:text-[#EDEBFF]">
-            Support
-          </h3>
-          <ul className="space-y-2 text-sm">
-            <li>
-              <a
-                href="#"
-                className="hover:text-[#B87333] dark:hover:text-[#FFB86C] transition hover:underline"
-              >
-                FAQs
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="hover:text-[#B87333] dark:hover:text-[#FFB86C] transition hover:underline"
-              >
-                Privacy Policy
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="hover:text-[#B87333] dark:hover:text-[#FFB86C] transition hover:underline"
-              >
-                Terms & Conditions
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="hover:text-[#B87333] dark:hover:text-[#FFB86C] transition hover:underline"
-              >
-                Contact Us
-              </a>
-            </li>
-          </ul>
-        </div>
+        {/* Brand Logo */}
+        <Link to="/" className="flex items-center gap-2 text-xl font-bold">
+          <img
+            src="https://i.ibb.co.com/0yDRJgjJ/finans-logo.png"
+            alt="FinEase Logo"
+            className="h-10"
+          />
+        </Link>
+      </div>
 
-        {/* Newsletter */}
-        <div>
-          <h3 className="text-lg font-semibold mb-4 text-[#5A3A2E] dark:text-[#EDEBFF]">
-            Stay Connected
-          </h3>
-          <p className="text-sm text-[#7A5D4A] dark:text-[#B0B3C6] mb-3">
-            Get the latest winter care updates, tips, and pet health advice
-            straight to your inbox.
-          </p>
-          <form className="flex items-center">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="w-full px-3 py-2 rounded-l-lg border border-[#EAD9C9] dark:border-[#3D3A64] focus:outline-none bg-white dark:bg-[#1F1F2E] text-gray-800 dark:text-[#EDEBFF]"
-            />
-            <button
-              type="button"
-              className="bg-[#B87333] dark:bg-[#FFB86C] text-white px-4 py-2 rounded-r-lg outline-1 outline-[#B87333] dark:outline-[#FFB86C] hover:bg-[#9a5b29] dark:hover:bg-[#cc9c5a] transition cursor-pointer"
+      {/* ---- Navbar Center ---- */}
+      <div className="navbar-center hidden md:flex">
+        <ul className="menu menu-horizontal gap-8">{navLinks}</ul>
+      </div>
+
+      {/* ---- Navbar End ---- */}
+      <div className="navbar-end gap-3">
+        {user ? (
+          <div className="dropdown dropdown-end">
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn btn-ghost btn-circle avatar"
             >
-              Subscribe
-            </button>
-          </form>
-        </div>
+              <div className="w-9 border-2 border-gray-300 rounded-full overflow-hidden">
+                <img
+                  src={
+                    user.photoURL ||
+                    "https://img.icons8.com/?size=100&id=0prbldgxVuTl&format=png&color=000000"
+                  }
+                  alt="User"
+                  referrerPolicy="no-referrer"
+                />
+              </div>
+            </div>
+            <ul
+              tabIndex={0}
+              className="menu menu-sm dropdown-content min-w-48 w-auto mt-3 z-50 p-2 shadow bg-base-100 rounded-box"
+            >
+              <div className="pb-3 border-b border-b-gray-200">
+                <li className="text-sm font-bold">{user.displayName}</li>
+                <li className="text-xs">{user.email}</li>
+              </div>
+              {profileLinks}
+              <li>
+                <button
+                  onClick={logOut}
+                  className="btn btn-sm mt-3 text-white border-none bg-gradient-to-r from-[#632ee3] to-[#00b8b0] hover:opacity-90"
+                >
+                  <IoLogOut /> Logout
+                </button>
+              </li>
+            </ul>
+          </div>
+        ) : (
+          <Link
+            to="/auth/login"
+            className="btn btn-sm rounded-full text-white border-none bg-gradient-to-r from-[#632ee3] to-[#00b8b0] hover:opacity-90"
+          >
+            <IoLogIn /> Login
+          </Link>
+        )}
       </div>
-
-      {/* Bottom Bar */}
-      <div className="bg-[#FBEDE2] dark:bg-[#141422] text-center py-4 border-t border-[#EAD9C9] dark:border-[#3D3A64] text-sm text-[#7A5D4A] dark:text-[#B0B3C6] transition-colors duration-300">
-        © {new Date().getFullYear()} WarmPaws — All Rights Reserved | Designed
-        by <span className="font-semibold">M.S Mursalin</span>
-      </div>
-    </footer>
+    </div>
   );
 };
 
-export default Footer;
+export default NavBar;

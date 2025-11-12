@@ -63,20 +63,20 @@ const AddTransaction = () => {
   };
 
   return (
-    <section className="max-w-3xl mx-auto mt-16 mb-24 p-10 bg-gradient-to-br from-white to-indigo-50 border border-indigo-100 shadow-xl rounded-2xl">
+    <section className="max-w-3xl mx-auto mt-16 mb-24 p-10 bg-gradient-to-br from-white to-indigo-50 dark:from-[#1F1F2E] dark:to-[#2C2C3A] border border-indigo-100 dark:border-[#3D3A64] shadow-xl rounded-2xl transition-colors duration-300">
       <h2 className="text-3xl font-bold text-center bg-gradient-to-r from-[#632ee3] to-[#00b8b0] bg-clip-text text-transparent mb-8">
-        <span className="text-[#1F1F2E]">Add</span> Transaction
+        <span className="text-[#1F1F2E] dark:text-[#EDEBFF]">Add</span> Transaction
       </h2>
 
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Type */}
         <div>
-          <label className="font-semibold text-gray-700">Type</label>
+          <label className="font-semibold text-gray-700 dark:text-[#EDEBFF]">Type</label>
           <select
             name="type"
             value={formData.type}
             onChange={handleChange}
-            className="w-full mt-2 border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/30 p-3 rounded-lg outline-none transition-all"
+            className="w-full mt-2 border border-gray-300 dark:border-[#3D3A64] focus:border-primary focus:ring-2 focus:ring-primary/30 p-3 rounded-lg outline-none bg-white dark:bg-[#1F1F2E] text-gray-800 dark:text-[#EDEBFF] transition-all"
           >
             <option value="Income">Income</option>
             <option value="Expense">Expense</option>
@@ -85,13 +85,13 @@ const AddTransaction = () => {
 
         {/* Category */}
         <div>
-          <label className="font-semibold text-gray-700">Category</label>
+          <label className="font-semibold text-gray-700 dark:text-[#EDEBFF]">Category</label>
           <select
             name="category"
             value={formData.category}
             onChange={handleChange}
             required
-            className="w-full mt-2 border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/30 p-3 rounded-lg outline-none transition-all"
+            className="w-full mt-2 border border-gray-300 dark:border-[#3D3A64] focus:border-primary focus:ring-2 focus:ring-primary/30 p-3 rounded-lg outline-none bg-white dark:bg-[#1F1F2E] text-gray-800 dark:text-[#EDEBFF] transition-all"
           >
             <option value="">Select Category</option>
             <option value="Salary">Salary</option>
@@ -105,63 +105,63 @@ const AddTransaction = () => {
 
         {/* Amount */}
         <div>
-          <label className="font-semibold text-gray-700">Amount</label>
+          <label className="font-semibold text-gray-700 dark:text-[#EDEBFF]">Amount</label>
           <input
             type="number"
             name="amount"
             value={formData.amount}
             onChange={handleChange}
             required
-            className="w-full mt-2 border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/30 p-3 rounded-lg outline-none transition-all"
             placeholder="Enter amount"
+            className="w-full mt-2 border border-gray-300 dark:border-[#3D3A64] focus:border-primary focus:ring-2 focus:ring-primary/30 p-3 rounded-lg outline-none bg-white dark:bg-[#1F1F2E] text-gray-800 dark:text-[#EDEBFF] transition-all"
           />
         </div>
 
         {/* Description */}
         <div>
-          <label className="font-semibold text-gray-700">Description</label>
+          <label className="font-semibold text-gray-700 dark:text-[#EDEBFF]">Description</label>
           <textarea
             name="description"
             value={formData.description}
             onChange={handleChange}
-            className="w-full mt-2 border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/30 p-3 rounded-lg outline-none transition-all"
             rows="3"
             placeholder="Write a short note..."
+            className="w-full mt-2 border border-gray-300 dark:border-[#3D3A64] focus:border-primary focus:ring-2 focus:ring-primary/30 p-3 rounded-lg outline-none bg-white dark:bg-[#1F1F2E] text-gray-800 dark:text-[#EDEBFF] transition-all"
           ></textarea>
         </div>
 
         {/* Date */}
         <div>
-          <label className="font-semibold text-gray-700">Date</label>
+          <label className="font-semibold text-gray-700 dark:text-[#EDEBFF]">Date</label>
           <input
             type="date"
             name="date"
             value={formData.date}
             onChange={handleChange}
             required
-            className="w-full mt-2 border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/30 p-3 rounded-lg outline-none transition-all"
+            className="w-full mt-2 border border-gray-300 dark:border-[#3D3A64] focus:border-primary focus:ring-2 focus:ring-primary/30 p-3 rounded-lg outline-none bg-white dark:bg-[#1F1F2E] text-gray-800 dark:text-[#EDEBFF] transition-all"
           />
         </div>
 
         {/* User Info */}
         <div className="grid md:grid-cols-2 gap-6">
           <div>
-            <label className="font-semibold text-gray-700">User Email</label>
+            <label className="font-semibold text-gray-700 dark:text-[#EDEBFF]">User Email</label>
             <input
               type="text"
               value={user?.email}
               disabled
-              className="w-full mt-2 border border-gray-200 p-3 rounded-lg bg-gray-100 text-gray-500"
+              className="w-full mt-2 border border-gray-200 dark:border-[#3D3A64] p-3 rounded-lg bg-gray-100 dark:bg-[#2C2C3A] text-gray-500 dark:text-[#B0B3C6]"
             />
           </div>
 
           <div>
-            <label className="font-semibold text-gray-700">User Name</label>
+            <label className="font-semibold text-gray-700 dark:text-[#EDEBFF]">User Name</label>
             <input
               type="text"
               value={user?.displayName}
               disabled
-              className="w-full mt-2 border border-gray-200 p-3 rounded-lg bg-gray-100 text-gray-500"
+              className="w-full mt-2 border border-gray-200 dark:border-[#3D3A64] p-3 rounded-lg bg-gray-100 dark:bg-[#2C2C3A] text-gray-500 dark:text-[#B0B3C6]"
             />
           </div>
         </div>
@@ -169,7 +169,7 @@ const AddTransaction = () => {
         {/* Submit */}
         <button
           type="submit"
-          className="w-full mt-6 cursor-pointer bg-gradient-to-r from-[#632ee3] to-[#00b8b0] hover:opacity-90 text-white font-semibold p-3 rounded-lg transition-all duration-300 shadow-md"
+          className="w-full mt-6 cursor-pointer bg-gradient-to-r from-[#632ee3] to-[#00b8b0] dark:from-[#8C7BFF] dark:to-[#00D1B2] hover:opacity-90 text-white font-semibold p-3 rounded-lg transition-all duration-300 shadow-md"
         >
           Add Transaction
         </button>

@@ -8,7 +8,7 @@ import { Link } from "react-router";
 import LoadingSpinner from "../../components/LoadingSpinner";
 
 const MyTransactions = () => {
-  document.title="My Transaction"
+  document.title = "My Transaction";
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
   const [transactions, setTransactions] = useState([]);
@@ -56,15 +56,15 @@ const MyTransactions = () => {
 
   if (loading)
     return (
-      <div className="min-h-screen flex items-center justify-center">
-      <LoadingSpinner size={96} message="Page Loading..." />
-     </div>
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#F9FAFF] to-[#F4F6FB] dark:from-[#1F1F2E] dark:to-[#2C2C3A] transition-colors duration-300">
+        <LoadingSpinner size={96} message="Page Loading..." />
+      </div>
     );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#F9FAFF] to-[#F4F6FB] px-6 py-10">
+    <div className="min-h-screen px-6 py-10 ">
       <div className="max-w-6xl mx-auto">
-        <h1 className="text-4xl font-bold text-center text-[#1F1F2E] mb-10">
+        <h1 className="text-4xl font-bold text-center text-[#1F1F2E] dark:text-[#EDEBFF] mb-10">
           My{" "}
           <span className="bg-gradient-to-r from-[#632EE3] to-[#4CB5AE] bg-clip-text text-transparent">
             Transactions
@@ -78,10 +78,13 @@ const MyTransactions = () => {
               alt="No transactions"
               className="w-48 mx-auto opacity-80"
             />
-            <p className="text-gray-600 mb-12 text-lg">
+            <p className="text-gray-600 dark:text-gray-300 mb-12 text-lg">
               You have no transactions yet.
             </p>
-            <Link to="/add-transaction" className="bg-gradient-to-r from-[#632EE3] to-[#4CB5AE] text-white px-6 py-3 rounded-lg hover:opacity-90 transition font-semibold">
+            <Link
+              to="/add-transaction"
+              className="bg-gradient-to-r from-[#632EE3] to-[#4CB5AE] dark:from-[#8C7BFF] dark:to-[#00D1B2] text-white px-6 py-3 rounded-lg hover:opacity-90 transition font-semibold"
+            >
               ➕ Add Transaction
             </Link>
           </div>
@@ -91,8 +94,9 @@ const MyTransactions = () => {
               <MyTransactionCard
                 key={transaction._id}
                 transaction={transaction}
-                onUpdate={handleUpdate} 
+                onUpdate={handleUpdate}
                 onDelete={handleDelete}
+                darkMode
               />
             ))}
           </div>
@@ -103,6 +107,7 @@ const MyTransactions = () => {
             transaction={selectedTransaction}
             onClose={handleCloseModal}
             onUpdated={handleUpdated}
+            darkMode
           />
         )}
       </div>
