@@ -8,12 +8,12 @@ import { Link } from "react-router";
 import { MdOutlineMailOutline, MdPhoneCallback } from "react-icons/md";
 
 const Footer = () => {
-  // from-[#632ee3] via-[#7456f5] to-[#00b8b0]
   return (
     <footer className="relative mt-16 text-base-content overflow-hidden rounded-t-3xl shadow-lg">
       {/* ===== Gradient Background ===== */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#4126ba]  to-[#088781] opacity-90 blur-[1px]"></div>
-      <div className="absolute inset-0 bg-white/20 dark:bg-black/20 backdrop-blur-md"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-[#4126ba] to-[#088781] opacity-90 blur-[1px]"></div>
+      {/* 🩶 Light / Dark overlay balanced */}
+      <div className="absolute inset-0 bg-white/20 dark:bg-[#0e0e10]/60 backdrop-blur-md"></div>
 
       {/* ===== Content ===== */}
       <div className="relative glass-card py-10 px-6 md:px-12 text-center md:text-left text-white">
@@ -24,10 +24,10 @@ const Footer = () => {
               <img
                 src="https://i.ibb.co.com/0yDRJgjJ/finans-logo.png"
                 alt="FinEase Logo"
-                className="bg-white/90 rounded-xl h-10 "
+                className="bg-white/90 dark:bg-gray-100/80 rounded-xl h-10"
               />
             </div>
-            <p className="text-sm text-gray-100/90 leading-relaxed">
+            <p className="text-sm text-gray-100/90 dark:text-gray-200 leading-relaxed">
               FinEase helps you manage your income, expenses, and savings goals
               — making personal finance simple, smart, and stress-free.
             </p>
@@ -35,7 +35,7 @@ const Footer = () => {
 
           {/* ===== Quick Links ===== */}
           <div>
-            <h3 className="text-lg font-semibold mb-3 text-teal-100">
+            <h3 className="text-lg font-semibold mb-3 text-teal-100 dark:text-teal-300">
               Quick Links
             </h3>
             <ul className="space-y-2 opacity-90">
@@ -64,7 +64,9 @@ const Footer = () => {
 
           {/* ===== Policies ===== */}
           <div>
-            <h3 className="text-lg font-semibold mb-3 text-teal-100">Legal</h3>
+            <h3 className="text-lg font-semibold mb-3 text-teal-100 dark:text-teal-300">
+              Legal
+            </h3>
             <ul className="space-y-2 opacity-90">
               <li className="hover:underline cursor-pointer">
                 Terms & Conditions
@@ -73,17 +75,16 @@ const Footer = () => {
               <li className="hover:underline cursor-pointer">Support</li>
             </ul>
           </div>
-   
 
           {/* ===== Contact & Social ===== */}
           <div>
-            <h3 className="text-lg font-semibold mb-3 text-teal-100">
+            <h3 className="text-lg font-semibold mb-3 text-teal-100 dark:text-teal-300">
               Contact Us
             </h3>
-            <p className="text-sm text-gray-100 mb-2 flex justify-center md:justify-start items-center gap-2">
+            <p className="text-sm text-gray-100 dark:text-gray-200 mb-2 flex justify-center md:justify-start items-center gap-2">
               <MdOutlineMailOutline /> support@finease.com
             </p>
-            <p className="text-sm text-gray-100 mb-3 flex justify-center md:justify-start items-center gap-2">
+            <p className="text-sm text-gray-100 dark:text-gray-200 mb-3 flex justify-center md:justify-start items-center gap-2">
               <MdPhoneCallback /> +880 1700-00000
             </p>
 
@@ -107,7 +108,7 @@ const Footer = () => {
                   key={i}
                   href={item.href}
                   target="_blank"
-                  className="p-2 rounded-full bg-white/10 hover:bg-white/20 hover:scale-110 transition transform text-white"
+                  className="p-2 rounded-full bg-white/10 dark:bg-white/15 hover:bg-white/25 hover:scale-110 transition transform text-white"
                 >
                   {item.icon}
                 </a>
@@ -117,7 +118,7 @@ const Footer = () => {
         </div>
 
         {/* ===== Bottom Line ===== */}
-        <div className="border-t border-white/30 mt-10 pt-5 text-sm text-gray-100/80 text-center">
+        <div className="border-t border-white/30 dark:border-white/20 mt-10 pt-5 text-sm text-gray-100/80 dark:text-gray-300 text-center">
           © {new Date().getFullYear()}{" "}
           <span className="font-semibold">FinEase</span> — All rights reserved.
         </div>

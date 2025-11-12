@@ -31,7 +31,8 @@ const UpdateTransaction = ({ transaction, onClose, onUpdated }) => {
       onClose();            // close modal
 
       // ✅ Redirect to View Details Page
-      navigate(`/transaction-details/${transaction._id}`);
+      navigate(`/my-transactions/${transaction._id}`);
+      
 
     } catch (error) {
       Swal.fire("Error!", "Failed to update transaction.", "error");
