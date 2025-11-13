@@ -180,7 +180,7 @@ Then open [http://localhost:5173](http://localhost:5173)
 **Developed by:** [M.S Mursalin](https://www.facebook.com/mursalin07)  
 📧 Email: example@example.com  
 📍 Bangladesh  
-🌐 Portfolio: [your-portfolio-link.com](https://www.linkedin.com/in/mursalin07/)
+🌐 Portfolio: [LinkedIn Profile](https://www.linkedin.com/in/mursalin07/)
 
 ---
 
