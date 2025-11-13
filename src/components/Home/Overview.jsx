@@ -75,7 +75,7 @@ const Overview = () => {
       {cards.map((card) => (
         <div
           key={card.title}
-          className={`bg-base-200 dark:bg-[#1E1E2F] shadow-lg rounded-xl p-6 border border-gray-200 dark:border-[#3D3A64] hover:shadow-2xl transition duration-300 relative overflow-hidden`}
+          className={`bg-[#eef0f5] dark:bg-[#1E1E2F] shadow-lg rounded-xl p-6 border border-gray-200 dark:border-[#3D3A64] hover:shadow-2xl transition duration-300 relative overflow-hidden`}
         >
           <div className="absolute top-4 right-4">{card.icon}</div>
           <h3 className="text-lg font-semibold mb-2 text-[#1F1F2E] dark:text-[#EDEBFF]">
