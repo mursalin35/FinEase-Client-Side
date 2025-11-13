@@ -91,7 +91,7 @@ const MyProfile = () => {
         </div>
       </motion.div>
 
-      {/* ================== MODAL =================== */}
+      {/* MODAL */}
       {showModal && (
         <div className="fixed inset-0 bg-black/30 dark:bg-black/50 backdrop-blur-sm flex justify-center items-center z-50">
           <motion.div
