@@ -15,7 +15,7 @@ const MyTransactions = () => {
   const [loading, setLoading] = useState(true);
   const [selectedTransaction, setSelectedTransaction] = useState(null);
 
-  // 🌿 New filter & sort states
+  // filter & sort states
   const [filter, setFilter] = useState("All");
   const [sortAmount, setSortAmount] = useState("None");
 
@@ -58,7 +58,7 @@ const MyTransactions = () => {
     );
   };
 
-  // 🌿 Filter + Sort logic
+  // Filter + Sort logic
   const filteredTransactions =
     filter === "All"
       ? transactions
@@ -90,7 +90,7 @@ const MyTransactions = () => {
           </span>
         </h1>
 
-        {/* 🌿 Filter & Sort by Amount */}
+        {/* Filter & Sort by Amount */}
         <div className="flex flex-col sm:flex-row justify-between items-center mb-8 gap-4">
           <div className="flex items-center gap-2">
             <label className="font-medium text-[#1F1F2E] dark:text-[#EDEBFF]">
