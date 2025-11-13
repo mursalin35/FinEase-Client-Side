@@ -20,12 +20,3 @@ make sure it perfectly matches this FinEase theme in **color palette, font, and 
 
 
 
- <h1 className="text-4xl font-bold text-center text-[#1F1F2E] mb-10">
-          My
-          <span className="bg-gradient-to-r from-[#632EE3] to-[#4CB5AE] bg-clip-text text-transparent">
-            Transactions
-          </span>
-        </h1>
-
-bg-gradient-to-r from-[#632EE3] to-[#4CB5AE] bg-clip-text text-transparent
-text-[#1F1F2E]
