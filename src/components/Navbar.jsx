@@ -108,7 +108,7 @@ const NavBar = () => {
   );
 
   return (
-    <div className="navbar backdrop-blur-lg border border-white/20 shadow-md px-4 md:px-8 h-18 mx-auto glass-card bg-[#eef0f5] dark:bg-[#1a1c25] sticky top-0 z-10">
+    <div className="navbar backdrop-blur-lg border border-white/20 shadow-md px-4 md:px-8 h-18 mx-auto glass-card bg-[#E8FAF7] dark:bg-[#1a1c25] sticky top-0 z-10">
       {/* Navbar Start */}
       <div className="navbar-start">
         {/* Mobile Dropdown */}
