@@ -1,19 +1,45 @@
 import { GoHomeFill } from "react-icons/go";
 import { IoLogIn, IoLogOut } from "react-icons/io5";
+import { TbTransformFilled } from "react-icons/tb";
+import { MdTransferWithinAStation } from "react-icons/md";
+import { BiSolidReport } from "react-icons/bi";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { Link, NavLink } from "react-router";
+import { FaUser } from "react-icons/fa";
 
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
 
-  // handleTheme
-  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+  // LocalStorage / System Theme detect
+  const getInitialTheme = () => {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) return savedTheme;
+    const prefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
+    return prefersDark ? "dark" : "light";
+  };
+
+  // Initial state set
+  const [theme, setTheme] = useState(getInitialTheme);
   useEffect(() => {
     const html = document.querySelector("html");
     html.setAttribute("data-theme", theme);
     localStorage.setItem("theme", theme);
   }, [theme]);
+
+  // System Theme change auto update
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    const handleChange = (e) => {
+      setTheme(e.matches ? "dark" : "light");
+    };
+    mediaQuery.addEventListener("change", handleChange); // listen for system changes
+    return () => mediaQuery.removeEventListener("change", handleChange); // cleanup
+  }, []);
+
+  // Toggle handler (manual switch)
   const handleTheme = (checked) => {
     setTheme(checked ? "dark" : "light");
   };
@@ -35,46 +61,49 @@ const NavBar = () => {
           to="/add-transaction"
           onClick={() => document.activeElement.blur()}
         >
-          Add Transaction
+          <TbTransformFilled /> Add Transaction
         </NavLink>
       </li>
+
       <li>
         <NavLink
           to="/my-transactions"
           onClick={() => document.activeElement.blur()}
         >
-          My Transactions
+          <MdTransferWithinAStation /> My Transactions
         </NavLink>
       </li>
       <li>
         <NavLink to="/reports" onClick={() => document.activeElement.blur()}>
-          Reports
+          <BiSolidReport /> Reports
         </NavLink>
       </li>
     </>
   );
 
-  // Profile Dropdown Links
+  // Profile dropdown + toggle button
   const profileLinks = (
     <>
       <li>
         <NavLink
           to="/myProfile"
           className="flex items-center gap-1"
-          onClick={() => document.activeElement.blur()} // dropdown auto close
+          onClick={() => document.activeElement.blur()}
         >
-          <GoHomeFill /> My Profile
+          <FaUser /> My Profile
         </NavLink>
       </li>
 
-      {/* dark toggle  */}
-      <input
-        onClick={() => document.activeElement.blur()} 
-        onChange={(e) => handleTheme(e.target.checked)}
-        type="checkbox"
-        defaultChecked={localStorage.getItem("theme") === "dark"}
-        className="toggle mt-3"
-      />
+      {/* Theme toggle */}
+      <div className="flex items-center gap-2 mt-3 px-2">
+        <span className="text-sm">{theme === "dark" ? "🌙" : "☀️"}</span>
+        <input
+          type="checkbox"
+          className="toggle"
+          checked={theme === "dark"}
+          onChange={(e) => handleTheme(e.target.checked)}
+        />
+      </div>
     </>
   );
 
@@ -109,11 +138,11 @@ const NavBar = () => {
         </div>
 
         {/* Brand Logo */}
-        <Link to="/" className="flex items-center gap-2 text-xl font-bold">
+        <Link to="/" className="flex items-center gap-2 text-xl font-bold w-34">
           <img
             src="https://i.ibb.co.com/0yDRJgjJ/finans-logo.png"
             alt="FinEase Logo"
-            className="h-10"
+            className="h-10 "
           />
         </Link>
       </div>
