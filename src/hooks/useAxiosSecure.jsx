@@ -12,7 +12,7 @@ const useAxiosSecure = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // ✅ Request Interceptor (Just add firebase accessToken)
+    // Request Interceptor (firebase accessToken)
     const reqInterceptor = instance.interceptors.request.use((config) => {
       const token = user?.accessToken;
       if (token) {
@@ -21,7 +21,7 @@ const useAxiosSecure = () => {
       return config;
     });
 
-    // ✅ Response Interceptor
+    // Response Interceptor
     const resInterceptor = instance.interceptors.response.use(
       (res) => res,
       (error) => {
