@@ -1,123 +1,190 @@
-# FinEase - Personal Finance Management
+# 💸 FinEase – Personal Finance Management Web App
 
-![FinEase Logo](https://i.ibb.co/0yDRJgjJ/finans-logo.png)
+![FinEase Logo](https://i.ibb.co.com/0yDRJgjJ/finans-logo.png)
 
-## Project Overview
-FinEase is a modern, responsive web application designed to help users track, manage, and analyze their personal finances. Users can add income and expense transactions, view reports by type, category, and month, and monitor their overall financial health.
+**FinEase** is a modern, responsive web application designed to help users track, manage, and analyze their personal finances. Users can add income and expense transactions, view reports by type, category, and month, and monitor their overall financial health.
 
-The application features user authentication via Firebase, secure transaction management using MongoDB, and an elegant UI powered by React, Tailwind CSS, and DaisyUI.
-
----
-
-## Features
-
-- **User Authentication:** Email/password login and Google Sign-In.
-- **Secure Transactions:** CRUD operations on user-specific transactions.
-- **Reports:**
-  - Type-based report (Income vs Expense)
-  - Category-based report
-  - Monthly summary
-- **Overview Dashboard:** Shows total income, expenses, and balance.
-- **Responsive Design:** Works seamlessly on mobile, tablet, and desktop.
-- **Dark/Light Mode:** Follows system preferences and allows manual toggle.
-- **Forgot Password:** Reset password via email.
-- **Professional UI:** Smooth animations and glassmorphism effects.
+It allows users to record daily transactions, set financial goals, and analyze their budget with beautiful charts and reports.
 
 ---
 
-## Tech Stack
-
-- **Frontend:** React, Tailwind CSS, DaisyUI, Framer Motion
-- **Backend:** Node.js, Express.js
-- **Database:** MongoDB
-- **Authentication:** Firebase Auth
-- **Other Libraries:** react-hot-toast, react-icons
+## 🚀 Live Demo
+🔗 [FinEase Live Website](https://finease-db.web.app/)  
+🔗 [Server Repository](https://github.com/mursalin35/FinEase-Server-Side.git)
 
 ---
 
-## Setup Instructions
+## 🧠 Project Overview
 
-### 1. Clone the Repository
-```bash
-git clone <YOUR_REPO_URL>
-cd your-project-folder
+| Feature | Description |
+|----------|--------------|
+| 🔐 **Authentication** | Secure email/password & Google login using Firebase, includes forgot password functionality |
+| 💰 **Transaction Management** | Add, update, view & delete user-specific income/expense records with secure CRUD operations |
+| 📊 **Reports Dashboard** | Type-based, category-based, and monthly summaries with interactive charts |
+| 👤 **User Profile** | View and manage personal account details, dark/light mode preference |
+| 📁 **Data Storage** | MongoDB database with secure access via JWT |
+| 🌙 **UI Theme** | Elegant Fintech-style gradient theme with Tailwind CSS, DaisyUI, and smooth animations |
+| 🧾 **Responsive Design** | Works seamlessly on mobile, tablet, and desktop |
+
+---
+
+## 🧩 Tech Stack
+
+### Frontend
+- ⚛️ React (Vite)
+- 🧭 React Router DOM
+- 🪄 Tailwind CSS & DaisyUI
+- 📦 TanStack Query (React Query)
+- 🎨 Recharts (Data Visualization)
+- 🔥 Firebase Authentication
+- 🍞 React Hot Toast
+- 🎭 Framer Motion
+- ⚙️ Axios (with JWT-secure instance)
+
+### Backend
+- 🟢 Node.js + Express.js
+- 🍃 MongoDB (Mongoose)
+- 🔐 Firebase Admin for token verification
+- 🌐 Deployed on **Vercel**
+
+---
+
+## 📁 Folder Structure
+
+```
+FinEase-client-side/
+│
+├── src/
+│   ├── components/        # Reusable UI components
+│   ├── context/           # Auth provider (Firebase + custom logic)
+│   ├── hooks/             # Custom hooks (e.g. useAuth, useAxiosSecure)
+│   ├── layout/            # Root layout (Navbar, Footer, etc.)
+│   ├── pages/             # Page-level components
+│   │   ├── Home/          # Banner, features, hero section
+│   │   ├── Transactions/  # MyTransactions, UpdateTransaction
+│   │   ├── Reports/       # Financial summary charts
+│   │   ├── Profile/       # MyProfile page
+│   │   └── Auth/          # Login, Register, Forget Password
+│   ├── routes/            # React Router setup
+│   ├── assets/            # Images, logos, icons
+│   └── index.css
+│
+├── .env                   # Environment variables (Firebase, API keys)
+├── .gitignore
+├── package.json
+└── vite.config.js
 ```
 
-### 2. Install Dependencies
-#### Frontend
+---
+
+## 🎨 Theme Palette (FinEase Design System)
+
+| Purpose | Color |
+|----------|--------|
+| Primary Gradient | `from-[#632EE3] to-[#4CB5AE]` |
+| Accent Gradient | `from-[#E14D2A] to-[#EEA83E]` |
+| Background | `#F9FAFF` – `#F4F6FB` |
+| Text (Primary) | `#1F1F2E` |
+| Text (Secondary) | `#6B6B82` |
+| Border | `#E5E7EB` |
+
+> ✨ Theme inspired by modern fintech dashboards — clean, minimal, and trustworthy.
+
+---
+
+## 🔧 Environment Setup
+
+### 1️⃣ Clone the Repository
 ```bash
-cd client
+git clone https://github.com/mursalin35/FinEase-Client-Side.git
+cd FinEase-Client-Side
+```
+
+### 2️⃣ Install Dependencies
+```bash
 npm install
 ```
 
-#### Backend
-```bash
-cd server
-npm install
+### 3️⃣ Create `.env` File
+```env
+VITE_API_URL=https://your-finease-server.vercel.app
+VITE_FIREBASE_API_KEY=your_firebase_key
+VITE_FIREBASE_AUTH_DOMAIN=your_auth_domain
+VITE_FIREBASE_PROJECT_ID=your_project_id
 ```
 
-### 3. Environment Variables
-Create a `.env` file in the server folder with the following:
-```
-PORT=3000
-USER_DB=<Your MongoDB Username>
-PASS_DB=<Your MongoDB Password>
-FIREBASE_PROJECT_ID=<Your Firebase Project ID>
-FIREBASE_CLIENT_EMAIL=<Firebase Client Email>
-FIREBASE_PRIVATE_KEY=<Firebase Private Key>
-```
-
-### 4. Run the Project
-#### Backend
+### 4️⃣ Start Development Server
 ```bash
-cd server
 npm run dev
 ```
-#### Frontend
-```bash
-cd client
-npm start
-```
 
-Visit `http://localhost:3000` to access the frontend.
+Then open [http://localhost:5173](http://localhost:5173)
 
 ---
 
-## API Endpoints
+## 📈 Core Features Preview
+
+### 🏠 Home Page
+> Motivational banner, smooth gradient hero section, and feature overview.
+
+### 🔐 Login & Register
+> Email/password + Google login with toast notifications & validation, includes forgot password.
+
+### 💳 My Transactions
+> View, update, or delete transactions — modern gradient cards and responsive grid layout.
+
+### 📊 Reports Dashboard
+> Type-based, category-based, and monthly summary charts using **Recharts**.
+
+### 👤 Profile
+> Manage user info, email, preferences, and theme (dark/light) settings.
+
+### 🌐 Overview Dashboard
+> Displays total income, expenses, and balance.
+
+---
+
+## 🧱 Backend API Endpoints
 
 | Method | Endpoint | Description | Auth Required |
-|--------|---------|-------------|---------------|
-| POST   | /transactions | Add a transaction | ✅ |
-| GET    | /my-transactions?email= | Get all transactions of user | ✅ |
-| GET    | /reports/type?email=&month= | Report by type | ✅ |
-| GET    | /reports/category?email=&month= | Report by category | ✅ |
-| GET    | /reports/monthly?email= | Monthly report | ✅ |
-| GET    | /overview?email= | Total income, expense, balance | ✅ |
-| GET    | /transactions/category-total?email=&category= | Total by category | ✅ |
-| GET    | /transactions/:id | Get transaction details | ✅ |
-| PUT    | /transactions/:id | Update transaction | ✅ |
-| DELETE | /transactions/:id | Delete transaction | ✅ |
+|---------|-----------|-------------|---------------|
+| POST   | `/auth/register` | Register new user | ✅ |
+| POST   | `/auth/login` | User login | ✅ |
+| GET    | `/my-transactions?email=user@example.com` | Fetch user transactions | ✅ |
+| POST   | `/transactions` | Add new transaction | ✅ |
+| PATCH  | `/transactions/:id` | Update transaction | ✅ |
+| PUT    | `/transactions/:id` | Update transaction details | ✅ |
+| DELETE | `/transactions/:id` | Delete transaction | ✅ |
+| GET    | `/reports/type?email=&month=` | Report by type | ✅ |
+| GET    | `/reports/category?email=&month=` | Report by category | ✅ |
+| GET    | `/reports/monthly?email=` | Monthly summary report | ✅ |
+| GET    | `/overview?email=` | Total income, expense, balance | ✅ |
+| GET    | `/transactions/category-total?email=&category=` | Total by category | ✅ |
+| GET    | `/transactions/:id` | Get transaction details | ✅ |
 
 **Note:** All endpoints with ✅ require Firebase token in `Authorization: Bearer <token>` header.
 
 ---
 
-## Dark/Light Mode
-- Detects system preference automatically.
-- Users can toggle manually via Navbar.
-- State persists in `localStorage`.
+## 🛡️ Security
+
+- JWT-secured API requests via custom `useAxiosSecure()` hook  
+- Firebase authentication token validation  
+- Password-protected routes via React Router  
 
 ---
 
-## License
-MIT License
+
+## 👨‍💻 Author
+
+**Developed by:** [M.S Mursalin](https://www.facebook.com/mursalin07)  
+📧 Email: example@example.com  
+📍 Bangladesh  
+🌐 Portfolio: [your-portfolio-link.com](https://www.linkedin.com/in/mursalin07/)
 
 ---
 
-## Contact
-For any queries or support, reach out at [hello@finease.app](mailto:hello@finease.app)
 
----
-
-**FinEase** - Personal Finance Made Simple.
+> 💬 *"Take control of your money, and your future will thank you."*  
+> — **FinEase Team**
 
