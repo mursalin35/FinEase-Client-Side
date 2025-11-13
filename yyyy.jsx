@@ -1,99 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-
-@import "tailwindcss";
-@plugin "daisyui";
-
-* {
-    font-family: "Roboto", sans-serif;
-}
-
-
-
-/* .glass-card {
-  background: rgba(255, 255, 255, 0.14);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  overflow: hidden; 
-} */
-
-/* .navbar .active {
-  color: crimson;
-  font-weight: bold;
-  border: 1px solid #CAC8C8FF;
-  border-radius: 20px;
-  background: rgb(243, 226, 226);
-} */
-
-.navbar .active {
-  color: #632ee3; /* FinEase primary color */
-  font-weight: 600;
-  border: 1px solid rgba(99, 46, 227, 0.3);
-  border-radius: 9999px; /* full rounded */
-  background: rgba(99, 46, 227, 0.08); /* subtle background tint */
-  padding: 6px 12px;
-  transition: all 0.3s ease;
-}
-
-.navbar .active:hover {
-  background: linear-gradient(to right, #632ee3, #00b8b0);
-  color: white;
-  border-color: transparent;
-  box-shadow: 0 0 10px rgba(99, 46, 227, 0.3);
-}
-
-
-/* ----------------------------------------------------------------- */
-@plugin "daisyui/theme" {
-  /* ========== LIGHT THEME ========== */
-  name: "light";
-  default: true;
-
-  --color-primary: #632ee3;     /* Vibrant violet */
-  --color-secondary: #00b8b0;   /* Teal accent */
-  --color-accent: #6f4ef2;      /* Purple-blue blend */
-  --color-neutral: #1c1c28;
-
-  --color-base-100: #f9f9fc;
-  --color-base-200: #eef0f5;
-  --color-base-300: #d9dce3;
-
-  --color-info: #3abff8;
-  --color-success: #36d399;
-  --color-warning: #fbbd23;
-  --color-error: #f87272;
-
-  --gradient-primary: linear-gradient(135deg, #632ee3 0%, #00b8b0 100%);
-  --gradient-accent: linear-gradient(135deg, #6f4ef2 0%, #23e3d3 100%);
-
-  --glass-bg: rgba(255, 255, 255, 0.15);
-  --glass-border: rgba(255, 255, 255, 0.25);
-  --glass-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
-}
-
-@plugin "daisyui/theme" {
-  /* ========== DARK THEME ========== */
-  name: "dark";
-
-  --color-primary: #7a5efc;     /* Soft neon violet */
-  --color-secondary: #23e3d3;   /* Bright cyan */
-  --color-accent: #b388ff;      /* Light purple */
-  --color-neutral: #e5e7eb;
-
-  --color-base-100: #12141b;
-  --color-base-200: #1a1c25;
-  --color-base-300: #22232f;
-
-  --color-info: #58c7f3;
-  --color-success: #4ade80;
-  --color-warning: #facc15;
-  --color-error: #ef4444;
-
-  --gradient-primary: linear-gradient(135deg, #7a5efc 0%, #23e3d3 100%);
-  --gradient-accent: linear-gradient(135deg, #b388ff 0%, #5efcba 100%);
-
-  --glass-bg: rgba(255, 255, 255, 0.07);
-  --glass-border: rgba(255, 255, 255, 0.15);
-  --glass-shadow: 0 6px 32px rgba(0, 0, 0, 0.4);
-}
+ {/* -------- Monthly Summary -------- */}
+      <div className="mt-10 glass-card bg-white/70 dark:bg-[#2C2C3A]/80 border border-indigo-100 dark:border-[#3D3A64] p-6 rounded-2xl shadow-lg hover:shadow-xl max-w-4xl mx-auto">
+        <h2 className="text-lg font-semibold mb-4 text-[#632ee3] dark:text-[#8C7BFF]">
+          📅 Monthly Summary
+        </h2>
+        {monthlyLoading ? (
+          <p className="text-gray-500 dark:text-[#B0B3C6] text-sm">Loading chart...</p>
+        ) : (
+          <div className="flex justify-center">
+            <BarChart width={700} height={300} data={monthlyReport}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="_id" stroke="#6B6B82" />
+              <YAxis stroke="#6B6B82" />
+              <Tooltip
+                contentStyle={{  borderRadius: 8, color: "#2C2C3A" }}
+              />
+              <Bar dataKey="totalAmount" fill="#1cdcee" radius={[6, 6, 0, 0]} />
+            </BarChart>
+          </div>
+        )}
+      </div>

@@ -14,7 +14,7 @@ import {
 } from "recharts";
 
 export default function ReportsPage() {
-  document.title="Reports"
+  document.title = "Reports";
   const getCurrentMonth = () => {
     const now = new Date();
     const month = (now.getMonth() + 1).toString().padStart(2, "0");
@@ -26,7 +26,12 @@ export default function ReportsPage() {
   const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
 
-  if (!user) return <p className="p-6 text-center text-gray-600 dark:text-[#EDEBFF]">Loading user info...</p>;
+  if (!user)
+    return (
+      <p className="p-6 text-center text-gray-600 dark:text-[#EDEBFF]">
+        Loading user info...
+      </p>
+    );
 
   const fetchTypeReport = async () => {
     const res = await axiosSecure.get(
@@ -70,11 +75,14 @@ export default function ReportsPage() {
       {/* -------- Filter Section -------- */}
       <div className="flex flex-col md:flex-row md:items-center gap-4 mb-10 bg-white/70 dark:bg-[#2C2C3A]/80 backdrop-blur-md border border-indigo-100 dark:border-[#3D3A64] p-5 rounded-2xl shadow-sm">
         <h2 className="text-2xl font-bold bg-gradient-to-r from-[#632ee3] to-[#00b8b0] bg-clip-text text-transparent">
-          <span className="text-[#1F1F2E] dark:text-[#EDEBFF]">Financial</span> Reports
+          <span className="text-[#1F1F2E] dark:text-[#EDEBFF]">Financial</span>{" "}
+          Reports
         </h2>
 
         <div className="flex items-center gap-3 md:ml-auto">
-          <label className="font-semibold text-gray-700 dark:text-[#EDEBFF]">Filter by Month:</label>
+          <label className="font-semibold text-gray-700 dark:text-[#EDEBFF]">
+            Filter by Month:
+          </label>
           <input
             type="month"
             className="border border-gray-300 dark:border-[#3D3A64] dark:bg-[#1F1F2E] dark:text-[#EDEBFF] p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#632ee3]"
@@ -89,10 +97,14 @@ export default function ReportsPage() {
         {/* Income vs Expense */}
         <div className="glass-card bg-white/70 dark:bg-[#2C2C3A]/80 border border-indigo-100 dark:border-[#3D3A64] p-6 rounded-2xl shadow-lg hover:shadow-xl">
           <h2 className="text-lg font-semibold mb-4 text-[#632ee3] dark:text-[#8C7BFF]">
-            💰 Income <span className="text-[#1F1F2E] dark:text-[#EDEBFF]">vs</span> Expense
+            💰 Income{" "}
+            <span className="text-[#1F1F2E] dark:text-[#EDEBFF]">vs</span>{" "}
+            Expense
           </h2>
           {typeLoading ? (
-            <p className="text-gray-500 dark:text-[#B0B3C6] text-sm">Loading chart...</p>
+            <p className="text-gray-500 dark:text-[#B0B3C6] text-sm">
+              Loading chart...
+            </p>
           ) : (
             <div className="flex justify-center ">
               <PieChart width={350} height={280}>
@@ -104,9 +116,7 @@ export default function ReportsPage() {
                   fill="#4586d0"
                   label
                 />
-                <Tooltip
-                  contentStyle={{ backgroundColor: "#2C2C3A", borderRadius: 8, color: "#EDEBFF" }}
-                />
+                <Tooltip contentStyle={{ borderRadius: 8, color: "#2C2C3A" }} />
               </PieChart>
             </div>
           )}
@@ -118,7 +128,9 @@ export default function ReportsPage() {
             📊 Category Breakdown
           </h2>
           {categoryLoading ? (
-            <p className="text-gray-500 dark:text-[#B0B3C6] text-sm">Loading chart...</p>
+            <p className="text-gray-500 dark:text-[#B0B3C6] text-sm">
+              Loading chart...
+            </p>
           ) : (
             <div className="flex justify-center">
               <PieChart width={350} height={280}>
@@ -130,9 +142,7 @@ export default function ReportsPage() {
                   fill="#00b8b0"
                   label
                 />
-                <Tooltip
-                  contentStyle={{ backgroundColor: "#2C2C3A", borderRadius: 8, color: "#EDEBFF" }}
-                />
+                <Tooltip contentStyle={{ borderRadius: 8, color: "#2C2C3A" }} />
               </PieChart>
             </div>
           )}
@@ -145,17 +155,22 @@ export default function ReportsPage() {
           📅 Monthly Summary
         </h2>
         {monthlyLoading ? (
-          <p className="text-gray-500 dark:text-[#B0B3C6] text-sm">Loading chart...</p>
+          <p className="text-gray-500 dark:text-[#B0B3C6] text-sm">
+            Loading chart...
+          </p>
         ) : (
           <div className="flex justify-center">
-            <BarChart width={700} height={300} data={monthlyReport}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#3D3A64" />
+            <BarChart
+              width={700}
+              height={300}
+              data={monthlyReport}
+              margin={{ top: 20, right: 30, left: 60, bottom: 5 }}
+            >
+              <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="_id" stroke="#6B6B82" />
               <YAxis stroke="#6B6B82" />
-              <Tooltip
-                contentStyle={{ backgroundColor: "#2C2C3A", borderRadius: 8, color: "#EDEBFF" }}
-              />
-              <Bar dataKey="totalAmount" fill="#1cdcee" radius={[6, 6, 0, 0]} />
+              <Tooltip contentStyle={{ borderRadius: 8, color: "#2C2C3A" }} />
+              <Bar dataKey="totalAmount" fill="#12d0e6" radius={[6, 6, 0, 0]} />
             </BarChart>
           </div>
         )}
