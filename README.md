@@ -178,7 +178,7 @@ Then open [http://localhost:5173](http://localhost:5173)
 ## 👨‍💻 Author
 
 **Developed by:** [M.S Mursalin](https://www.facebook.com/mursalin07)  
-📧 Email: example@example.com  
+📧 Email: fineaseteam@gmail.com  
 📍 Bangladesh  
 🌐 Portfolio: [LinkedIn Profile](https://www.linkedin.com/in/mursalin07/)
 
