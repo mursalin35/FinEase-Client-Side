@@ -5,7 +5,7 @@ const Banner = () => {
   return (
     <section className="relative overflow-hidden bg-gradient-to-r from-[#632EE3]/10 to-[#4CB5AE]/10 dark:from-[#1a1a1d]/80 dark:to-[#0d2e2c]/80 py-20 md:py-28 transition-colors duration-500">
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 items-center gap-10">
-        {/* ===== Left Text Section ===== */}
+        {/* Left Text Section */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
@@ -39,7 +39,7 @@ const Banner = () => {
           </div>
         </motion.div>
 
-        {/* ===== Right Illustration ===== */}
+        {/* Right Illustration */}
         <motion.div
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}

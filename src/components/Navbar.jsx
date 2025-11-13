@@ -1,6 +1,5 @@
 import { GoHomeFill } from "react-icons/go";
 import { IoLogIn, IoLogOut } from "react-icons/io5";
-import { FaGear } from "react-icons/fa6";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { Link, NavLink } from "react-router";
@@ -19,7 +18,7 @@ const NavBar = () => {
     setTheme(checked ? "dark" : "light");
   };
 
-  // ----- Nav Links -----
+  // Nav Links
   const navLinks = (
     <>
       <li>
@@ -55,7 +54,7 @@ const NavBar = () => {
     </>
   );
 
-  // ----- Profile Dropdown Links -----
+  // Profile Dropdown Links
   const profileLinks = (
     <>
       <li>
@@ -70,7 +69,7 @@ const NavBar = () => {
 
       {/* dark toggle  */}
       <input
-        onClick={() => document.activeElement.blur()} // dropdown auto close
+        onClick={() => document.activeElement.blur()} 
         onChange={(e) => handleTheme(e.target.checked)}
         type="checkbox"
         defaultChecked={localStorage.getItem("theme") === "dark"}
@@ -81,7 +80,7 @@ const NavBar = () => {
 
   return (
     <div className="navbar backdrop-blur-lg border border-white/20 shadow-md px-4 md:px-8 h-18 mx-auto glass-card bg-base-200 sticky top-0 z-10">
-      {/* ---- Navbar Start ---- */}
+      {/* Navbar Start */}
       <div className="navbar-start">
         {/* Mobile Dropdown */}
         <div className="dropdown">
@@ -119,12 +118,12 @@ const NavBar = () => {
         </Link>
       </div>
 
-      {/* ---- Navbar Center ---- */}
+      {/* Navbar Center */}
       <div className="navbar-center hidden md:flex">
         <ul className="menu menu-horizontal gap-8">{navLinks}</ul>
       </div>
 
-      {/* ---- Navbar End ---- */}
+      {/* Navbar End */}
       <div className="navbar-end gap-3">
         {user ? (
           <div className="dropdown dropdown-end">

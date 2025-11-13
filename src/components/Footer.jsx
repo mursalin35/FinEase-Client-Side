@@ -10,15 +10,15 @@ import { MdOutlineMailOutline, MdPhoneCallback } from "react-icons/md";
 const Footer = () => {
   return (
     <footer className="relative mt-16 text-base-content overflow-hidden rounded-t-3xl shadow-lg">
-      {/* ===== Gradient Background ===== */}
+      {/* Gradient Background */}
       <div className="absolute inset-0 bg-gradient-to-r from-[#4126ba] to-[#088781] opacity-90 blur-[1px]"></div>
-      {/* 🩶 Light / Dark overlay balanced */}
+      {/* Dark overlay balanced */}
       <div className="absolute inset-0 bg-white/20 dark:bg-[#0e0e10]/60 backdrop-blur-md"></div>
 
-      {/* ===== Content ===== */}
+      {/* Content */}
       <div className="relative glass-card py-10 px-6 md:px-12 text-center md:text-left text-white">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
-          {/* ===== Brand Section ===== */}
+          {/* Brand Section */}
           <div>
             <div className="flex items-center justify-center md:justify-start gap-2 mb-3">
               <img
@@ -33,7 +33,7 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* ===== Quick Links ===== */}
+          {/* Quick Links */}
           <div>
             <h3 className="text-lg font-semibold mb-3 text-teal-100 dark:text-teal-300">
               Quick Links
@@ -62,7 +62,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* ===== Policies ===== */}
+          {/* Policies */}
           <div>
             <h3 className="text-lg font-semibold mb-3 text-teal-100 dark:text-teal-300">
               Legal
@@ -76,7 +76,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* ===== Contact & Social ===== */}
+          {/* Contact & Social */}
           <div>
             <h3 className="text-lg font-semibold mb-3 text-teal-100 dark:text-teal-300">
               Contact Us
@@ -117,7 +117,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* ===== Bottom Line ===== */}
+        {/* Bottom Line */}
         <div className="border-t border-white/30 dark:border-white/20 mt-10 pt-5 text-sm text-gray-100/80 dark:text-gray-300 text-center">
           © {new Date().getFullYear()}{" "}
           <span className="font-semibold">FinEase</span> — All rights reserved.
