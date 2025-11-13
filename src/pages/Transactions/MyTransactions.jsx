@@ -15,6 +15,10 @@ const MyTransactions = () => {
   const [loading, setLoading] = useState(true);
   const [selectedTransaction, setSelectedTransaction] = useState(null);
 
+  // 🌿 New filter & sort states
+  const [filter, setFilter] = useState("All");
+  const [sortAmount, setSortAmount] = useState("None");
+
   useEffect(() => {
     axiosSecure.get(`/my-transactions/?email=${user.email}`).then((res) => {
       setTransactions(res.data);
@@ -54,6 +58,21 @@ const MyTransactions = () => {
     );
   };
 
+  // 🌿 Filter + Sort logic
+  const filteredTransactions =
+    filter === "All"
+      ? transactions
+      : transactions.filter((t) => t.type === filter);
+
+  const sortedTransactions = [...filteredTransactions].sort((a, b) => {
+    if (sortAmount === "LowToHigh") {
+      return parseFloat(a.amount) - parseFloat(b.amount);
+    } else if (sortAmount === "HighToLow") {
+      return parseFloat(b.amount) - parseFloat(a.amount);
+    }
+    return 0;
+  });
+
   if (loading)
     return (
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#F9FAFF] to-[#F4F6FB] dark:from-[#1F1F2E] dark:to-[#2C2C3A] transition-colors duration-300">
@@ -70,6 +89,39 @@ const MyTransactions = () => {
             Transactions
           </span>
         </h1>
+
+        {/* 🌿 Filter & Sort by Amount */}
+        <div className="flex flex-col sm:flex-row justify-between items-center mb-8 gap-4">
+          <div className="flex items-center gap-2">
+            <label className="font-medium text-[#1F1F2E] dark:text-[#EDEBFF]">
+              Filter:
+            </label>
+            <select
+              value={filter}
+              onChange={(e) => setFilter(e.target.value)}
+              className="border border-[#4CB5AE] dark:border-[#8C7BFF] rounded-md px-3 py-1 focus:outline-none focus:ring-2 focus:ring-[#632EE3] bg-transparent text-[#1F1F2E] dark:text-[#EDEBFF]"
+            >
+              <option value="All">All</option>
+              <option value="Income">Income</option>
+              <option value="Expense">Expense</option>
+            </select>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <label className="font-medium text-[#1F1F2E] dark:text-[#EDEBFF]">
+              Sort by Amount:
+            </label>
+            <select
+              value={sortAmount}
+              onChange={(e) => setSortAmount(e.target.value)}
+              className="border border-[#4CB5AE] dark:border-[#8C7BFF] rounded-md px-3 py-1 focus:outline-none focus:ring-2 focus:ring-[#632EE3] bg-transparent text-[#1F1F2E] dark:text-[#EDEBFF]"
+            >
+              <option value="None">Default</option>
+              <option value="LowToHigh">Lowest First</option>
+              <option value="HighToLow">Highest First</option>
+            </select>
+          </div>
+        </div>
 
         {transactions.length === 0 ? (
           <div className="text-center mt-12">
@@ -89,8 +141,8 @@ const MyTransactions = () => {
             </Link>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {transactions.map((transaction) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-6">
+            {sortedTransactions.map((transaction) => (
               <MyTransactionCard
                 key={transaction._id}
                 transaction={transaction}
