@@ -67,7 +67,7 @@ const TransactionDetails = () => {
       className="relative max-w-3xl mx-auto mt-12 bg-white/90 dark:bg-[#11121C]/90 backdrop-blur-xl
       border border-[#E2E0F5] dark:border-[#2A2A40] rounded-2xl p-10 shadow-[0_10px_40px_rgba(99,46,227,0.12)] overflow-hidden transition-colors"
     >
-      {/* Gradient Glow Background */}
+      {/* Gradient Glow bg */}
       <div className="absolute inset-0 pointer-events-none -z-10">
         <div className="absolute -inset-1 bg-gradient-to-r from-[#4fdfcc] to-[#6dc5bd] opacity-20 blur-3xl rounded-3xl"></div>
       </div>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { useNavigate } from "react-router";
@@ -27,10 +27,10 @@ const UpdateTransaction = ({ transaction, onClose, onUpdated }) => {
 
       Swal.fire("Success!", "Transaction updated successfully.", "success");
 
-      onUpdated(formData); // notify parent
-      onClose(); // close modal
+      onUpdated(formData); 
+      onClose(); 
 
-      // ✅ Redirect to View Details Page
+      // Redirect to View Details Page
       navigate(`/my-transactions/${transaction._id}`);
     } catch (error) {
       Swal.fire("Error!", "Failed to update transaction.", "error");
