@@ -23,10 +23,10 @@ const Overview = () => {
     if (!user?.email) return;
 
     axiosSecure
-      .get(`/reports/overview?email=${user.email}`)
+      .get(`/overview?email=${user.email}`)
       .then((res) => setStats(res.data))
       .catch(() => {});
-  }, [user]);
+  }, [user, axiosSecure]);
 
   // 🌿 Animate numbers smoothly from 0 → target value
   useEffect(() => {
