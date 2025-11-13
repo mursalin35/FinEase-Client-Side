@@ -13,6 +13,12 @@ const Overview = () => {
     totalExpense: 0,
   });
 
+  const [animated, setAnimated] = useState({
+    totalBalance: 0,
+    totalIncome: 0,
+    totalExpense: 0,
+  });
+
   useEffect(() => {
     if (!user?.email) return;
 
@@ -22,7 +28,26 @@ const Overview = () => {
       .catch(() => {});
   }, [user]);
 
-  const { totalBalance, totalIncome, totalExpense } = stats;
+  // 🌿 Animate numbers smoothly from 0 → target value
+  useEffect(() => {
+    const duration = 1000; // 1 second
+    const startTime = performance.now();
+
+    const animate = (currentTime) => {
+      const progress = Math.min((currentTime - startTime) / duration, 1);
+      setAnimated({
+        totalBalance: stats.totalBalance * progress,
+        totalIncome: stats.totalIncome * progress,
+        totalExpense: stats.totalExpense * progress,
+      });
+
+      if (progress < 1) requestAnimationFrame(animate);
+    };
+
+    requestAnimationFrame(animate);
+  }, [stats]);
+
+  const { totalBalance, totalIncome, totalExpense } = animated;
 
   const cards = [
     {
@@ -59,9 +84,7 @@ const Overview = () => {
           <p className={`text-2xl font-bold text-${card.color}-600`}>
             ${card.value.toFixed(2)}
           </p>
-          <div className="mt-2 text-gray-500 dark:text-[#B0B3C6] text-sm">
-            {/* Optional: You can add percentage change or small chart here */}
-          </div>
+          <div className="mt-2 text-gray-500 dark:text-[#B0B3C6] text-sm"></div>
         </div>
       ))}
     </section>
