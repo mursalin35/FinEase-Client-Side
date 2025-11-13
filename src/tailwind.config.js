@@ -17,9 +17,9 @@ export default {
       {
         dark: {
           ...require("daisyui/src/theming/themes")["[data-theme=dark]"],
-          "base-100": "#1a1a1d",   // main background
-          "base-200": "#242428",   // card/nav background
-          "base-content": "#f5f5f5", // text color
+          "base-100": "#1a1a1d",   
+          "base-200": "#242428",   
+          "base-content": "#f5f5f5", 
           "neutral": "#2a2a2f",
           "primary": "#632ee3",
           "secondary": "#00b8b0",
