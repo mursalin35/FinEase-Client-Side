@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-
 @import "tailwindcss";
 
 /* theme toggle  */
@@ -9,36 +8,18 @@
 }
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
-
+/* font family  */
 * {
     font-family: "Roboto", sans-serif;
 }
 
 
-
-/* .glass-card {
-  background: rgba(255, 255, 255, 0.14);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  overflow: hidden; 
-} */
-
-/* .navbar .active {
-  color: crimson;
-  font-weight: bold;
-  border: 1px solid #CAC8C8FF;
-  border-radius: 20px;
-  background: rgb(243, 226, 226);
-} */
-
 .navbar .active {
-  color: #632ee3; /* FinEase primary color */
+  color: #632ee3; 
   font-weight: 600;
   border: 1px solid rgba(99, 46, 227, 0.3);
-  border-radius: 9999px; /* full rounded */
-  background: rgba(99, 46, 227, 0.08); /* subtle background tint */
+  border-radius: 9999px; 
+  background: rgba(99, 46, 227, 0.08); 
   padding: 6px 12px;
   transition: all 0.3s ease;
 }
@@ -51,15 +32,14 @@
 }
 
 
-/* ----------------------------------------------------------------- */
+  /* LIGHT THEME */
 @plugin "daisyui/theme" {
-  /* ========== LIGHT THEME ========== */
   name: "light";
   default: true;
 
-  --color-primary: #632ee3;     /* Vibrant violet */
-  --color-secondary: #00b8b0;   /* Teal accent */
-  --color-accent: #6f4ef2;      /* Purple-blue blend */
+  --color-primary: #632ee3;     
+  --color-secondary: #00b8b0;  
+  --color-accent: #6f4ef2;      
   --color-neutral: #1c1c28;
 
   --color-base-100: #f9f9fc;
@@ -79,13 +59,13 @@
   --glass-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
 }
 
+  /* DARK THEME */
 @plugin "daisyui/theme" {
-  /* ========== DARK THEME ========== */
   name: "dark";
 
-  --color-primary: #7a5efc;     /* Soft neon violet */
-  --color-secondary: #23e3d3;   /* Bright cyan */
-  --color-accent: #b388ff;      /* Light purple */
+  --color-primary: #7a5efc;     
+  --color-secondary: #23e3d3;  
+  --color-accent: #b388ff;      
   --color-neutral: #e5e7eb;
 
   --color-base-100: #12141b;
