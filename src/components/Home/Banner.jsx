@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 import { motion } from "framer-motion";
+import banner from "../../assets/banner.png"
 
 const Banner = () => {
   return (
@@ -47,7 +48,7 @@ const Banner = () => {
           className="relative"
         >
           <img
-            src="https://i.ibb.co.com/hxDk5MFS/finans-5.png"
+            src={banner}
             alt="Finance Illustration"
             className="w-full rounded-2xl max-w-md mx-auto drop-shadow-lg dark:drop-shadow-[0_0_25px_rgba(99,46,227,0.25)]"
           />

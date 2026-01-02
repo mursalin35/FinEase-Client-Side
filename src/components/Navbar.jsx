@@ -9,6 +9,7 @@ import { Link, NavLink } from "react-router";
 import { FaUser } from "react-icons/fa";
 import useTheme from "../hooks/useTheme";
 import useAuth from "../hooks/useAuth";
+import logo from "../assets/logo.png"
 
 const NavBar = () => {
   const { user, logOut } = useAuth();
@@ -99,7 +100,7 @@ const NavBar = () => {
         {/* Brand Logo */}
         <Link to="/" className="flex items-center gap-2 text-xl font-bold w-34">
           <img
-            src="https://i.ibb.co.com/0yDRJgjJ/finans-logo.png"
+            src={logo}
             alt="FinEase Logo"
             className="h-10 "
           />
