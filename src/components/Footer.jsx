@@ -6,6 +6,7 @@ import {
 } from "react-icons/fa";
 import { Link } from "react-router";
 import { MdOutlineMailOutline, MdPhoneCallback } from "react-icons/md";
+import logo from "../assets/logo.png";
 
 const Footer = () => {
   return (
@@ -22,12 +23,12 @@ const Footer = () => {
           <div>
             <div className="flex items-center justify-center md:justify-start gap-2 mb-3">
               <img
-                src="https://i.ibb.co.com/0yDRJgjJ/finans-logo.png"
+                src={logo}
                 alt="FinEase Logo"
-                className="bg-white/90 dark:bg-gray-100/80 rounded-xl h-10"
+                className="bg-white dark:bg-gray-100/95 rounded-xl h-10"
               />
             </div>
-            <p className="text-sm text-gray-100/90 dark:text-gray-200 leading-relaxed">
+            <p className="text-sm leading-loose">
               FinEase helps you manage your income, expenses, and savings goals
               — making personal finance simple, smart, and stress-free.
             </p>
@@ -38,7 +39,7 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-3 text-teal-100 dark:text-teal-300">
               Quick Links
             </h3>
-            <ul className="space-y-2 opacity-90">
+            <ul className="space-y-2 opacity-90 text-sm sm:mt-7">
               <li>
                 <Link to="/" className="hover:underline">
                   Home
@@ -67,12 +68,10 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-3 text-teal-100 dark:text-teal-300">
               Legal
             </h3>
-            <ul className="space-y-2 opacity-90">
-              <li className="hover:underline cursor-pointer">
-                Terms & Conditions
-              </li>
-              <li className="hover:underline cursor-pointer">Privacy Policy</li>
-              <li className="hover:underline cursor-pointer">Support</li>
+            <ul className="space-y-2 opacity-90 text-sm sm:mt-7">
+              <li>Terms & Conditions</li>
+              <li>Privacy Policy</li>
+              <li>Support</li>
             </ul>
           </div>
 
@@ -81,28 +80,28 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-3 text-teal-100 dark:text-teal-300">
               Contact Us
             </h3>
-            <p className="text-sm text-gray-100 dark:text-gray-200 mb-2 flex justify-center md:justify-start items-center gap-2">
-              <MdOutlineMailOutline /> support@finease.com
+            <p className="text-sm text-gray-100 dark:text-gray-200 mb-2 flex justify-center md:justify-start items-center gap-2 sm:mt-6">
+              <MdOutlineMailOutline /> msmursalin35@gmail.com
             </p>
             <p className="text-sm text-gray-100 dark:text-gray-200 mb-3 flex justify-center md:justify-start items-center gap-2">
-              <MdPhoneCallback /> +880 1700-00000
+              <MdPhoneCallback /> +88 01860-231090
             </p>
 
             <div className="flex justify-center md:justify-start gap-3 mt-2">
               {[
+                { icon: <FaGithub />, href: "https://github.com/mursalin35" },
+                {
+                  icon: <FaLinkedinIn />,
+                  href: "https://www.linkedin.com/in/mursalin07/",
+                },
                 {
                   icon: <FaFacebookF />,
-                  href: "https://www.facebook.com/mursalin07",
+                  href: "https://www.facebook.com/saiyedulmursalin2",
                 },
                 {
                   icon: <FaInstagram />,
                   href: "https://www.instagram.com/msmursalin07/?hl=en",
                 },
-                {
-                  icon: <FaLinkedinIn />,
-                  href: "https://www.linkedin.com/in/mursalin07/",
-                },
-                { icon: <FaGithub />, href: "https://github.com/mursalin35" },
               ].map((item, i) => (
                 <a
                   key={i}
@@ -120,7 +119,7 @@ const Footer = () => {
         {/* Bottom Line */}
         <div className="border-t border-white/30 dark:border-white/20 mt-10 pt-5 text-sm text-gray-100/80 dark:text-gray-300 text-center">
           © {new Date().getFullYear()}{" "}
-          <span className="font-semibold">FinEase</span> — All rights reserved.
+          <span className="font-semibold">FinEase</span> — All rights reserved by M.S Mursalin
         </div>
       </div>
     </footer>
