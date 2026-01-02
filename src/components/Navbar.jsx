@@ -1,48 +1,18 @@
 import { GoHomeFill } from "react-icons/go";
 import { IoLogIn, IoLogOut } from "react-icons/io5";
 import { TbTransformFilled } from "react-icons/tb";
-import { MdTransferWithinAStation } from "react-icons/md";
+import {
+  MdTransferWithinAStation,
+} from "react-icons/md";
 import { BiSolidReport } from "react-icons/bi";
-import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../context/AuthContext";
 import { Link, NavLink } from "react-router";
 import { FaUser } from "react-icons/fa";
+import useTheme from "../hooks/useTheme";
+import useAuth from "../hooks/useAuth";
 
 const NavBar = () => {
-  const { user, logOut } = useContext(AuthContext);
-
-  // LocalStorage / System Theme detect
-  const getInitialTheme = () => {
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme) return savedTheme;
-    const prefersDark = window.matchMedia(
-      "(prefers-color-scheme: dark)"
-    ).matches;
-    return prefersDark ? "dark" : "light";
-  };
-
-  // Initial state set
-  const [theme, setTheme] = useState(getInitialTheme);
-  useEffect(() => {
-    const html = document.querySelector("html");
-    html.setAttribute("data-theme", theme);
-    localStorage.setItem("theme", theme);
-  }, [theme]);
-
-  // System Theme change auto update
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    const handleChange = (e) => {
-      setTheme(e.matches ? "dark" : "light");
-    };
-    mediaQuery.addEventListener("change", handleChange); // listen for system changes
-    return () => mediaQuery.removeEventListener("change", handleChange); // cleanup
-  }, []);
-
-  // Toggle handler (manual switch)
-  const handleTheme = (checked) => {
-    setTheme(checked ? "dark" : "light");
-  };
+  const { user, logOut } = useAuth();
+  const { theme, toggleTheme } = useTheme();
 
   // Nav Links
   const navLinks = (
@@ -81,7 +51,7 @@ const NavBar = () => {
     </>
   );
 
-  // Profile dropdown + toggle button
+  // Profile dropdown 
   const profileLinks = (
     <>
       <li>
@@ -93,17 +63,6 @@ const NavBar = () => {
           <FaUser /> My Profile
         </NavLink>
       </li>
-
-      {/* Theme toggle */}
-      <div className="flex items-center gap-2 mt-3 px-2">
-        <span className="text-sm">{theme === "dark" ? "🌙" : "☀️"}</span>
-        <input
-          type="checkbox"
-          className="toggle"
-          checked={theme === "dark"}
-          onChange={(e) => handleTheme(e.target.checked)}
-        />
-      </div>
     </>
   );
 
@@ -131,7 +90,7 @@ const NavBar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[9999] p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-sm dropdown-content mt-3 z-50 p-2 shadow bg-base-100 rounded-box w-52"
           >
             {navLinks}
           </ul>
@@ -153,52 +112,67 @@ const NavBar = () => {
       </div>
 
       {/* Navbar End */}
-      <div className="navbar-end gap-3">
-        {user ? (
-          <div className="dropdown dropdown-end">
-            <div
-              tabIndex={0}
-              role="button"
-              className="btn btn-ghost btn-circle avatar"
-            >
-              <div className="w-9 border-2 border-gray-300 rounded-full overflow-hidden">
-                <img
-                  src={
-                    user.photoURL ||
-                    "https://img.icons8.com/?size=100&id=0prbldgxVuTl&format=png&color=000000"
-                  }
-                  alt="User"
-                  referrerPolicy="no-referrer"
-                />
+      <div className="navbar-end gap-3 ">
+
+        {/* Theme toggle  */}
+        <div className="flex items-center gap-2 px-2">
+          {theme === "dark" ? "🌙" : "☀️"}
+          <input
+            type="checkbox"
+            className="toggle"
+            checked={theme === "dark"}
+            onChange={toggleTheme}
+          />
+        </div>
+
+        {/* Profile Avetor */}
+        <div>
+          {user ? (
+            <div className="dropdown dropdown-end">
+              <div
+                tabIndex={0}
+                role="button"
+                className="btn btn-ghost btn-circle avatar"
+              >
+                <div className="w-9 border-2 border-gray-300 rounded-full overflow-hidden">
+                  <img
+                    src={
+                      user.photoURL ||
+                      "https://img.icons8.com/?size=100&id=0prbldgxVuTl&format=png&color=000000"
+                    }
+                    alt="User"
+                    referrerPolicy="no-referrer"
+                  />
+                </div>
               </div>
+              <ul
+                tabIndex={0}
+                className="menu menu-sm dropdown-content min-w-48 w-auto mt-3 z-50 p-2 shadow bg-base-100 rounded-box"
+              >
+                <div className="pb-3 border-b border-b-gray-200">
+                  <li className="text-sm font-bold">{user.displayName}</li>
+                  <li className="text-xs">{user.email}</li>
+                </div>
+                {profileLinks}
+                <li>
+                  <button
+                    onClick={logOut}
+                    className="btn btn-sm mt-3 text-white border-none bg-gradient-to-r from-[#632ee3] to-[#00b8b0] hover:opacity-90"
+                  >
+                    <IoLogOut /> Logout
+                  </button>
+                </li>
+              </ul>
             </div>
-            <ul
-              tabIndex={0}
-              className="menu menu-sm dropdown-content min-w-48 w-auto mt-3 z-50 p-2 shadow bg-base-100 rounded-box"
+          ) : (
+            <Link
+              to="/auth/login"
+              className="btn  btn-sm rounded-full text-white border-none bg-gradient-to-r from-[#632ee3] to-[#00b8b0] hover:opacity-90"
             >
-              <div className="pb-3 border-b border-b-gray-200">
-                <li className="text-sm font-bold">{user.displayName}</li>
-                <li className="text-xs">{user.email}</li>
-              </div>
-              {profileLinks}
-              <li>
-                <button
-                  onClick={logOut}
-                  className="btn btn-sm mt-3 text-white border-none bg-gradient-to-r from-[#632ee3] to-[#00b8b0] hover:opacity-90"
-                >
-                  <IoLogOut /> Logout
-                </button>
-              </li>
-            </ul>
-          </div>
-        ) : (
-          <Link
-            to="/auth/login"
-            className="btn text-[#555565] btn-sm rounded-full text-white border-none bg-gradient-to-r from-[#632ee3] to-[#00b8b0] hover:opacity-90"
-          >
-            <IoLogIn /> Login
-          </Link>
-        )}
+              <IoLogIn /> Login
+            </Link>
+          )}
+        </div>
       </div>
     </div>
   );
