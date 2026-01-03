@@ -12,9 +12,10 @@ const Home = () => {
   document.title = "FinEase";
   // alternet title <title>{`Services | ${serviceId}`}</title>
   return (
-    <div className="space-y-16">
+    <div className="space-y-16 ">
       <Banner />
-      <Overview />
+      <div className="max-w-7xl mx-auto border-2 border-amber-600">
+        <Overview />
 
       <BudgetingTips />
       <Statistics />
@@ -24,6 +25,7 @@ const Home = () => {
 
       <TrustBy />
       <FAQ />
+      </div>
     </div>
   );
 };

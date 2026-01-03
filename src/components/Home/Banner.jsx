@@ -4,29 +4,29 @@ import banner from "../../assets/banner.png";
 
 const Banner = () => {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-r from-[#632EE3]/10 to-[#4CB5AE]/10 dark:from-[#1a1a1d]/80 dark:to-[#0d2e2c]/80 py-24 transition-colors duration-500">
-      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 items-center gap-10">
+    <section className="relative overflow-hidden bg-gradient-to-r from-[#632EE3]/10 to-[#4CB5AE]/10 dark:from-[#1a1a1d]/80 dark:to-[#0d2e2c]/80 py-16 sm:py-24 transition-colors duration-500 border-2 border-amber-600">
+      <div className="max-w-7xl mx-auto border-2 border-amber-600 px-6 sm:px-11 md:flex md:justify-between md:items-center gap-10">
         {/* Left Text Section */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7 }}
-          className="text-center md:text-left md:pl-6]"
+          className="text-center md:text-left md:pl-6] md:w-[50%]"
         >
-         <motion.span
-  initial={{ opacity: 0, y: -10 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.6, delay: 0.2 }}
-  className="inline-block mb-4 px-5 py-1.5 text-sm rounded-full
+          <motion.span
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="inline-block mb-4 px-5 py-1.5 text-sm rounded-full
              bg-gradient-to-r from-[#632EE3]/30 to-[#4CB5AE]/30
              dark:from-[#1C1C28] dark:to-[#0D2E2C]
              text-[#632EE3] dark:text-[#4CB5AE]
              font-semibold tracking-wide shadow-sm"
->
-  Fast • Smart • Reliable
-</motion.span>
+          >
+            Fast • Smart • Reliable
+          </motion.span>
 
-          <h1 className="text-4xl md:text-5xl font-extrabold leading-tight text-[#1F1F2E] dark:text-gray-100 mb-5">
+          <h1 className="text-4xl md:text-5xl  font-extrabold leading-tight text-[#1F1F2E] dark:text-gray-100 mb-5">
             Take Control of Your{" "}
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#632EE3] to-[#4CB5AE]">
               Financial Future
@@ -58,14 +58,14 @@ const Banner = () => {
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="relative"
+          className=" relative"
         >
           <motion.img
             src={banner}
             alt="Finance Illustration"
             animate={{ y: [0, -10, 0] }}
             transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-            className="w-full rounded-2xl max-w-md mx-auto drop-shadow-lg dark:drop-shadow-[0_0_25px_rgba(99,46,227,0.25)]"
+            className="mt-16 md:mt-0 rounded-2xl sm:max-w-md mx-auto drop-shadow-lg dark:drop-shadow-[0_0_25px_rgba(99,46,227,0.25)]"
           />
           <div className="absolute -bottom-8 -right-8 w-40 h-40 bg-gradient-to-r from-[#632EE3]/20 to-[#4CB5AE]/20 dark:from-[#632EE3]/30 dark:to-[#4CB5AE]/30 blur-3xl rounded-full"></div>
         </motion.div>
