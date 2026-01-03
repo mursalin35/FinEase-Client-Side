@@ -13,8 +13,11 @@ import NotFound from "../pages/NotFound/NotFound";
 import PrivateRoute from "./PrivateRoute";
 import AuthLayout from "../layout/AuthLayout";
 import { createBrowserRouter } from "react-router";
+import About from "../pages/About/About";
+import Contact from "../pages/Contact/Contact";
+import UserGuide from "../pages/UserGuide/UserGuide";
 
-export const router = createBrowserRouter([ 
+export const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
@@ -24,7 +27,19 @@ export const router = createBrowserRouter([
         index: true,
         element: <Home />,
       },
-
+      {
+        path: "/user-guide",
+        element: <UserGuide />,
+      },
+      {
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
+      // Private pages
       {
         path: "/myProfile",
         element: (
@@ -33,7 +48,7 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-      // Private pages
+
       {
         path: "/add-transaction",
         element: (
@@ -42,7 +57,6 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-     
 
       {
         path: "/my-transactions",

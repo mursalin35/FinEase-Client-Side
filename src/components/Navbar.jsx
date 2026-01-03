@@ -1,15 +1,13 @@
 import { GoHomeFill } from "react-icons/go";
-import { IoLogIn, IoLogOut } from "react-icons/io5";
+import { IoDocumentText, IoLogIn, IoLogOut } from "react-icons/io5";
 import { TbTransformFilled } from "react-icons/tb";
-import {
-  MdTransferWithinAStation,
-} from "react-icons/md";
 import { BiSolidReport } from "react-icons/bi";
 import { Link, NavLink } from "react-router";
 import { FaUser } from "react-icons/fa";
 import useTheme from "../hooks/useTheme";
 import useAuth from "../hooks/useAuth";
-import logo from "../assets/logo.png"
+import logo from "../assets/logo.png";
+
 
 const NavBar = () => {
   const { user, logOut } = useAuth();
@@ -18,6 +16,7 @@ const NavBar = () => {
   // Nav Links
   const navLinks = (
     <>
+      {/* Home */}
       <li>
         <NavLink
           to="/"
@@ -27,41 +26,60 @@ const NavBar = () => {
           <GoHomeFill /> Home
         </NavLink>
       </li>
+      {/* User Guide */}
       <li>
-        <NavLink
-          to="/add-transaction"
-          onClick={() => document.activeElement.blur()}
-        >
-          <TbTransformFilled /> Add Transaction
+        <NavLink to="/user-guide" onClick={() => document.activeElement.blur()}>
+          <TbTransformFilled /> User Guide
         </NavLink>
       </li>
+      {/* About Us */}
+      <li>
+        <NavLink to="/about" onClick={() => document.activeElement.blur()}>
+          <TbTransformFilled /> About Us
+        </NavLink>
+      </li>
+      {/* Contact */}
+      <li>
+        <NavLink to="/contact" onClick={() => document.activeElement.blur()}>
+          <TbTransformFilled /> Contact
+        </NavLink>
+      </li>
+      {/* Add Transaction */}
+      {user && (
+        <li>
+          <NavLink
+            to="/add-transaction"
+            onClick={() => document.activeElement.blur()}
+          >
+            <TbTransformFilled /> Add Transaction
+          </NavLink>
+        </li>
+      )}
+    </>
+  );
 
+  // Profile dropdown
+  const profileLinks = (
+    <>
+      {/* My Profile */}
+      <li>
+        <NavLink to="/myProfile" onClick={() => document.activeElement.blur()}>
+          <FaUser /> My Profile
+        </NavLink>
+      </li>
+      {/* My Transactions */}
       <li>
         <NavLink
           to="/my-transactions"
           onClick={() => document.activeElement.blur()}
         >
-          <MdTransferWithinAStation /> My Transactions
+          <IoDocumentText /> My Transactions
         </NavLink>
       </li>
+      {/* Reports */}
       <li>
         <NavLink to="/reports" onClick={() => document.activeElement.blur()}>
           <BiSolidReport /> Reports
-        </NavLink>
-      </li>
-    </>
-  );
-
-  // Profile dropdown 
-  const profileLinks = (
-    <>
-      <li>
-        <NavLink
-          to="/myProfile"
-          className="flex items-center gap-1"
-          onClick={() => document.activeElement.blur()}
-        >
-          <FaUser /> My Profile
         </NavLink>
       </li>
     </>
@@ -99,22 +117,18 @@ const NavBar = () => {
 
         {/* Brand Logo */}
         <Link to="/" className="flex items-center gap-2 text-xl font-bold w-34">
-          <img
-            src={logo}
-            alt="FinEase Logo"
-            className="h-10 "
-          />
+          <img src={logo} alt="FinEase Logo" className="h-10 " />
         </Link>
       </div>
 
       {/* Navbar Center */}
       <div className="navbar-center hidden md:flex">
-        <ul className="menu menu-horizontal gap-8">{navLinks}</ul>
+        <ul className={`menu menu-horizontal ${user ? "gap-4" : "gap-8"}`}>
+          {navLinks}
+        </ul>
       </div>
-
       {/* Navbar End */}
       <div className="navbar-end gap-3 ">
-
         {/* Theme toggle  */}
         <div className="flex items-center gap-2 px-2">
           {theme === "dark" ? "🌙" : "☀️"}
