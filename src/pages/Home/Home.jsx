@@ -20,9 +20,9 @@ const Home = () => {
       <Statistics />
 
       <FinancialPlanning />
-      <Highlights />
-
       <FinanceTips />
+
+      <Highlights />
       <TrustBy />
       <FAQ />
     </div>
