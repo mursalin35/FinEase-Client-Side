@@ -2,12 +2,19 @@ import { motion } from "framer-motion";
 
 const BudgetingTips = () => {
   return (
-    <section className="max-w-6xl mx-auto px-4 py-14">
+    <section className="max-w-6xl mx-auto px-4 py-5">
+      
       <div className="mb-8">
         <h2 className="text-3xl font-bold bg-gradient-to-r from-[#632EE3] to-[#4CB5AE] bg-clip-text text-transparent">
-          <span className="text-[#1F1F2E] dark:text-[#E5E7EB]">Budgeting</span> Tips
+          <span className="text-[#1F1F2E] dark:text-[#E5E7EB]">Budgeting</span>{" "}
+          Tips
         </h2>
         <div className="h-1 w-32 mt-2 rounded-full bg-gradient-to-r from-[#632EE3] to-[#4CB5AE]"></div>
+        <p className="mt-4 text-[#6B6B82] dark:text-gray-400  max-w-3xl">
+          Smart budgeting is the key to financial freedom. By keeping track of
+          your income and expenses, prioritizing your needs, and setting
+          realistic savings goals, you can make every dollar work for you.
+        </p>
       </div>
 
       <div className="grid md:grid-cols-2 gap-6">
