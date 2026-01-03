@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+import { Link } from "react-router";
 
 const FAQ = () => {
   const faqs = [
@@ -80,6 +81,25 @@ const FAQ = () => {
           </motion.div>
         ))}
       </div>
+
+       {/* CTA */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4 }}
+          className="text-center mt-24"
+        >
+          <Link
+            to="/add-transaction"
+            className="inline-block px-10 py-4 rounded-xl font-semibold text-white
+            bg-gradient-to-r from-[#632EE3] to-[#4CB5AE]
+            shadow-[0_15px_40px_rgba(99,46,227,0.25)]
+            hover:opacity-90 transition"
+          >
+            Start Your Financial Journey
+          </Link>
+        </motion.div>
     </div>
   );
 };

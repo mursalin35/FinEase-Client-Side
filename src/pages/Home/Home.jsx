@@ -3,7 +3,7 @@ import BudgetingTips from "../../components/Home/BudgetingTips";
 import FAQ from "../../components/Home/FAQ";
 import FinanceTips from "../../components/Home/FinanceTips";
 import FinancialPlanning from "../../components/Home/FinancialPlanning";
-import Highlights from "../../components/Home/Highlights";
+
 import Overview from "../../components/Home/Overview";
 import Statistics from "../../components/Home/Statistics";
 import TrustBy from "../../components/Home/TrustBy";
@@ -22,7 +22,6 @@ const Home = () => {
       <FinancialPlanning />
       <FinanceTips />
 
-      <Highlights />
       <TrustBy />
       <FAQ />
     </div>
