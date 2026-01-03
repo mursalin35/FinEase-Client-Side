@@ -35,6 +35,7 @@ const NavBar = () => {
       {/* About Us */}
       <li>
         <NavLink to="/about" onClick={() => document.activeElement.blur()}>
+        
           <TbTransformFilled /> About Us
         </NavLink>
       </li>
