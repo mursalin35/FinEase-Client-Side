@@ -37,8 +37,8 @@ const steps = [
 
 const UserGuide = () => {
   return (
-    <div className="min-h-screen px-4 py-14">
-      <div className="max-w-7xl mx-auto">
+    <div className="min-h-screen max-w-7xl mx-auto  px-6 sm:px-11 py-14 ">
+     
         {/* HERO */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -122,7 +122,7 @@ const UserGuide = () => {
             Start Your Financial Journey
           </Link>
         </motion.div>
-      </div>
+      
     </div>
   );
 };
