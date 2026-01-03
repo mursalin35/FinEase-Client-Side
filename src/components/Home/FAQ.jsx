@@ -34,7 +34,7 @@ const FAQ = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto py-20 px-4">
+    <div className="max-w-7xl mx-auto pt-5 pb-10 px-4">
       {/* Section Header */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
@@ -64,9 +64,9 @@ const FAQ = () => {
           >
             <button
               onClick={() => toggleFAQ(index)}
-              className="w-full flex items-center justify-between p-5 text-left focus:outline-none"
+              className="w-full flex items-center justify-between p-5 text-left focus:outline-none cursor-pointer"
             >
-              <span className="text-lg md:text-xl font-medium text-[#1F1F2E] dark:text-white">
+              <span className="text-lg  font-medium text-[#1F1F2E] dark:text-white">
                 {faq.question}
               </span>
               <span className="text-[#632EE3] dark:text-[#4CB5AE] text-xl">
@@ -74,7 +74,7 @@ const FAQ = () => {
               </span>
             </button>
             {openIndex === index && (
-              <div className="p-5 pt-0 text-[#6B6B82] dark:text-gray-400 text-base md:text-lg">
+              <div className="p-5 pt-0 text-[#6B6B82] dark:text-gray-400 text-[0.9rem]">
                 {faq.answer}
               </div>
             )}
