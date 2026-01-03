@@ -72,7 +72,7 @@ const Overview = () => {
   ];
 
   return (
-    <section className="max-w-7xl mx-auto px-4 py-5">
+    <section className=" px-6 sm:px-11 py-5">
 
   {/* Section Header */}
       <motion.div

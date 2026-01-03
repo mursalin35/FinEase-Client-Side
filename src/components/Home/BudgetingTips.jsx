@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 const BudgetingTips = () => {
   return (
-    <section className="max-w-6xl mx-auto px-4 py-5">
+    <section className="  px-6 sm:px-11 py-5">
       
       <div className="mb-8">
         <h2 className="text-3xl font-bold bg-gradient-to-r from-[#632EE3] to-[#4CB5AE] bg-clip-text text-transparent">

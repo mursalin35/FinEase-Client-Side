@@ -4,8 +4,8 @@ import banner from "../../assets/banner.png";
 
 const Banner = () => {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-r from-[#632EE3]/10 to-[#4CB5AE]/10 dark:from-[#1a1a1d]/80 dark:to-[#0d2e2c]/80 py-16 sm:py-24 transition-colors duration-500 border-2 border-amber-600">
-      <div className="max-w-7xl mx-auto border-2 border-amber-600 px-6 sm:px-11 md:flex md:justify-between md:items-center gap-10">
+    <section className="relative overflow-hidden bg-gradient-to-r from-[#632EE3]/10 to-[#4CB5AE]/10 dark:from-[#1a1a1d]/80 dark:to-[#0d2e2c]/80 py-16 sm:py-24 transition-colors duration-500 ">
+      <div className="max-w-7xl mx-auto  px-6 sm:px-11 md:flex md:justify-between md:items-center gap-10">
         {/* Left Text Section */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}

@@ -34,7 +34,7 @@ const FAQ = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto pt-5 pb-10 px-4">
+    <div className=" pt-5 pb-10 px-6 sm:px-11">
       {/* Section Header */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}

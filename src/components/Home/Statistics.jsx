@@ -48,7 +48,7 @@ const Statistics = () => {
   }, []);
 
   return (
-    <div className="max-w-7xl mx-auto py-5 px-4">
+    <div className=" py-5 px-6 sm:px-11">
       {/* Section Header */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
