@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import useAxiosSecure from "../../hooks/useAxiosSecure";
-import useAuth from "../../hooks/useAuth";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import useAuth from "../../../hooks/useAuth";
 import { useQuery } from "@tanstack/react-query";
 import {
   PieChart,

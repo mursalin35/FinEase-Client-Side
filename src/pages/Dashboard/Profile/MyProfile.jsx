@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
-import { AuthContext } from "../../context/AuthContext";
+import { AuthContext } from "../../../context/AuthContext";
 import { motion } from "framer-motion";
 
 const MyProfile = () => {
@@ -34,7 +34,7 @@ const MyProfile = () => {
   };
 
   return (
-    <div className="min-h-screen flex justify-center items-center p-4 bg-[#F8F8FB] dark:bg-[#1F1F2E]">
+    <div className="min-h-screen flex justify-center items-center p-4 ">
       <title>My Profile</title>
       <Toaster position="top-center" reverseOrder={false} />
 
