@@ -34,7 +34,7 @@ const MyProfile = () => {
   };
 
   return (
-    <div className="min-h-screen flex justify-center items-center p-4 ">
+    <div className="min-h-screen flex justify-center items-center p-4 px-2">
       <title>My Profile</title>
       <Toaster position="top-center" reverseOrder={false} />
 

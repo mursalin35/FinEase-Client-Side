@@ -72,7 +72,7 @@ export default function ReportsPage() {
   });
 
   return (
-    <div className="p-8 min-h-screen ">
+    <div className="p-8 min-h-screen px-2">
       {/* Filter Section */}
       <div className="flex flex-col md:flex-row md:items-center gap-4 mb-10 bg-white/70 dark:bg-[#2C2C3A]/80 backdrop-blur-md border border-indigo-100 dark:border-[#3D3A64] p-5 rounded-2xl shadow-sm">
         <h2 className="text-2xl font-bold bg-gradient-to-r from-[#632ee3] to-[#00b8b0] bg-clip-text text-transparent">

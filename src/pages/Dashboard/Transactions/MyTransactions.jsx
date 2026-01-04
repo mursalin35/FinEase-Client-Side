@@ -75,13 +75,13 @@ const MyTransactions = () => {
 
   if (loading)
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#F9FAFF] to-[#F4F6FB] dark:from-[#1F1F2E] dark:to-[#2C2C3A] transition-colors duration-300">
+      <div className="min-h-screen flex items-center justify-center ">
         <LoadingSpinner size={96} message="Page Loading..." />
       </div>
     );
 
   return (
-    <div className="min-h-screen px-6 py-10 ">
+    <div className="min-h-screen px-2 py-10 ">
       <div className="max-w-6xl mx-auto">
         <h1 className="text-4xl font-bold text-center text-[#1F1F2E] dark:text-[#EDEBFF] mb-10">
           My{" "}

@@ -64,7 +64,8 @@ const AddTransaction = () => {
   };
 
   return (
-    <section className="max-w-3xl mx-auto mt-16 mb-24 p-10 bg-gradient-to-br from-white to-indigo-50 dark:from-[#1F1F2E] dark:to-[#2C2C3A] border border-indigo-100 dark:border-[#3D3A64] shadow-xl rounded-2xl transition-colors duration-300">
+    <section className="max-w-3xl mx-auto my-10 p-10 bg-gradient-to-br from-white to-indigo-50 dark:from-[#1F1F2E] dark:to-[#2C2C3A] border border-indigo-100 dark:border-[#3D3A64] shadow-xl rounded-2xl transition-colors duration-300">
+
       <h2 className="text-3xl font-bold text-center bg-gradient-to-r from-[#632ee3] to-[#00b8b0] bg-clip-text text-transparent mb-8">
         <span className="text-[#1F1F2E] dark:text-[#EDEBFF]">Add</span> Transaction
       </h2>
