@@ -3,10 +3,15 @@ import { IoDocumentText, IoLogIn, IoLogOut } from "react-icons/io5";
 import { TbTransformFilled } from "react-icons/tb";
 import { BiSolidReport } from "react-icons/bi";
 import { Link, NavLink } from "react-router";
-import { FaUser } from "react-icons/fa";
+import { FaUser, FaUserAstronaut, FaUserCircle } from "react-icons/fa";
 import useTheme from "../hooks/useTheme";
 import useAuth from "../hooks/useAuth";
 import logo from "../assets/logo.png";
+import { LuLayoutDashboard } from "react-icons/lu";
+import { MdContacts } from "react-icons/md";
+import { IoIosAlert, IoMdAlert } from "react-icons/io";
+
+
 
 
 const NavBar = () => {
@@ -29,20 +34,20 @@ const NavBar = () => {
       {/* User Guide */}
       <li>
         <NavLink to="/user-guide" onClick={() => document.activeElement.blur()}>
-          <TbTransformFilled /> User Guide
+          <FaUserAstronaut /> User Guide
         </NavLink>
       </li>
       {/* About Us */}
       <li>
         <NavLink to="/about" onClick={() => document.activeElement.blur()}>
-        
-          <TbTransformFilled /> About Us
+
+          <IoMdAlert /> About Us
         </NavLink>
       </li>
       {/* Contact */}
       <li>
         <NavLink to="/contact" onClick={() => document.activeElement.blur()}>
-          <TbTransformFilled /> Contact
+          <MdContacts /> Contact
         </NavLink>
       </li>
       {/* Add Transaction */}
@@ -62,27 +67,19 @@ const NavBar = () => {
   // Profile dropdown
   const profileLinks = (
     <>
+      {/* Dashboard */}
+      <li>
+        <NavLink to="/dashboard" onClick={() => document.activeElement.blur()}>
+          <LuLayoutDashboard /> Dashboard
+        </NavLink>
+      </li>
       {/* My Profile */}
       <li>
         <NavLink to="/myProfile" onClick={() => document.activeElement.blur()}>
           <FaUser /> My Profile
         </NavLink>
       </li>
-      {/* My Transactions */}
-      <li>
-        <NavLink
-          to="/my-transactions"
-          onClick={() => document.activeElement.blur()}
-        >
-          <IoDocumentText /> My Transactions
-        </NavLink>
-      </li>
-      {/* Reports */}
-      <li>
-        <NavLink to="/reports" onClick={() => document.activeElement.blur()}>
-          <BiSolidReport /> Reports
-        </NavLink>
-      </li>
+     
     </>
   );
 

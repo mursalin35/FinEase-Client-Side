@@ -16,6 +16,8 @@ import { createBrowserRouter } from "react-router";
 import About from "../pages/About/About";
 import Contact from "../pages/Contact/Contact";
 import UserGuide from "../pages/UserGuide/UserGuide";
+import DashboardLayout from "../layout/DashboardLayout";
+import Overview from "../pages/Dashboard/Overview";
 
 export const router = createBrowserRouter([
   {
@@ -91,6 +93,24 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+    ],
+  },
+  // DashboardLayout
+  {
+    path: "/dashboard",
+    element: (
+      <PrivateRoute>
+        <DashboardLayout />
+      </PrivateRoute>
+    ),
+    children: [
+      { index: true, element: <Overview /> },
+      { path: "add-transaction", element: <AddTransaction /> },
+      { path: "my-transactions", element: <MyTransactions /> },
+      { path: "reports", element: <Reports /> },
+      { path: "profile", element: <MyProfile /> },
+      { path: "my-transactions/:id", element: <TransactionDetails /> },
+      { path: "update/:id", element: <UpdateTransaction /> },
     ],
   },
   {

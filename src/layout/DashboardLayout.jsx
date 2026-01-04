@@ -1,33 +1,17 @@
-import { useState, useEffect } from "react";
 import { Link, NavLink, Outlet, useNavigate } from "react-router";
-import { FaBars, FaTimes, FaHome, FaUser, FaSignOutAlt } from "react-icons/fa";
-import { MdDarkMode, MdLightMode, MdOutlineLightMode } from "react-icons/md";
+import { FaBars, FaHome, FaUser, FaSignOutAlt } from "react-icons/fa";
+import { MdDarkMode, MdOutlineLightMode } from "react-icons/md";
 import useAuth from "../hooks/useAuth";
 import useTheme from "../hooks/useTheme";
 import ScrollToTop from "../components/ScrollToTop";
-import logo from "../assets/logo.PNG";
 import { IoDocumentText } from "react-icons/io5";
 import { BiSolidReport } from "react-icons/bi";
 import { TbTransformFilled } from "react-icons/tb";
-import { GoHomeFill } from "react-icons/go";
 
 const DashboardLayout = () => {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
   const { user, logOut } = useAuth();
   const navigate = useNavigate();
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => {
-      const mobile = window.innerWidth < 768;
-      setIsMobile(mobile);
-      if (!mobile) setSidebarOpen(false);
-    };
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   const handleLogout = async () => {
     await logOut();
@@ -51,59 +35,19 @@ const DashboardLayout = () => {
   ];
 
 
-
-// Nav Links
-  const navLinks = (
-    <>
-      {/* Home */}
-      <li>
-        <NavLink
-          to="/"
-          className="flex items-center gap-1"
-          onClick={() => document.activeElement.blur()} // dropdown auto close
-        >
-          <GoHomeFill /> Home
-        </NavLink>
-      </li>
-      {/* User Guide */}
-      <li>
-        <NavLink to="/user-guide" onClick={() => document.activeElement.blur()}>
-          <TbTransformFilled /> User Guide
-        </NavLink>
-      </li>
-     
-    </>
-  );
-
-
   return (
     <div className="flex min-h-screen font-inter ">
       <ScrollToTop />
 
       {/* ================= SIDEBAR ================= */}
       <aside
-        className={`fixed top-0 left-0 h-screen w-64
+        className={`hidden md:block fixed top-0 left-0 h-screen w-64
         bg-gradient-to-b from-[#632EE3] to-[#4CB5AE]
         dark:from-[#1A1440] dark:to-[#0E3A3A]
         text-white shadow-[0_10px_40px_rgba(99,46,227,0.25)]
         flex flex-col justify-between transition-transform duration-300 z-50
-        ${
-          isMobile
-            ? sidebarOpen
-              ? "translate-x-0"
-              : "-translate-x-full"
-            : "translate-x-0"
-        }`}
+       `}
       >
-        {isMobile && sidebarOpen && (
-          <div
-            className="fixed inset-0 z-40 "
-            onClick={() => setSidebarOpen(false)}
-          />
-        )}
-
-        
-
         <div className="flex flex-col h-full">
           {/* Logo */}
           <div className="flex items-center justify-between h-16 px-6 border-b-[1.5px] dark:border-b border-white/30 dark:border-white/20">
@@ -113,14 +57,6 @@ const DashboardLayout = () => {
             >
               FinEase
             </Link>
-            {isMobile && (
-              <button
-                className="hover:text-[#4CB5AE]"
-                onClick={() => setSidebarOpen(false)}
-              >
-                <FaTimes size={18} />
-              </button>
-            )}
           </div>
 
           {/* Menu */}
@@ -130,7 +66,6 @@ const DashboardLayout = () => {
                 <NavLink
                   to={item.path}
                   end
-                  onClick={() => isMobile && setSidebarOpen(false)}
                   className={({ isActive }) =>
                     `flex items-center gap-3 px-4 py-2.5 rounded-[0.75rem] text-sm transition-all
                     ${
@@ -169,19 +104,55 @@ const DashboardLayout = () => {
         border-b border-[#E2E0F5] dark:border-white/10
         sticky top-0 z-30"
         >
-          <div className="flex items-center gap-4">
-            {isMobile && (
+          <div className="flex items-center gap-4 ">
+            {/* dashboard mobile dropdown menu  */}
+            <div className=" dropdown md:hidden ">
               <button
-                className="p-2 rounded-lg text-[#632EE3] hover:bg-[#632EE3]/10 dark:text-[#4CB5AE] dark:hover:bg-white/10"
-                onClick={() => setSidebarOpen(true)}
-              > 
+                tabIndex={0}
+                role="button"
+                className="  -mx-2  p-2 rounded-lg text-[#632EE3] hover:bg-[#632EE3]/10 dark:text-[#4CB5AE] dark:hover:bg-white/10 cursor-pointer"
+              >
                 <FaBars size={18} />
               </button>
-            )}
+              <ul
+                tabIndex={0}
+                className="menu menu-sm dropdown-content mt-2  z-50 p-2 bg  shadow bg-[#6ea4cd] rounded-box min-w-50"
+              >
+                {mainMenu.map((item) => (
+                  <li key={item.name}>
+                    <NavLink
+                      to={item.path}
+                      onClick={() => document.activeElement.blur()}
+                      end
+                      className={({ isActive }) =>
+                        `mt-2
+                    ${
+                      isActive
+                        ? "bg-white/90 text-[#632EE3] font-semibold shadow"
+                        : "text-white/90 hover:bg-white/20 hover:text-white"
+                    }`
+                      }
+                    >
+                      <span>{item.icon}</span>
+                      <span>{item.name}</span>
+                    </NavLink>
+                  </li>
+                ))}
+
+                <button
+                  onClick={handleLogout}
+                  className="flex items-center gap-2 w-full px-2 py-1 rounded-lg my-2 border-t
+              text-white hover:text-red-500 hover:bg-white transition cursor-pointer"
+                >
+                  <FaSignOutAlt /> Logout
+                </button>
+              </ul>
+            </div>
 
             <Link
-            to="/"
-            className="flex items-center gap-2 text-lg font-semibold text-[#1F1F2E] dark:text-white">
+              to="/"
+              className="flex items-center gap-2 text-lg font-semibold text-[#1F1F2E] dark:text-white"
+            >
               <FaHome className="text-[#632EE3]" /> Dashboard
             </Link>
           </div>
@@ -201,7 +172,9 @@ const DashboardLayout = () => {
 
             <button className="flex items-center gap-3">
               <div className="text-right">
-                <span className="hidden md:block text-xs font-semibold text-gray-500">Profile</span>
+                <span className="hidden md:block text-xs font-semibold text-gray-500">
+                  Profile
+                </span>
                 <p className="hidden md:block font-medium text-[#1F1F2E] dark:text-white text-sm ">
                   {user?.displayName || "User"}
                 </p>

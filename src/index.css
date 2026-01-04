@@ -13,7 +13,7 @@
     font-family: "Roboto", sans-serif;
 }
 
-
+/* Home navbar  */
 .navbar .active {
   color: #632ee3; 
   font-weight: 600;
@@ -30,6 +30,7 @@
   border-color: transparent;
   box-shadow: 0 0 10px rgba(99, 46, 227, 0.3);
 }
+
 
 
   /* LIGHT THEME */
