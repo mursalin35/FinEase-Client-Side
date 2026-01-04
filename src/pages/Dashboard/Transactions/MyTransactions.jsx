@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import useAuth from "../../hooks/useAuth";
-import useAxiosSecure from "../../hooks/useAxiosSecure";
-import MyTransactionCard from "../../components/MyTransactionCard";
+import useAuth from "../../../hooks/useAuth";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import MyTransactionCard from "../../../components/MyTransactionCard";
 import Swal from "sweetalert2";
 import UpdateTransaction from "./UpdateTransaction";
 import { Link } from "react-router";
-import LoadingSpinner from "../../components/LoadingSpinner";
+import LoadingSpinner from "../../../components/LoadingSpinner";
 
 const MyTransactions = () => {
   document.title = "My Transaction";

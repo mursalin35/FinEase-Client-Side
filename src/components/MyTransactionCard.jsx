@@ -83,7 +83,7 @@ const MyTransactionCard = ({ transaction, onUpdate, onDelete }) => {
           🗑️ Delete
         </button>
         <Link
-          to={`/my-transactions/${transaction._id}`}
+          to={`/dashboard/my-transactions/${transaction._id}`}
           className={`cursor-pointer text-white text-sm font-medium px-4 py-2 rounded-lg shadow-sm ${
             darkMode
               ? "bg-gradient-to-r from-gray-600 to-gray-500 hover:opacity-90"

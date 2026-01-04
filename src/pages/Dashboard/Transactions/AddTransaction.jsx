@@ -1,7 +1,8 @@
 import { useState } from "react";
 import Swal from "sweetalert2";
-import useAuth from "../../hooks/useAuth";
-import useAxiosSecure from "../../hooks/useAxiosSecure";
+import useAuth from "../../../hooks/useAuth";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+
 
 const AddTransaction = () => {
   document.title = "Add Transaction";

@@ -4,10 +4,10 @@ import Login from "../pages/Auth/Login";
 import Register from "../pages/Auth/Register";
 import ForgetPassword from "../pages/Auth/ForgetPassword";
 import MyProfile from "../pages/Profile/MyProfile";
-import AddTransaction from "../pages/Transactions/AddTransaction";
-import MyTransactions from "../pages/Transactions/MyTransactions";
-import TransactionDetails from "../pages/Transactions/TransactionDetails";
-import UpdateTransaction from "../pages/Transactions/UpdateTransaction";
+import AddTransaction from "../pages/Dashboard/Transactions/AddTransaction";
+import MyTransactions from "../pages/Dashboard/Transactions/MyTransactions";
+import TransactionDetails from "../pages/Dashboard/Transactions/TransactionDetails";
+import UpdateTransaction from "../pages/Dashboard/Transactions/UpdateTransaction";
 import Reports from "../pages/Reports/Reports";
 import NotFound from "../pages/NotFound/NotFound";
 import PrivateRoute from "./PrivateRoute";
@@ -41,58 +41,6 @@ export const router = createBrowserRouter([
         path: "/contact",
         element: <Contact />,
       },
-      // Private pages
-      {
-        path: "/myProfile",
-        element: (
-          <PrivateRoute>
-            <MyProfile />
-          </PrivateRoute>
-        ),
-      },
-
-      {
-        path: "/add-transaction",
-        element: (
-          <PrivateRoute>
-            <AddTransaction />
-          </PrivateRoute>
-        ),
-      },
-
-      {
-        path: "/my-transactions",
-        element: (
-          <PrivateRoute>
-            <MyTransactions />
-          </PrivateRoute>
-        ),
-      },
-
-      {
-        path: "/my-transactions/:id",
-        element: (
-          <PrivateRoute>
-            <TransactionDetails />
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: "/update/:id",
-        element: (
-          <PrivateRoute>
-            <UpdateTransaction />
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: "/reports",
-        element: (
-          <PrivateRoute>
-            <Reports />
-          </PrivateRoute>
-        ),
-      },
     ],
   },
   // DashboardLayout
@@ -108,7 +56,7 @@ export const router = createBrowserRouter([
       { path: "add-transaction", element: <AddTransaction /> },
       { path: "my-transactions", element: <MyTransactions /> },
       { path: "reports", element: <Reports /> },
-      { path: "profile", element: <MyProfile /> },
+      { path: "my-profile", element: <MyProfile /> },
       { path: "my-transactions/:id", element: <TransactionDetails /> },
       { path: "update/:id", element: <UpdateTransaction /> },
     ],

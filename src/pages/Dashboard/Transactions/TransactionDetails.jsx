@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router";
 import Swal from "sweetalert2";
-import useAuth from "../../hooks/useAuth";
-import useAxiosSecure from "../../hooks/useAxiosSecure";
+import useAuth from "../../../hooks/useAuth";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { motion } from "framer-motion";
 
 const TransactionDetails = () => {
@@ -170,7 +170,7 @@ const TransactionDetails = () => {
         className="flex gap-4 mt-10"
       >
         <button
-          onClick={() => navigate("/my-transactions")}
+          onClick={() => navigate("/dashboard/my-transactions")}
           className="px-5 py-2.5 text-white font-medium rounded-lg
           bg-gradient-to-r from-[#6B6B82] to-[#A1A1B5] dark:from-[#5C5C80] dark:to-[#8C7BFF]
           shadow-sm hover:shadow-md hover:opacity-100 opacity-90 transition-colors"

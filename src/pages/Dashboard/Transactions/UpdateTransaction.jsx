@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Swal from "sweetalert2";
-import useAxiosSecure from "../../hooks/useAxiosSecure";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useNavigate } from "react-router";
 
 const UpdateTransaction = ({ transaction, onClose, onUpdated }) => {
@@ -27,11 +27,11 @@ const UpdateTransaction = ({ transaction, onClose, onUpdated }) => {
 
       Swal.fire("Success!", "Transaction updated successfully.", "success");
 
-      onUpdated(formData); 
-      onClose(); 
+      onUpdated(formData);
+      onClose();
 
       // Redirect to View Details Page
-      navigate(`/my-transactions/${transaction._id}`);
+      navigate(`/dashboard/my-transactions/${transaction._id}`);
     } catch (error) {
       Swal.fire("Error!", "Failed to update transaction.", "error");
     }
@@ -40,7 +40,6 @@ const UpdateTransaction = ({ transaction, onClose, onUpdated }) => {
   return (
     <div className="fixed inset-0 bg-black/30 backdrop-blur-sm flex justify-center items-center z-50">
       <div className="bg-gradient-to-br from-white to-indigo-50 dark:from-[#1F1F2E] dark:to-[#2C2C3A] border border-indigo-100 dark:border-[#3D3A64] shadow-xl rounded-2xl p-6 w-full max-w-md relative transition-colors">
-        
         <button
           onClick={onClose}
           className="absolute cursor-pointer hover:text-red-600 top-3 right-3.5 text-gray-500 dark:text-[#B0B3C6]"
@@ -49,14 +48,16 @@ const UpdateTransaction = ({ transaction, onClose, onUpdated }) => {
         </button>
 
         <h2 className="text-xl bg-gradient-to-r from-[#632EE3] to-[#4CB5AE] bg-clip-text text-transparent font-bold mb-4">
-          <span className="text-[#1F1F2E] dark:text-[#EDEBFF]">Update</span> Transaction
+          <span className="text-[#1F1F2E] dark:text-[#EDEBFF]">Update</span>{" "}
+          Transaction
         </h2>
 
         <form onSubmit={handleUpdate} className="space-y-3">
-
           {/* Type */}
           <div>
-            <label className="block font-semibold text-gray-700 dark:text-[#EDEBFF]">Type</label>
+            <label className="block font-semibold text-gray-700 dark:text-[#EDEBFF]">
+              Type
+            </label>
             <select
               name="type"
               value={formData.type}
@@ -71,7 +72,9 @@ const UpdateTransaction = ({ transaction, onClose, onUpdated }) => {
 
           {/* Category */}
           <div>
-            <label className="block font-semibold text-gray-700 dark:text-[#EDEBFF]">Category</label>
+            <label className="block font-semibold text-gray-700 dark:text-[#EDEBFF]">
+              Category
+            </label>
             <select
               name="category"
               value={formData.category}
@@ -91,7 +94,9 @@ const UpdateTransaction = ({ transaction, onClose, onUpdated }) => {
 
           {/* Amount */}
           <div>
-            <label className="block font-semibold text-gray-700 dark:text-[#EDEBFF]">Amount</label>
+            <label className="block font-semibold text-gray-700 dark:text-[#EDEBFF]">
+              Amount
+            </label>
             <input
               type="number"
               name="amount"
@@ -104,7 +109,9 @@ const UpdateTransaction = ({ transaction, onClose, onUpdated }) => {
 
           {/* Description */}
           <div>
-            <label className="block font-semibold text-gray-700 dark:text-[#EDEBFF]">Description</label>
+            <label className="block font-semibold text-gray-700 dark:text-[#EDEBFF]">
+              Description
+            </label>
             <textarea
               name="description"
               value={formData.description}
@@ -115,7 +122,9 @@ const UpdateTransaction = ({ transaction, onClose, onUpdated }) => {
 
           {/* Date */}
           <div>
-            <label className="block font-semibold text-gray-700 dark:text-[#EDEBFF]">Date</label>
+            <label className="block font-semibold text-gray-700 dark:text-[#EDEBFF]">
+              Date
+            </label>
             <input
               type="date"
               name="date"
@@ -133,7 +142,6 @@ const UpdateTransaction = ({ transaction, onClose, onUpdated }) => {
           >
             Update
           </button>
-
         </form>
       </div>
     </div>

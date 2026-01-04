@@ -31,9 +31,8 @@ const DashboardLayout = () => {
       path: "/dashboard/my-transactions",
     },
     { name: "Reports", icon: <BiSolidReport />, path: "/dashboard/reports" },
-    { name: "My Profile", icon: <FaUser />, path: "/dashboard/profile" },
+    { name: "My Profile", icon: <FaUser />, path: "/dashboard/my-profile" },
   ];
-
 
   return (
     <div className="flex min-h-screen font-inter ">
@@ -44,7 +43,7 @@ const DashboardLayout = () => {
         className={`hidden md:block fixed top-0 left-0 h-screen w-64
         bg-gradient-to-b from-[#632EE3] to-[#4CB5AE]
         dark:from-[#1A1440] dark:to-[#0E3A3A]
-        text-white shadow-[0_10px_40px_rgba(99,46,227,0.25)]
+        text-white shadow-[0_10px_10px_rgba(99,46,227,0.25)]
         flex flex-col justify-between transition-transform duration-300 z-50
        `}
       >
@@ -100,9 +99,11 @@ const DashboardLayout = () => {
         {/* Navbar */}
         <header
           className="flex justify-between items-center h-16 px-6
-        bg-white/90 dark:bg-[#14173A]/80 backdrop-blur
-        border-b border-[#E2E0F5] dark:border-white/10
-        sticky top-0 z-30"
+          border-b  sticky top-0 z-30
+          backdrop-blur-md  border-white/10 shadow-sm
+        bg-[#E8FAF7] dark:bg-[#1a1c25]
+        
+        "
         >
           <div className="flex items-center gap-4 ">
             {/* dashboard mobile dropdown menu  */}
@@ -173,7 +174,7 @@ const DashboardLayout = () => {
             <button className="flex items-center gap-3">
               <div className="text-right">
                 <span className="hidden md:block text-xs font-semibold text-gray-500">
-                  Profile
+                  My Profile
                 </span>
                 <p className="hidden md:block font-medium text-[#1F1F2E] dark:text-white text-sm ">
                   {user?.displayName || "User"}

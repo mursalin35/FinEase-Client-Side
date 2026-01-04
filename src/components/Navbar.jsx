@@ -54,7 +54,7 @@ const NavBar = () => {
       {user && (
         <li>
           <NavLink
-            to="/add-transaction"
+            to="/dashboard/add-transaction"
             onClick={() => document.activeElement.blur()}
           >
             <TbTransformFilled /> Add Transaction
@@ -75,7 +75,7 @@ const NavBar = () => {
       </li>
       {/* My Profile */}
       <li>
-        <NavLink to="/myProfile" onClick={() => document.activeElement.blur()}>
+        <NavLink to="dashboard/my-profile" onClick={() => document.activeElement.blur()}>
           <FaUser /> My Profile
         </NavLink>
       </li>
